@@ -1,0 +1,52 @@
+//xorg-xrdb
+https://www.archlinux.org/packages/extra/i686/xorg-xrdb/
+
+//backlight
+https://www.archlinux.org/packages/extra/x86_64/xorg-xbacklight/
+
+//replace bash
+https://wiki.archlinux.org/index.php/Zsh
+
+//Program select, Rofi
+https://aur.archlinux.org/packages/rofi-git/
+
+//Terminal
+https://wiki.archlinux.org/index.php/Termite
+
+//Fonts
+https://aur.archlinux.org/packages/ttf-google-fonts-git/
+
+//Control volume
+https://github.com/graysky2/pulseaudio-ctl
+
+//Save power cpu
+https://aur.archlinux.org/packages/thermald/
+
+//Power managment
+https://wiki.archlinux.org/index.php/TLP
+
+//crontab for running low battery script
+
+//Python Pillow for running lock script
+https://www.archlinux.org/packages/community/i686/python-pillow/
+
+//Xorg xprop
+https://www.archlinux.org/packages/extra/i686/xorg-xprop/
+
+//Compton
+https://wiki.archlinux.org/index.php/Compton
+
+//Dunst (Notification daemon)
+https://www.archlinux.org/packages/community/i686/dunst/
+
+//Bios flashing
+http://positon.org/lenovo-thinkpad-bios-update-with-linux-and-usb
+
+//networkmananger-openconnect VPN for au
+http://www.matfystutor.dk/wiki/VPN
+
+//Termite terminal
+//vte3-ng-fullwidth-emoji
+//Terminfo for ssh elements
+
+//base16-shell

@@ -1,0 +1,63 @@
+% Allways use memoir class, 
+% a4paper makes the paper format A4 insted of Letter, 
+% and oneside makes sure that the margin dosn't fuck.
+\documentclass[a4paper,oneside,article,danish]{memoir}
+
+% inputenc tells latex that the encoding is utf8
+\usepackage[utf8]{inputenc}
+
+% babel knows how the language works, word division, and so on. (the language is set in the \documentclass option)
+\usepackage{babel}
+
+% Helps with the fonts
+\usepackage[T1]{fontenc}
+
+% for making better word division, and think it should only be used in danish.
+\renewcommand{\danishhyphenmins}{22}
+
+%if you  \emph{} something that is already in italy it becomed bold and italy
+\usepackage{fixltx2e}
+\renewcommand*\eminnershape{\bfseries \itshape}
+
+%For using math in latex
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{rotating}
+\usepackage[squaren]{SIunits}
+
+%Helping for \abs
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+%Pictures
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+%For link in document
+\usepackage{hyperref}
+%Make the read around the url go away
+\hypersetup{ pdfborder = {0 0 0} }
+
+%For importing pdf documents
+\usepackage{pdfpages}
+
+%For having pretty tables in LaTeX
+\usepackage{tabularx}
+
+%Tables in LaTeX
+\usepackage{multirow}
+
+%Smart setup for dot elements
+\usepackage{alltt}
+
+%Code
+\usepackage{listings}
+
+\title{Software Arkitektur}
+
+\author{Exam Notes}
+
+\date{\today}

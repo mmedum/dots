@@ -1,0 +1,379 @@
+"NeoBundle Scripts-----------------------------
+if has('vim_starting')
+    set nocompatible               " Be iMproved
+
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'mhinz/vim-startify'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'hynek/vim-python-pep8-indent'
+NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'PotatoesMaster/i3-vim-syntax'
+NeoBundle 'chriskempson/base16-vim'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neco-vim'
+NeoBundle 'Shougo/neoinclude.vim'
+NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'tpope/vim-rails.git'
+NeoBundle 'tpope/vim-bundler.git'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'Shougo/echodoc', '', 'default'
+call neobundle#config('echodoc', {
+      \ 'lazy' : 1,
+      \ 'autoload' : {
+      \ 'insert' : 1,
+      \ }})
+NeoBundle 'Shougo/vimproc.vim', {
+            \ 'build' : {
+            \  'mac' : 'make -f make_mac.mak', 
+            \	'unix' : 'make -f make_unix.mak',
+            \	},
+            \}
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+
+" Vim set modifiable
+set modifiable
+
+" Syntax on
+syntax on 
+
+"""""""""""""""""""""""""""
+" Keymapping
+"""""""""""""""""""""""""""
+
+" Disable arrow keys in vim
+" Making j and k behave nicely
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+
+" Make space Leaderkey
+nmap <space> <leader>
+
+" Auto complte to Ctrl+Space
+inoremap <C-Space> <C-x><C-o> 
+
+"""""""""""""""""""""""""""
+" NERDTree
+"""""""""""""""""""""""""""
+
+" NERDTree toggle on <leader>n
+nnoremap <leader>. :NERDTreeToggle<CR>
+
+" Set size for NERDTree window
+:let g:NERDTreeWinSize=40
+
+" Autostart NERDTree when vim starts
+autocmd VimEnter * NERDTree | wincmd p
+
+" Close vim when Nerdtree only window left
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"""""""""""""""""""""""""""
+" Tab and indention opti
+"""""""""""""""""""""""""""
+
+" Use spaces instead of tabs
+set expandtab
+
+" Smart tabs
+set smarttab
+
+" 1 tab = 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+" Spaces in tab when editin
+set softtabstop=4
+
+" Linebreak 500 chars
+set lbr
+set tw=500
+
+" Auto indent
+set ai
+
+" Smart indent
+set si
+
+" Wrap lines
+set wrap
+
+" Auto indenting also on copy
+set autoindent
+set copyindent
+
+"""""""""""""""""""""""""""
+" Line number and cursorline
+"""""""""""""""""""""""""""
+
+" Enable line numbers
+set nu
+
+" Set relative line numbering
+set rnu
+
+" Show cursorline
+set cursorline
+
+"""""""""""""""""""""""""""
+" Search related and matching
+"""""""""""""""""""""""""""
+
+" Use smartcase
+set smartcase 
+
+" Ignore case 
+set ignorecase
+
+" Highlight search
+set hlsearch
+
+" Search on the go
+set incsearch
+
+" Flash matching params
+set showmatch
+set matchtime=3
+
+" Shortcut for hiding search result
+nnoremap <leader>, :nohlsearch<CR>
+
+"""""""""""""""""""""""""""
+" Wild menu
+"""""""""""""""""""""""""""
+
+" Autocomplete for command menu
+set wildmenu
+set wildmode=list:full
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc,*.class
+
+"""""""""""""""""""""""""""
+" Useful extrax
+"""""""""""""""""""""""""""
+
+" Set jj to Escape
+inoremap jj <esc>
+
+" Always split right
+set splitright
+
+" Make backspace behave nicely when deleting
+set backspace=indent,eol,start
+
+" Fast terminal
+set ttyfast
+
+" Opti for not redrawing all the time
+set lazyredraw
+
+" Auto read changed file
+set autoread
+
+" Undo after closing of file
+set undofile
+
+" Vim not whining about buffers being modified and hidden
+set hidden
+
+
+" Startify
+let g:startify_custom_header = map(split(system('fortune | cowsay'), '\n'), '" ". v:val')
+
+" Return to last edit position when opening files
+autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
+
+"""""""""""""""""""""""""""
+" Backup, swap and undo folders
+"""""""""""""""""""""""""""
+
+" Set backup, swap and undo folders
+set backupdir=~/.vim/backup//
+set directory=~/.vim/backup//
+set undodir=~/.vim/backup//
+
+"""""""""""""""""""""""""""
+" NeoComplete Sane defaults
+"""""""""""""""""""""""""""
+
+"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+let g:neocomplete#sources#dictionary#dictionaries = {
+      \ 'default' : '',
+      \ 'vimshell' : $CACHE.'/vimshell/command-history',
+      \ 'java' : '~/.vim/dict/java.dict',
+      \ 'ruby' : '~/.vim/dict/ruby.dict',
+      \ 'scala' : '~/.vim/dict/scala.dict',
+      \ }
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=jedi#completions
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+" Ruby
+" Set async completion.
+let g:neocomplete#sources#omni#input_patterns.ruby =
+            \   '[^. *\t]\.\w*\|\h\w*::'
+
+" Python
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:neocomplete#force_omni_input_patterns.python =
+            \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+                    " alternative pattern: '\h\w*\|[^. \t]\.\w*'
+
+""""""""""""""""""""""""""
+" Rules for fileformats and set encoding
+"""""""""""""""""""""""""""
+
+set encoding=utf-8
+
+""""""""""""""""""""""""""
+" Vim-go
+"""""""""""""""""""""""""""
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+
+""""""""""""""""""""""""""
+" Echodoc
+"""""""""""""""""""""""""""
+
+set cmdheight=2
+let g:echodoc_enable_at_startup = 1
+
+""""""""""""""""""""""""""
+" Remove trailing whitespace
+"""""""""""""""""""""""""""
+function! DeleteTS()
+    let l:cursor_pos = getpos('.')
+    keepjumps keeppatterns %s/\s\+$//e
+    call setpos('.', l:cursor_pos)
+endfunction
+
+command! -nargs=0 DeleteTS call DeleteTS()
+
+""""""""""""""""""""""""""
+" Colorscheme and lightline setup for solarized
+"""""""""""""""""""""""""""
+
+" Lightline
+set laststatus=2
+let g:lightline = {
+            \ 'colorscheme': 'solarized_dark',
+            \ }
+
+"Remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+"https://github.com/chriskempson/base16-vim
+syntax enable
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-default
