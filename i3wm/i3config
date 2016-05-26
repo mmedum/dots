@@ -203,6 +203,9 @@ bar {
 	status_command i3status -c ~/.config/i3/status.conf
 }
 
+# Stop focus from mouse
+focus_follows_mouse no
+
 # Set no border on any windows
 new_window pixel
 
