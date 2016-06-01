@@ -241,7 +241,7 @@ exec --no-startup-id xset -b
 bindsym --release $mod+x exec --no-startup-id import -window root ~/tmp/latest-screenshot.png
 
 # Compton
-exec --no-startup-id compton -CGb --backend glx --vsync opengl --paint-on-overlay --glx-no-stencil --xrender-sync-fence
+exec --no-startup-id compton -CGb --backend glx --vsync opengl --paint-on-overlay --dbe
 
 # Dunst notification
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
