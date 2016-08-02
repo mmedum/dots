@@ -22,6 +22,9 @@ https://github.com/graysky2/pulseaudio-ctl
 //Save power cpu
 https://aur.archlinux.org/packages/thermald/
 
+1. sudo pacman -S lm_sensors && sudo sensors-detect
+2. sudo systemctl enable thermald.service
+
 //Power managment
 https://wiki.archlinux.org/index.php/TLP
 
