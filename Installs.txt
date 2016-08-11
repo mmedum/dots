@@ -49,7 +49,5 @@ http://positon.org/lenovo-thinkpad-bios-update-with-linux-and-usb
 http://www.matfystutor.dk/wiki/VPN
 
 //Termite terminal
-//vte3-ng-fullwidth-emoji
 //Terminfo for ssh elements
 
-//base16-shell
