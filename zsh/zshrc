@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/mark/.oh-my-zsh
+  export ZSH=/home/mark/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,11 +53,8 @@ plugins=(git)
 
 # User configuration
 
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/smlnj/bin"
+# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
-export GOROOT=/usr/lib/go
-export GOPATH=$HOME/repos/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,18 +67,6 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
-# Eval LS_COLORS
-
-eval $( dircolors -b /etc/DIR_COLORS )
-
-# colored completion - use my LS_COLORS
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-# Base16-shell
-# https://github.com/chriskempson/base16-shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -97,4 +82,3 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias ssh='TERM=xterm ssh'
