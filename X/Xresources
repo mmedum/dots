@@ -1,38 +1,27 @@
-/*********************************************************************
- *                              colors                               *
- *********************************************************************/
+Xcursor.size: 12
 
 
-
-/*********************************************************************
- *                               rofi                                *
- *********************************************************************/
 rofi.font:  Source Code Pro Medium 10
-rofi.terminal:  i3-sensible-terminal
-rofi.sidebar-mode:  false
-rofi.seperator-style:   none
-rofi.hide-scrollbar:    true
-rofi.fuzzy: true
-rofi.color-enabled: true
+rofi.fullscreen:      false
+rofi.opacity:         100
 rofi.lines:           10
 rofi.columns:         1
-rofi.eh:              2
-rofi.width:           50
 rofi.padding:         0
 rofi.location:        0
 rofi.line-margin:     0
-rofi.fullscreen:      false
-rofi.opacity:         100
-rofi.bw:              0
+rofi.seperator-style:   none
+rofi.hide-scrollbar:    true
+rofi.sidebar-mode:  false
+rofi.width:                          50
+rofi.color-enabled:                  true
 
-#define bg_external argb:bb282828
-#define bg_internal #282828
-#define bg_active   #ab4642
-#define text_normal #d8d8d8
-#define text_active #282828
+rofi.color-normal:                   #282828,#ebdbb2,#353535,#ff9800,#282828
+rofi.color-urgent:                   #282828,#d79921,#353535,#d79921,#282828
+rofi.color-active:                   #282828,#ebdbb2,#353535,#ff9800,#282828
+rofi.color-window:                   #282828,#ff9800
 
-/* Class           BG           FG           Alt BG       Active BG  Active FG */
-rofi.color-normal: bg_internal, text_normal, bg_internal, bg_active, text_active
-rofi.color-urgent: bg_internal, text_normal, bg_internal, bg_active, text_active
-rofi.color-active: bg_internal, text_normal, bg_internal, bg_active, text_active
-rofi.color-window: bg_external, bg_internal
+! Behaviour
+rofi.terminal:                       termite
+rofi.levenshtein-sort:               true
+rofi.fuzzy:                          true
+rofi.kb-cancel:                      Escape,Control+c
