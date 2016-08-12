@@ -103,6 +103,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Assign programs
 assign [class="chromium"] $ws3
+assign [class="skypeforlinux"] $ws4
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
