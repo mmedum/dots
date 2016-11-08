@@ -70,12 +70,12 @@ set $ws1  "1: term"
 set $ws2  "2: code"
 set $ws3  "3: www"
 set $ws4  "4: im"
-set $ws5  "5:  "
-set $ws6  "6:  "
-set $ws7  "7:  	"
-set $ws8  "8:  "
-set $ws9  "9:  "
-set $ws10 "10:  "
+set $ws5  "5:"
+set $ws6  "6:"
+set $ws7  "7:"
+set $ws8  "8:"
+set $ws9  "9:"
+set $ws10 "10:"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -104,6 +104,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # Assign programs
 assign [class="Google-chrome-unstable"] $ws3
 assign [class="skypeforlinux"] $ws4
+assign [class="Slack"] $ws4
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -141,9 +142,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    status_command i3status
 	position top
-  colors {
+    colors {
         background #282828
         statusline #DDDDDD
         separator #282828
@@ -152,7 +153,7 @@ bar {
         focused_workspace #86A4DB #83A0D3 #282828
         urgent_workspace #89816D #900000 #FFFFFF
         inactive_workspace #282828 #282828 #89816D
-	}
+    }
 	status_command i3status -c ~/.config/i3/i3status.conf
 }
 

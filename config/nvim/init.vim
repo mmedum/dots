@@ -107,10 +107,6 @@ let g:lightline = {
 """"""Syntax Checking""""""
 autocmd! BufWritePost,BufEnter * Neomake
 
-let g:neomake_python_pylint_exe = 'pylint'
-let g:neomake_python_pycodestyle_maker = 'pycodestyle'
-let g:neomake_python_enabled_makers = ['pylint', 'pycodestyle']
-
 let g:neomake_warning_sign = {
   \ 'text': 'W',
   \ 'texthl': 'WarningMsg',

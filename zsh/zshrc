@@ -45,16 +45,33 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# colored completion - use my LS_COLORS
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-completions)
+
+autoload -U compinit && compinit
 
 # User configuration
 
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
+
+# CPU
+#export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.11.0rc0-cp35-cp35m-linux_x86_64.whl
+
+# GPU
+export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.11.0rc0-cp35-cp35m-linux_x86_64.whl
+
+export LD_LIBRARY_PATH=/home/mark/temp/cuda-7.5/pkg/cuda-7.5/opt/cuda/bin
+export PATH=$PATH:/home/mark/temp/cuda-7.5/pkg/cuda-7.5/opt/cuda/lib64
+
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,3 +99,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim="nvim"
+alias vi="nvim"
