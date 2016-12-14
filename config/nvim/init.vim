@@ -6,7 +6,7 @@ endif
 set runtimepath^=/home/mark/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin(expand('/home/mark/.config/nvim/dein'))
+call dein#begin('/home/mark/.config/nvim/dein/')
 
 " Let dein manage dein
 " Required:
@@ -67,9 +67,11 @@ set si
 set autoread
 set encoding=utf-8
 
-set backupdir=~/.config/nvimbackup//
-set directory=~/.config/nvimbackup//
-set undodir=~/.config/nvimbackup//
+set undofile
+set undolevels=1000
+set backupdir=~/.config/nvimbackup/
+set directory=~/.config/nvimbackup/
+set undodir=~/.config/nvimbackup/
 
 inoremap jj <esc>
 
@@ -82,6 +84,9 @@ set gdefault
 set magic
 
 nnoremap <leader>, :nohlsearch<CR>
+
+""""""Search and replace""""""
+set inccommand=split
 
 """"""Autocomplete setup""""""
 let g:deoplete#enable_at_startup = 1
