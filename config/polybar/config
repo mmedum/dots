@@ -1,0 +1,361 @@
+;:set syn=dosini
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+
+[colors]
+white = #d1d1d1
+gray = #585858
+black = #090909
+red = #c795ae
+blue = #95aec7
+yellow = #c7ae95
+green = #aec795
+
+
+[bar/Bar]
+bottom = false
+monitor = eDP1
+;dock = false
+;wm-restack = i3
+width = 100%
+height = 26
+
+enable-ipc = true
+
+padding-left = 0
+padding-right = 1
+
+module-margin-right = 1
+module-margin-left = 0
+
+modules-right = filesystem battery date menu0
+modules-center = volume
+modules-left = i3 xwindow cpu memory
+
+background = #66090909
+foreground = ${colors.white}
+
+underline-size = 2
+underline-color = ${colors.white}
+
+tray-detached = false
+tray-position = right
+tray-offset-x = 
+tray-maxsize = 
+tray-padding = 
+
+font-0 = SourceCodeProMedium:size=8;0
+font-1 = FontAwesome:size=10;0
+font-2 = SourceCodeProMedium:weight=bold:size=10;0
+font-3 = FontAwesome:size=8;0
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 30
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+;mount-1 = /home
+;mount-2 = /invalid/mountpoint
+
+label-mounted =  %free%
+label-mounted-underline = ${colors.white}
+label-mounted-padding = 1
+
+label-unmounted =
+label-unmounted-foreground = ${colors.black}
+
+
+[module/i3]
+type = internal/i3
+format = <label-mode> <label-state>
+index-sort = true
+
+label-focused-font = 4
+label-unfocused-font = 4
+label-urgent-font = 4
+label-visible-font = 4 
+
+label-focused = 
+;label-focused = %index%
+;label-focused-background = ${colors.gray}
+label-focused-padding = 1
+
+label-unfocused = 
+;label-unfocused = %index%
+label-unfocused-padding = 1
+;label-unfocused-background = ${colors.black}
+label-unfocused-underlinde = ${colors.white}
+
+label-urgent = 
+;label-urgent = %index%!
+;label-urgent-background = ${colors.red}
+label-urgent-padding = 1
+label-urgent-foreground = ${colors.red}
+
+label-visible = 
+;label-visible = %index%
+label-visible-foreground = ${colors.white}
+label-visible-padding = 1
+
+
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 4200
+
+intervel = 2
+
+format-online = <label-song> <icon-prev> <icon-play> <icon-pause> <icon-next> 
+format-offline = <label-offline>
+
+label-offline =  no music
+label-offline-foreground = ${colors.gray}
+
+label-song = %artist% - %title%
+label-song-maxlen = 95
+label-song-ellipsis = true
+
+icon-prev = 
+icon-seekb = <<
+icon-stop = o
+icon-pause = 
+icon-play = 
+icon-next = 
+icon-seekf = >>
+
+icon-random = S
+icon-repeat = R
+
+toggle-on-foreground = #e60053
+toggle-off-foreground = #66
+
+
+[module/backlight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = │
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = #55
+
+
+[module/cpu]
+format-label = internal/cpu
+
+format = <label>
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+ramp-coreload-underline = ${colors.white}
+
+type = internal/cpu
+interval = 2
+label = %{F${colors.white}  %percentage% %{F-}
+label-underline = ${colors.white}
+padding= 2
+
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+label = %{F${colors.white}  %percentage_used% %{F-}
+label-underline = ${colors.white}
+label-foreground = ${colors.white}
+
+[module/wlan]
+type = internal/network
+interface = wlp12s0
+interval = 3.0
+
+format-connected-padding = 1
+format-disconnected-padding = 1
+
+format-connected = <label-connected>
+format-connected-underline = ${colors.white}
+format-disconnected-underline = ${colors.gray}
+
+label-connected = %essid%
+label-disconnected = 
+label-disconnected-foreground = ${colors.gray}
+
+
+[module/eth]
+type = internal/network
+interface = enp9s0
+interval = 3.0
+
+format-connected-padding = 1
+format-disconnected-padding = 1
+
+format-connected-underline = ${colors.white}
+format-disconnected-underline = ${colors.gray}
+
+label-connected =  
+label-disconnected = 
+label-disconnected-foreground = ${colors.gray}
+
+
+[module/date]
+type = internal/date
+date-alt =   %A %H:%M 
+date =   %b/%d/%y %H:%M 
+interval = 5
+format-underline = ${colors.white}
+;format-background = ${colors.black}
+format-foreground = ${colors.white}
+format-padding = 1
+
+
+[module/volume]
+type = internal/volume
+
+format-volume = <bar-volume>
+
+label-volume = VOL
+label-volume-foreground = ${root.foreground}
+
+label-muted =  sound muted
+label-muted-foreground = ${colors.gray}
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.green}
+bar-volume-foreground-1 = ${colors.green}
+bar-volume-foreground-2 = ${colors.green}
+bar-volume-foreground-3 = ${colors.green}
+bar-volume-foreground-4 = ${colors.yellow}
+bar-volume-foreground-5 = ${colors.red}
+bar-volume-gradient = false
+bar-volume-indicator = 
+bar-volume-indicator-font = 4
+bar-volume-indicator-foreground = ${colors.white}
+bar-volume-fill = 
+bar-volume-fill-font = 4
+bar-volume-empty = 
+bar-volume-empty-font = 4
+bar-volume-empty-foreground = ${colors.gray}
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.green}
+format-charging-padding = 1
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${colors.yellow}
+format-discharging-padding = 1
+
+format-full =   <label-full>
+format-full-underline = ${self.format-charging-underline}
+format-full-overline = ${self.format-charging-underline}
+format-full-padding = 1
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.white}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.white}
+animation-charging-framerate = 500
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 65
+
+format = <label>
+format-underline = ${colors.white}
+format-warn = <label-warn>
+format-warn-underline = ${colors.red}
+
+format-padding = 1
+format-warn-padidng = 1
+
+label =  %temperature%
+label-warn =  %temperature%
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = #55
+
+
+[module/menu0]
+type = custom/menu
+
+format = <label-toggle> <menu>
+format-underline = ${colors.white}
+format-padding = 1
+
+menu-0-0 =  shutdown
+menu-0-0-exec = shutdown now
+menu-0-1 =  restart
+menu-0-1-exec = shutdown -r now
+menu-0-2 =   cancel
+
+label-open =   
+label-close =
+
+[module/powermenu]
+type = custom/menu
+
+label-open =  power
+label-open-foreground = #e60053
+label-close =  cancel
+label-close-foreground = #e60053
+label-separator = |
+label-separator-foreground = #55
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+; vim:ft=dosini
