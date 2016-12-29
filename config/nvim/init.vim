@@ -69,9 +69,9 @@ set encoding=utf-8
 
 set undofile
 set undolevels=1000
-set backupdir=~/.config/nvimbackup/
-set directory=~/.config/nvimbackup/
-set undodir=~/.config/nvimbackup/
+set backupdir=~/.config/undo/
+set directory=~/.config/undo/
+set undodir=~/.config/undo/
 
 inoremap jj <esc>
 
