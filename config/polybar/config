@@ -17,13 +17,13 @@ green = #aec795
 
 [bar/Bar]
 bottom = false
-monitor = eDP1
+;monitor = eDP1
 ;dock = false
 ;wm-restack = i3
 width = 100%
 height = 26
 
-enable-ipc = true
+enable-ipc = false
 
 padding-left = 0
 padding-right = 1
@@ -31,9 +31,9 @@ padding-right = 1
 module-margin-right = 1
 module-margin-left = 0
 
-modules-right = filesystem battery date menu0
-modules-center = volume
-modules-left = i3 xwindow cpu memory
+modules-left = i3 xwindow
+modules-center = 
+modules-right = battery date 
 
 background = #66090909
 foreground = ${colors.white}
@@ -44,7 +44,7 @@ underline-color = ${colors.white}
 tray-detached = false
 tray-position = right
 tray-offset-x = 
-tray-maxsize = 
+tray-maxsize =  16
 tray-padding = 
 
 font-0 = SourceCodeProMedium:size=8;0
@@ -63,8 +63,6 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
-;mount-1 = /home
-;mount-2 = /invalid/mountpoint
 
 label-mounted =  %free%
 label-mounted-underline = ${colors.white}
@@ -105,7 +103,6 @@ label-visible = 
 ;label-visible = %index%
 label-visible-foreground = ${colors.white}
 label-visible-padding = 1
-
 
 
 [module/mpd]
@@ -189,9 +186,10 @@ label = %{F${colors.white}  %percentage_used% %{F-}
 label-underline = ${colors.white}
 label-foreground = ${colors.white}
 
+
 [module/wlan]
 type = internal/network
-interface = wlp12s0
+interface = 
 interval = 3.0
 
 format-connected-padding = 1
@@ -272,9 +270,13 @@ format-charging = <animation-charging> <label-charging>
 format-charging-underline = ${colors.green}
 format-charging-padding = 1
 
+label-charging = %time%
+
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${colors.yellow}
 format-discharging-padding = 1
+
+label-discharging = %time%
 
 format-full =   <label-full>
 format-full-underline = ${self.format-charging-underline}
@@ -316,22 +318,6 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = #55
 
-
-[module/menu0]
-type = custom/menu
-
-format = <label-toggle> <menu>
-format-underline = ${colors.white}
-format-padding = 1
-
-menu-0-0 =  shutdown
-menu-0-0-exec = shutdown now
-menu-0-1 =  restart
-menu-0-1-exec = shutdown -r now
-menu-0-2 =   cancel
-
-label-open =   
-label-close =
 
 [module/powermenu]
 type = custom/menu

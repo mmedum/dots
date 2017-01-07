@@ -18,7 +18,6 @@ call dein#add('itchyny/lightline.vim')
 call dein#add('morhetz/gruvbox')
 call dein#add('neomake/neomake')
 call dein#add('zchee/deoplete-jedi')
-call dein#add('artur-shaik/vim-javacomplete2')
 
 " Required:
 call dein#end()
@@ -97,10 +96,6 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " Close the documentation window when completion is done
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" set autocompletion for java to vim-javacomplete2
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
 
 
 """"""Status line""""""

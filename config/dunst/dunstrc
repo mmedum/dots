@@ -14,7 +14,6 @@ shrink = no
 transparency = 0
 idle_threshold = 120
 monitor = 0
- will be ignored.
 follow = mouse
 sticky_history = yes
 history_length = 20
@@ -40,14 +39,14 @@ context = ctrl+shift+period
 [urgency_low]
 foreground = "#ebdbb2"
 background = "#32302f"
-timeout = 3
+timeout = 10
 
 [urgency_normal]
 foreground = "#ebdbb2"
 background = "#32302f"
-timeout = 3
+timeout = 10
 
 [urgency_critical]
 foreground = "#ebdbb2"
 background = "#32302f"
-timeout = 3
+timeout = 10

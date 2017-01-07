@@ -33,7 +33,7 @@ font pango:Source Code Pro Medium 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+q kill
@@ -127,7 +127,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Assign programs
-assign [class="Google-chrome-unstable"] $ws3
+assign [class="Google-chrome"] $ws3
 assign [class="skypeforlinux"] $ws4
 assign [class="Slack"] $ws4
 
@@ -197,13 +197,13 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # autostart elements
 # Compton
-exec --no-startup-id compton -CGb --backend glx --vsync opengl --paint-on-overlay --dbe
+exec --no-startup-id compton --config "/home/mark/.config/compton/config"
 
 # wallpaper
 exec_always --no-startup-id feh --bg-scale /home/mark/walls/space.jpg
 
 # polybar
-exec_always --no-startup-id killall polybar; polybar Bar -c "/home/mark/.config/polybar/config"
+exec_always --no-startup-id /home/mark/.config/polybar/launch.sh
 
 # nm-applet
 exec --no-startup-id nm-applet
