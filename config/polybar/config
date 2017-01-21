@@ -21,7 +21,7 @@ bottom = false
 ;dock = false
 ;wm-restack = i3
 width = 100%
-height = 26
+height = 24
 
 enable-ipc = false
 
@@ -33,7 +33,7 @@ module-margin-left = 0
 
 modules-left = i3 xwindow
 modules-center = 
-modules-right = battery date 
+modules-right = eth wlan battery date 
 
 background = #66090909
 foreground = ${colors.white}
@@ -48,8 +48,8 @@ tray-maxsize =  16
 tray-padding = 
 
 font-0 = SourceCodeProMedium:size=8;0
-font-1 = FontAwesome:size=10;0
-font-2 = SourceCodeProMedium:weight=bold:size=10;0
+font-1 = FontAwesome:size=8;0
+font-2 = SourceCodeProMedium:weight=bold:size=8;0
 font-3 = FontAwesome:size=8;0
 
 [module/xwindow]
@@ -189,7 +189,7 @@ label-foreground = ${colors.white}
 
 [module/wlan]
 type = internal/network
-interface = 
+interface = wlp4s0
 interval = 3.0
 
 format-connected-padding = 1
@@ -206,7 +206,7 @@ label-disconnected-foreground = ${colors.gray}
 
 [module/eth]
 type = internal/network
-interface = enp9s0
+interface = enp0s31f6
 interval = 3.0
 
 format-connected-padding = 1
