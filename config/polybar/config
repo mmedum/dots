@@ -32,8 +32,8 @@ module-margin-right = 1
 module-margin-left = 0
 
 modules-left = i3 xwindow
-modules-center = 
-modules-right = volume eth wlan battery date 
+modules-center = date
+modules-right = volume eth wlan battery
 
 background = #99090909
 foreground = ${colors.white}
