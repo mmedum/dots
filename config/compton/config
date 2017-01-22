@@ -83,21 +83,10 @@ shadow-opacity = 0.75;
 shadow-exclude = [
     "! name~=''",
     "name = 'Notification'",
-    "name = 'Plank'",
-    "name = 'Docky'",
-    "name = 'Kupfer'",
-    "name = 'xfce4-notifyd'",
-    "name *= 'VLC'",
-    "name *= 'compton'",
-    #"name *= 'Chromium'",
+    #"name *= 'compton'",
+    "name *= 'Polybar'",
     "name *= 'Chrome'",
-    "class_g = 'Conky'",
-    "class_g = 'Kupfer'",
-    "class_g = 'Synapse'",
     "class_g ?= 'Notify-osd'",
-    "class_g ?= 'Cairo-dock'",
-    "class_g ?= 'Xfce4-notifyd'",
-    "class_g ?= 'Xfce4-power-manager'",
     "_GTK_FRAME_EXTENTS@:c"
 ];
 # Avoid drawing shadow on all shaped windows (see also: --detect-rounded-corners)
@@ -127,7 +116,7 @@ blur-background = true;
 # Do not let blur radius adjust based on window opacity.
 blur-background-fixed = false;
 blur-background-exclude = [
-    #"window_type = 'dock'",
+    "window_type = 'dock'",
     "window_type = 'desktop'"
 ];
 
@@ -145,7 +134,7 @@ fade-delta = 4;
 fade-in-step = 0.03;
 # Opacity change between steps while fading out. (default 0.03).
 fade-out-step = 0.03;
-# Fade windows in/out when opening/closing
+# Fade windows in/out when opening/closing00000000
 # no-fading-openclose = true;
 
 # Specify a list of conditions of windows that should not be faded.
@@ -174,7 +163,7 @@ detect-client-opacity = true;
 
 # Specify refresh rate of the screen.
 # If not specified or 0, compton will try detecting this with X RandR extension.
-refresh-rate = 0;
+refresh-rate = 60;
 
 # Set VSync method. VSync methods currently available:
 # none: No VSync
