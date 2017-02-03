@@ -14,10 +14,12 @@ call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
 call dein#add('Shougo/deoplete.nvim')
+call dein#add('zchee/deoplete-jedi')
 call dein#add('itchyny/lightline.vim')
 call dein#add('morhetz/gruvbox')
-call dein#add('neomake/neomake')
-call dein#add('zchee/deoplete-jedi')
+call dein#add('w0rp/ale')
+call dein#add('derekwyatt/vim-scala')
+call dein#add('Vimjas/vim-python-pep8-indent')
 
 " Required:
 call dein#end()
@@ -34,9 +36,15 @@ endif
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python'
 
+""""""Trailing whitespace""""""
+" display tabs and trailing spaces
+set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅"
 
 """"""Basic""""""
 let mapleader="\<SPACE>"
+
+" Write file
+nnoremap <Leader>w :w<CR>
 
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -45,20 +53,33 @@ nnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+
 set noshowmode
 set showmatch
 set ruler
 set nu
 set rnu
 set cursorline
-set expandtab           
+
+set autowrite
+set autoindent    " align the new line indent with the previous line
+set expandtab
+set smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set noerrorbells 
-set linespace=0 
+set noerrorbells
+set linespace=0
+set nojoinspaces
+
 set splitbelow
-set splitright  
+set splitright
+set shiftround    " round indent to multiple of 'shiftwidth'
 
 set ai
 set si
@@ -78,11 +99,14 @@ inoremap jj <esc>
 set hlsearch
 set ignorecase
 set smartcase
-set incsearch  
+set incsearch
 set gdefault
 set magic
 
 nnoremap <leader>, :nohlsearch<CR>
+
+" Search and Replace remapping
+nmap <Leader>s :%s//g<Left><Left>
 
 """"""Search and replace""""""
 set inccommand=split
@@ -105,16 +129,13 @@ let g:lightline = {
 
 
 """"""Syntax Checking""""""
-autocmd! BufWritePost,BufEnter * Neomake
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
-let g:neomake_warning_sign = {
-  \ 'text': 'W',
-  \ 'texthl': 'WarningMsg',
-  \ }
-let g:neomake_error_sign = {
-  \ 'text': 'E',
-  \ 'texthl': 'ErrorMsg',
-  \ }
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '->'
 
 """"""Functions""""""
 " http://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file
@@ -124,5 +145,4 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 """"""Color scheme""""""
 set background=dark
 colorscheme gruvbox
-
-
+set termguicolors
