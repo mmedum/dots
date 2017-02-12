@@ -91,10 +91,10 @@ gaps inner 10
 gaps outer 0
 
 # workspace naming
-set $ws1  "1:&#xf120; term"
-set $ws2  "2:&#xf121; code"
-set $ws3  "3:&#xf268; www"
-set $ws4  "4:&#xf27b; im"
+set $ws1  "1:"
+set $ws2  "2:"
+set $ws3  "3:"
+set $ws4  "4:"
 set $ws5  "5:"
 set $ws6  "6:"
 set $ws7  "7:"
@@ -130,6 +130,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 assign [class="Google-chrome"] $ws3
 assign [class="skypeforlinux"] $ws4
 assign [class="Slack"] $ws4
+assign [class="Google Play Music Desktop Player"] $ws5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

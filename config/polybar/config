@@ -48,9 +48,9 @@ tray-maxsize =  16
 tray-padding = 
 
 font-0 = SourceCodeProMedium:size=8;0
-font-1 = FontAwesome:size=8;0
+font-1 = FontAwesome:size=10;0
 font-2 = SourceCodeProMedium:weight=bold:size=8;0
-font-3 = FontAwesome:size=8;0
+font-3 = FontAwesome:size=10;0
 
 [module/xwindow]
 type = internal/xwindow
@@ -73,35 +73,25 @@ label-unmounted-foreground = ${colors.black}
 
 [module/i3]
 type = internal/i3
-format = <label-mode> <label-state>
-index-sort = true
+enable-click = true
+enable-scroll = false
+strip-wsnumbers = true
 
-label-focused-font = 4
-label-unfocused-font = 4
-label-urgent-font = 4
-label-visible-font = 4 
+ws-icon-0 = 1:; 
+ws-icon-1 = 2:; 
+ws-icon-2 = 3:; 
+ws-icon-3 = 4:;  
+ws-icon-4 = 5:; 
+ws-icon-default = 
 
-label-focused = 
-;label-focused = %index%
-;label-focused-background = ${colors.gray}
 label-focused-padding = 1
+label-focused-background = ${colors.gray}
 
-label-unfocused = 
-;label-unfocused = %index%
 label-unfocused-padding = 1
-;label-unfocused-background = ${colors.black}
-label-unfocused-underlinde = ${colors.white}
+label-visible-padding = 1
 
-label-urgent = 
-;label-urgent = %index%!
-;label-urgent-background = ${colors.red}
 label-urgent-padding = 1
 label-urgent-foreground = ${colors.red}
-
-label-visible = 
-;label-visible = %index%
-label-visible-foreground = ${colors.white}
-label-visible-padding = 1
 
 
 [module/mpd]
@@ -233,30 +223,13 @@ format-padding = 1
 [module/volume]
 type = internal/volume
 
-format-volume = <bar-volume>
+format-volume = <label-volume>
 
-label-volume = VOL
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted =  sound muted
+label-muted = 
 label-muted-foreground = ${colors.gray}
-
-bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.green}
-bar-volume-foreground-1 = ${colors.green}
-bar-volume-foreground-2 = ${colors.green}
-bar-volume-foreground-3 = ${colors.green}
-bar-volume-foreground-4 = ${colors.yellow}
-bar-volume-foreground-5 = ${colors.red}
-bar-volume-gradient = false
-bar-volume-indicator = 
-bar-volume-indicator-font = 4
-bar-volume-indicator-foreground = ${colors.white}
-bar-volume-fill = 
-bar-volume-fill-font = 4
-bar-volume-empty = 
-bar-volume-empty-font = 4
-bar-volume-empty-foreground = ${colors.gray}
 
 
 [module/battery]
@@ -264,28 +237,29 @@ type = internal/battery
 battery = BAT0
 adapter = AC
 full-at = 98
+time-format = %H:%M
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = ${colors.green}
 format-charging-padding = 1
 
-label-charging = %time%
+label-charging =  %{F#b7b8b9}%percentage:2%%%{F-} %time%
+label-discharging = %percentage:2%% %time% %{o- -o}
+label-full = %{F-} %percentage%% %{F#d7a645}%{F-}
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${colors.yellow}
 format-discharging-padding = 1
 
-label-discharging = %time%
-
-format-full =   <label-full>
 format-full-underline = ${self.format-charging-underline}
 format-full-overline = ${self.format-charging-underline}
 format-full-padding = 1
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.white}
+ramp-capacity-0 = %{F#e31a1c o#e31a1c +o} %{F-}
+ramp-capacity-1 = %{F#e31a1c o#e31a1c +o} %{F-}
+ramp-capacity-2 = %{F#d7a645 o#d7a645 +o} %{F-}
+ramp-capacity-3 = %{F#31a354 o#31a354 +o} %{F-}
+ramp-capacity-4 = %{F#31a354 o#31a354 +o} %{F-}
 
 animation-charging-0 = 
 animation-charging-1 = 
