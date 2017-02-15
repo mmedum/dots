@@ -15,9 +15,9 @@ yellow = #c7ae95
 green = #aec795
 
 
-[bar/Bar]
+[bar/top]
 bottom = false
-monitor = eDP1
+monitor = ${env:MONITOR}
 dock = false
 wm-restack = i3
 width = 100%

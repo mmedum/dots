@@ -20,6 +20,7 @@ call dein#add('morhetz/gruvbox')
 call dein#add('w0rp/ale')
 call dein#add('derekwyatt/vim-scala')
 call dein#add('Vimjas/vim-python-pep8-indent')
+call dein#add('chrisbra/csv.vim')
 
 " Required:
 call dein#end()
@@ -93,7 +94,7 @@ set backupdir=~/.config/undo/
 set directory=~/.config/undo/
 set undodir=~/.config/undo/
 
-inoremap jj <esc>
+inoremap jk <esc>
 
 """"""Search""""""
 set hlsearch

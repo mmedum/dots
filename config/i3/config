@@ -126,6 +126,14 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+# move focused container to output
+bindsym $mod+Shift+bracketleft move workspace to output left
+bindsym $mod+Shift+bracketright move workspace to output right
+
+# move focused container to output
+bindsym $mod+bracketleft move container to output left
+bindsym $mod+bracketright move container to output right
+
 # Assign programs
 assign [class="Google-chrome"] $ws3
 assign [class="skypeforlinux"] $ws4
