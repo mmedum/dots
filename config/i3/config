@@ -204,6 +204,9 @@ bindsym XF86AudioMicMute exec /usr/bin/pulseaudio-ctl mute-input
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
+# Try to extend screen on VIRTUAL4
+bindsym $mod+p exec /home/mark/repos/dots/scripts/screen.sh
+
 # autostart elements
 # Compton
 exec --no-startup-id compton --config "/home/mark/.config/compton/config"
