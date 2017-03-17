@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-intern=eDP1
+intern=eDP-1
 extern=VIRTUAL4
 
 # Terminate already running bar instances
