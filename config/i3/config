@@ -217,8 +217,5 @@ exec_always --no-startup-id feh --bg-scale /home/mark/walls/space.jpg
 # polybar
 exec_always --no-startup-id /home/mark/.config/polybar/launch.sh
 
-# nm-applet
-#exec --no-startup-id nm-applet
-
 # dunst
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc

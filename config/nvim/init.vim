@@ -21,6 +21,8 @@ call dein#add('w0rp/ale')
 call dein#add('derekwyatt/vim-scala')
 call dein#add('Vimjas/vim-python-pep8-indent')
 call dein#add('chrisbra/csv.vim')
+call dein#add('ensime/ensime-vim')
+call dein#add('takac/vim-hardtime')
 
 " Required:
 call dein#end()
@@ -33,16 +35,15 @@ if dein#check_install()
   call dein#install()
 endif
 
-""""""Python""""""
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python'
-
-""""""Trailing whitespace""""""
-" display tabs and trailing spaces
-set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅"
-
 """"""Basic""""""
 let mapleader="\<SPACE>"
+
+set path=$PWD/**
+
+set mouse=a
+
+" Hardtime default on
+let g:hardtime_default_on = 1
 
 " Write file
 nnoremap <Leader>w :w<CR>
@@ -96,6 +97,19 @@ set undodir=~/.config/undo/
 
 inoremap jk <esc>
 
+""""""Scala""""""
+autocmd BufWritePost *.scala silent :EnTypeCheck
+nnoremap <localleader>t :EnTypeCheck<CR>
+au FileType scala nnoremap <localleader>df :EnDeclaration<CR>
+
+""""""Python""""""
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python'
+
+""""""Trailing whitespace""""""
+" display tabs and trailing spaces
+set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅"
+
 """"""Search""""""
 set hlsearch
 set ignorecase
@@ -126,8 +140,12 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 """"""Status line""""""
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
+      \ 'component': {
+      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}'
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
-
 
 """"""Syntax Checking""""""
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
