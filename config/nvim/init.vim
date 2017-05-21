@@ -21,7 +21,6 @@ call dein#add('w0rp/ale')
 call dein#add('derekwyatt/vim-scala')
 call dein#add('Vimjas/vim-python-pep8-indent')
 call dein#add('chrisbra/csv.vim')
-call dein#add('ensime/ensime-vim')
 call dein#add('takac/vim-hardtime')
 
 " Required:
@@ -96,11 +95,6 @@ set directory=~/.config/undo/
 set undodir=~/.config/undo/
 
 inoremap jk <esc>
-
-""""""Scala""""""
-autocmd BufWritePost *.scala silent :EnTypeCheck
-nnoremap <localleader>t :EnTypeCheck<CR>
-au FileType scala nnoremap <localleader>df :EnDeclaration<CR>
 
 """"""Python""""""
 let g:python_host_prog = '/usr/bin/python'
