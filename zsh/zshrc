@@ -20,9 +20,8 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 # Path
-export SPARK_HOME=/opt/spark
-export PYTHONPATH=$SPARK_HOME/python
 export PATH=/home/mark/.gem/ruby/2.4.0/bin:$PATH
+
 # Editor
 export EDITOR=vi
 
@@ -30,8 +29,6 @@ export EDITOR=vi
 alias vi='nvim'
 alias vim='nvim'
 
-alias vpn_connect='sudo vpnc JPPOL --local-port 1024'
-alias vpn_disconnect='sudo pkill vpnc'
 
 # Zplug
 zplug "plugins/git",   from:oh-my-zsh
@@ -47,12 +44,6 @@ zstyle ':prezto:module:utility:ls'    color 'yes'
 zstyle ':prezto:module:utility:diff'  color 'yes'
 zstyle ':prezto:module:utility:wdiff' color 'yes'
 zstyle ':prezto:module:utility:make'  color 'yes'
-
-
-
-PURE_PROMPT_SYMBOL='>>'
-PURE_GIT_UP_ARROW='↑'
-PURE_GIT_DOWN_ARROW='↓'
 
 
 zplug load

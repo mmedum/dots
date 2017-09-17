@@ -147,7 +147,6 @@ bindsym $mod+b exec ~/.config/i3/scripts/lock.sh
 assign [class="Google-chrome"] $ws3
 assign [class="skypeforlinux"] $ws4
 assign [class="Slack"] $ws4
-assign [class="Google Play Music Desktop Player"] $ws5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -191,13 +190,16 @@ bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
 bindsym XF86AudioMicMute exec /usr/bin/pulseaudio-ctl mute-input
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 
 # autostart elements
 
+# compton
+exec_always --no-startup-id compton --config /home/mark/.config/compton/config
+
 # wallpaper
-exec_always --no-startup-id feh --bg-scale /home/mark/walls/hand.jpg
+exec_always --no-startup-id feh --bg-scale /home/mark/walls/nier.jpg
 
 # polybar
 exec_always --no-startup-id /home/mark/.config/polybar/launch.sh

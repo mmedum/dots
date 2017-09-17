@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-
 TMPBG=/tmp/screen.png
 LOCK=/home/mark/.config/i3/scripts/lock.png
 RES=$(xrandr | grep 'current' | sed -E 's/.*current\s([0-9]+)\sx\s([0-9]+).*/\1x\2/')
