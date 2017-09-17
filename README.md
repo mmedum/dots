@@ -9,7 +9,6 @@
 ![clean](/img/clean.png)
 ![busy](/img/busy.png)
 ![code](/img/code.png)
-![hey](/img/archey.png)
 
 ### Install notes
 The setup as of 09/17/2018.
