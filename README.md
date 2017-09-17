@@ -2,8 +2,8 @@
 
 ## Dell XPS 15 9550
 ### Used links
-[Arch Linux install guide](https://wiki.archlinux.org/index.php/installation_guide)
-[Arch Linux wiki Dell xps 9550](https://wiki.archlinux.org/index.php/Dell_XPS_15_(9550))
+- [Arch Linux install guide](https://wiki.archlinux.org/index.php/installation_guide)
+- [Arch Linux wiki Dell xps 9550](https://wiki.archlinux.org/index.php/Dell_XPS_15_(9550))
 
 ### Install notes
 The setup as of 09/17/2018.
