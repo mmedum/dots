@@ -208,7 +208,5 @@ exec_always --no-startup-id /home/mark/.config/polybar/launch.sh
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # scrot
-# scrot & gimp - root
 bindsym Print exec scrot -e 'mv $f ~/temp/ && feh ~/temp/$f'
-# scrot & gimp - select window or rectangle
 bindsym --release $mod+Print exec scrot -s -e 'mv $f ~/temp/ && feh ~/temp/$f'
