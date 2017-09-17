@@ -8,6 +8,7 @@
 ### Screenshots
 ![clean](/img/clean.png)
 ![busy](/img/busy.png)
+![Rofi/Dunst](/img/rofidunst.png)
 ![code](/img/code.png)
 
 ### Install notes
