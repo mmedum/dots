@@ -34,6 +34,7 @@ The setup as of 19/17/2018.
 - [pacaur](https://aur.archlinux.org/cgit/aur.git/snapshot/pacaur.tar.gz)
 - [polybar-git](https://aur.archlinux.org/cgit/aur.git/snapshot/polybar-git.tar.gz)
 - [python-neovim-git](https://aur.archlinux.org/cgit/aur.git/snapshot/python-neovim-git.tar.gz)
+- [pulsemixer-git](https://aur.archlinux.org/cgit/aur.git/snapshot/pulsemixer-git.tar.gz)
 - [rofi-git](https://aur.archlinux.org/cgit/aur.git/snapshot/rofi-git.tar.gz)
 - [termite-git](https://aur.archlinux.org/cgit/aur.git/snapshot/termite-git.tar.gz)
 - [tlp-git](https://aur.archlinux.org/cgit/aur.git/snapshot/tlp-git.tar.gz)
