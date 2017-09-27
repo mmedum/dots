@@ -1,0 +1,29 @@
+! General
+rofi.fullscreen:      false
+rofi.opacity:         100
+rofi.lines:           10
+rofi.columns:         1
+rofi.padding:         0
+rofi.location:        0
+rofi.line-margin:     0
+rofi.seperator-style:   none
+rofi.hide-scrollbar:    true
+rofi.sidebar-mode:  false
+rofi.width:                          50
+
+! Colors
+rofi.color-enabled: true
+
+!                  bg       border   separator
+rofi.color-window: #1d2021, #a89984, #a89984
+
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #1d2021, #ebdbb2, #282828, #504945, #fbf1c7
+rofi.color-active: #d79921, #1d2021, #d79921, #fabd2f, #1d2021
+rofi.color-urgent: #cc241d, #1d2021, #cc241d, #fb4934, #1d2021
+
+! Behaviour
+rofi.terminal:                       termite
+rofi.levenshtein-sort:               true
+rofi.fuzzy:                          true
+rofi.kb-cancel:                      Escape,Control+c

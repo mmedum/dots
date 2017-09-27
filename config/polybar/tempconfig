@@ -8,10 +8,15 @@ margin-bottom = 5
 [colors]
 white = #d1d1d1
 gray = #585858
+black = #090909
 red = #c795ae
+blue = #95aec7
 yellow = #c7ae95
 green = #aec795
-background = #99090909
+transparent = #00000000
+
+background = #00FFFFFF
+foreground = #FFFFFF
 
 [bar/top]
 bottom = false
@@ -30,22 +35,20 @@ module-margin-right = 1
 module-margin-left = 0
 
 modules-left = i3 xwindow
-modules-center = date
-modules-right = volume wlan battery
+modules-center = 
+modules-right = volume wlan battery date
 
 background = ${colors.background}
-foreground = ${colors.white}
+foreground = ${colors.foreground}
 
 underline-size = 1
-underline-color = ${colors.white}
+underline-color = ${colors.foreground}
 
 tray-detached = false
-tray-transparent = true
 tray-position = right
-tray-maxsize =  16
-tray-background = ${colors.background}
+tray-transparent = true
 
-font-0 = SourceCodeProMedium:size=8;0
+font-0 = SourceCodeProMedium:size=10;0
 font-1 = FontAwesome:size=10;0
 font-2 = SourceCodeProMedium:weight=bold:size=8;0
 font-3 = FontAwesome:size=10;0
@@ -57,7 +60,7 @@ label-maxlen = 30
 
 [module/i3]
 type = internal/i3
-enable-click = false
+enable-click = true
 enable-scroll = false
 strip-wsnumbers = true
 
@@ -65,6 +68,7 @@ ws-icon-0 = 1:; 
 ws-icon-1 = 2:; 
 ws-icon-2 = 3:; 
 ws-icon-3 = 4:;  
+ws-icon-4 = 5:; 
 ws-icon-default = 
 
 label-focused-padding = 1
@@ -85,34 +89,19 @@ format-connected-padding = 1
 format-disconnected-padding = 1
 
 format-connected = <label-connected>
-format-connected-underline = ${colors.white}
+format-connected-underline = ${colors.foreground}
 format-disconnected-underline = ${colors.gray}
 
 label-connected = %essid%
 label-disconnected = 
 label-disconnected-foreground = ${colors.gray}
 
-[module/eth]
-type = internal/network
-interface = enp0s31f6
-interval = 3.0
-
-format-connected-padding = 1
-format-disconnected-padding = 1
-
-format-connected-underline = ${colors.white}
-format-disconnected-underline = ${colors.gray}
-
-label-connected =  
-label-disconnected = 
-label-disconnected-foreground = ${colors.gray}
-
 [module/date]
 type = internal/date
 date =  %m/%d/%y %H:%M 
 interval = 5
-format-underline = ${colors.white}
-format-foreground = ${colors.white}
+format-underline = ${colors.foreground}
+format-foreground = ${colors.foreground}
 format-padding = 1
 
 [module/volume]
@@ -120,8 +109,8 @@ type = internal/volume
 
 format-volume = <label-volume>
 
-label-volume =  %percentage%
-label-volume-foreground = ${colors.white}
+label-volume =  %percentage%%
+label-volume-foreground = ${colors.foreground}
 
 label-muted = 
 label-muted-foreground = ${colors.gray}
@@ -130,15 +119,16 @@ label-muted-foreground = ${colors.gray}
 type = internal/battery
 battery = BAT0
 adapter = AC
+#full-at = 100
 time-format = %H:%M
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.green}
+format-charging-underline = ${colors.foreground}
 format-charging-padding = 1
 
-label-charging = %time%
-label-discharging = %time%
-label-full =   
+label-charging =  %time%
+label-discharging = %time% %{o- -o}
+label-full = %{F-} %%{F-}
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${colors.yellow}
@@ -148,18 +138,18 @@ format-full-underline = ${self.format-charging-underline}
 format-full-overline = ${self.format-charging-underline}
 format-full-padding = 1
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = %{F#e31a1c o#e31a1c +o} %{F-}
+ramp-capacity-1 = %{F#e31a1c o#e31a1c +o} %{F-}
+ramp-capacity-2 = %{F#d7a645 o#d7a645 +o} %{F-}
+ramp-capacity-3 = %{F#31a354 o#31a354 +o} %{F-}
+ramp-capacity-4 = %{F#31a354 o#31a354 +o} %{F-}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.white}
+animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 500
 
 ; vim:ft=dosini
