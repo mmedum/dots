@@ -41,7 +41,7 @@ underline-color = ${colors.white}
 
 tray-detached = false
 tray-transparent = true
-tray-position = right
+tray-position = 
 tray-maxsize =  16
 tray-background = ${colors.background}
 

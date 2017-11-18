@@ -20,8 +20,8 @@ if dein#load_state('/home/mark/.config/nvim/dein')
   call dein#add('morhetz/gruvbox')
   call dein#add('w0rp/ale')
   call dein#add('Vimjas/vim-python-pep8-indent')
-  call dein#add('chrisbra/csv.vim')
-  call dein#add('takac/vim-hardtime')
+  call dein#add('sbdchd/neoformat')
+  call dein#add('airblade/vim-gitgutter')
 
   " Required:
   call dein#end()
@@ -31,11 +31,6 @@ endif
 " Required:
 filetype plugin indent on
 syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
@@ -55,6 +50,8 @@ let g:hardtime_default_on = 1
 
 " Write file
 nnoremap <Leader>w :w<CR>
+" Quit file
+noremap <leader>q :q<cr>
 
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -70,29 +67,23 @@ nnoremap <C-H> <C-W><C-H>
 
 
 set noshowmode
-set showmatch
-set ruler
 set nu
 set rnu
 set cursorline
 
 set autowrite
-set autoindent    " align the new line indent with the previous line
+set autoindent
+set smartindent
 set expandtab
-set smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set noerrorbells
-set linespace=0
 set nojoinspaces
 
 set splitbelow
 set splitright
 set shiftround    " round indent to multiple of 'shiftwidth'
-
-set ai
-set si
 
 set autoread
 set encoding=utf-8
@@ -123,18 +114,11 @@ set magic
 
 nnoremap <leader>, :nohlsearch<CR>
 
-" Search and Replace remapping
-nmap <Leader>s :%s//g<Left><Left>
-
 """"""Search and replace""""""
 set inccommand=split
 
 """"""Autocomplete setup""""""
 let g:deoplete#enable_at_startup = 1
-
-" Let <Tab> do completion
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
 
 " Close the documentation window when completion is done
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -142,22 +126,64 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 """"""Status line""""""
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
-      \ 'component': {
-      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}'
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \ }
+\ 'colorscheme': 'gruvbox',
+\ 'active': {
+\   'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
+\   'right': [['lineinfo'], ['percent'], ['filetype', 'fileencoding', 'fileformat'], ['linter_warnings', 'linter_errors', 'linter_ok']]
+\ },
+\ 'component_expand': {
+\   'linter_warnings': 'LightlineLinterWarnings',
+\   'linter_errors': 'LightlineLinterErrors',
+\   'linter_ok': 'LightlineLinterOK'
+\ },
+\ 'component_type': {
+\   'readonly': 'error',
+\   'linter_warnings': 'warning',
+\   'linter_errors': 'error'
+\ },
+\ }
+function! LightlineLinterWarnings() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ', all_non_errors)
+endfunction
+function! LightlineLinterErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ', all_errors)
+endfunction
+function! LightlineLinterOK() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '✓ ' : ''
+endfunction
+
+" Update and show lightline but only if it's visible (e.g., not in Goyo)
+autocmd User ALELint call s:MaybeUpdateLightline()
+function! s:MaybeUpdateLightline()
+  if exists('#lightline')
+    call lightline#update()
+  end
+endfunction
+
+
+""""""Neoformat""""""
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
 
 """"""Syntax Checking""""""
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '->'
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
 
 """"""Functions""""""
 " http://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file
