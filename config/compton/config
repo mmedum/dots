@@ -56,7 +56,7 @@ glx-swap-method = "undefined";
 #################################
 
 # Enabled client-side shadows on windows.
-shadow = true;
+shadow = false;
 # Don't draw shadows on DND windows.
 no-dnd-shadow = true;
 # Avoid drawing shadows on dock/panel windows.
@@ -70,7 +70,7 @@ shadow-offset-x = -15;
 # The top offset for shadows. (default -15)
 shadow-offset-y = -15;
 # The translucency for shadows. (default .75)
-shadow-opacity = 0.75;
+shadow-opacity = 0.25;
 
 # Set if you want different colour shadows
 # shadow-red = 0.0;
@@ -83,14 +83,27 @@ shadow-opacity = 0.75;
 shadow-exclude = [
     "! name~=''",
     "name = 'Notification'",
-    #"name *= 'compton'",
-    "name *= 'Polybar'",
+    "name = 'Plank'",
+    "name = 'Docky'",
+    "name = 'Kupfer'",
+    "name = 'xfce4-notifyd'",
+    "name *= 'VLC'",
+    "name *= 'compton'",
+    "name *= 'Chromium'",
     "name *= 'Chrome'",
+    "class_g = 'Conky'",
+    "class_g = 'Kupfer'",
+    "class_g = 'Synapse'",
     "class_g ?= 'Notify-osd'",
+    "class_g ?= 'Cairo-dock'",
+    "class_g ?= 'Xfce4-notifyd'",
+    "class_g ?= 'Xfce4-power-manager'",
     "_GTK_FRAME_EXTENTS@:c"
 ];
 # Avoid drawing shadow on all shaped windows (see also: --detect-rounded-corners)
 shadow-ignore-shaped = false;
+# Don't draw shadows in the 20 pixels from the top of the screen.
+shadow-exclude-reg = "x21+0+0";
 
 #################################
 #
@@ -98,7 +111,7 @@ shadow-ignore-shaped = false;
 #
 #################################
 
-menu-opacity = 0.85;
+menu-opacity = 0.9;
 inactive-opacity = 1;
 active-opacity = 1;
 frame-opacity = 1;
@@ -112,7 +125,7 @@ alpha-step = 0.06;
 # Blur background of transparent windows. Bad performance with X Render backend. GLX backend is preferred.
 blur-background = true;
 # Blur background of opaque windows with transparent frames as well.
-# blur-background-frame = true;
+blur-background-frame = true;
 # Do not let blur radius adjust based on window opacity.
 blur-background-fixed = false;
 blur-background-exclude = [
@@ -129,13 +142,13 @@ blur-background-exclude = [
 # Fade windows during opacity changes.
 fading = true;
 # The time between steps in a fade in milliseconds. (default 10).
-fade-delta = 4;
+fade-delta = 5;
 # Opacity change between steps while fading in. (default 0.028).
 fade-in-step = 0.03;
 # Opacity change between steps while fading out. (default 0.03).
 fade-out-step = 0.03;
-# Fade windows in/out when opening/closing00000000
-# no-fading-openclose = true;
+# Fade windows in/out when opening/closing
+no-fading-openclose = false;
 
 # Specify a list of conditions of windows that should not be faded.
 fade-exclude = [ ];
@@ -163,7 +176,7 @@ detect-client-opacity = true;
 
 # Specify refresh rate of the screen.
 # If not specified or 0, compton will try detecting this with X RandR extension.
-refresh-rate = 60;
+refresh-rate = 0;
 
 # Set VSync method. VSync methods currently available:
 # none: No VSync
@@ -189,7 +202,7 @@ sw-opti = true;
 # Unredirect all windows if a full-screen opaque window is detected, to maximize performance for full-screen windows, like games.
 # Known to cause flickering when redirecting/unredirecting windows.
 # paint-on-overlay may make the flickering less obvious.
-unredir-if-possible = true;
+unredir-if-possible = false;
 
 # Specify a list of conditions of windows that should always be considered focused.
 focus-exclude = [ ];
