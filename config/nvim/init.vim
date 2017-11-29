@@ -22,6 +22,8 @@ if dein#load_state('/home/mark/.config/nvim/dein')
     call dein#add('Vimjas/vim-python-pep8-indent')
     call dein#add('sbdchd/neoformat')
     call dein#add('airblade/vim-gitgutter')
+    call dein#add('junegunn/fzf')
+    call dein#add('junegunn/fzf.vim')
 
     " Required:
     call dein#end()
@@ -187,6 +189,10 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
+
+""""""FZF""""""
+nnoremap <leader>o :FZF -m<cr>  
+nnoremap <leader>r :FZF -m /home/mark/repos<cr>  
 
 """"""Functions""""""
 " http://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file
