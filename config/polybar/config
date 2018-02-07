@@ -46,9 +46,9 @@ tray-maxsize =  16
 tray-background = ${colors.background}
 
 font-0 = SourceCodeProMedium:size=8;0
-font-1 = FontAwesome:size=10;0
+font-1 = FontAwesome5Free:style=Solid:pixelsize=10
 font-2 = SourceCodeProMedium:weight=bold:size=8;0
-font-3 = FontAwesome:size=10;0
+font-3 = FontAwesome5Brands:style=Solid:pixelsize=10
 
 [module/xwindow]
 type = internal/xwindow

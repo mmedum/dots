@@ -143,6 +143,9 @@ bindsym $mod+minus scratchpad show
 # Lock screen
 bindsym $mod+b exec ~/.config/i3/scripts/lock.sh
 
+# Autolock
+exec_always --no-startup-id xidlehook --time 1 --timer 'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness 1; ~/.config/i3/scripts/lock.sh' --notify 10 --notifier 'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness .1' --canceller 'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness 1' --not-when-fullscreen
+
 # Assign programs
 assign [class="Google-chrome"] $ws3
 assign [class="skypeforlinux"] $ws4

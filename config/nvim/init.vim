@@ -47,8 +47,10 @@ set path=$PWD/**
 
 set mouse=a
 
-" Hardtime default on
-let g:hardtime_default_on = 1
+let g:tex_flavor = "latex"
+
+" auto wrap for markdown files
+au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " Write file
 nnoremap <Leader>w :w<CR>
@@ -70,7 +72,6 @@ nnoremap <C-H> <C-W><C-H>
 
 set noshowmode
 set nu
-set rnu
 set cursorline
 
 set autowrite
