@@ -1,5 +1,8 @@
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
+
+# Start completions
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # History
 HISTFILE="$HOME/.zsh_history"
@@ -19,44 +22,28 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
-# Path
-export PATH=/home/mark/.gem/ruby/2.4.0/bin:$PATH
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+# Plugins
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "plugins/git", from:oh-my-zsh
+zplug "mafredri/zsh-async", from:github
+zplug "zsh-users/zsh-completions", from:github, defer:2
+zplug "zsh-users/zsh-autosuggestions", from:github, defer:2
+zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
-eval $(gdircolors ~/.dircolors/dircolors.gruvbox)
-alias ls='gls --color=auto'
-alias ll='ls -al'
-alias grep="grep --color=always"
-alias egrep="egrep --color=always"
+# Dircolors
+eval $(gdircolors ~/.dir_colors)
 
 # Editor
 export EDITOR=vi
 
 # Aliases
+alias ls='gls --color=auto'
+alias ll='ls -al'
 alias vi='nvim'
 alias vim='nvim'
-
-# Alias for programs
-alias run_proxy='source /Users/mark/.config/scripts/proxy/run_proxy.sh'
-
-# Zplug
-zplug "plugins/git",   from:oh-my-zsh
-zplug "mafredri/zsh-async", from:github
-zplug "plugins/git", from:oh-my-zsh, if:"hash git"
-zplug "modules/utility",    from:prezto
-zplug "zsh-users/zsh-completions", from:github, defer:3
-zplug "zsh-users/zsh-autosuggestions", from:github, defer:3
-zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:3
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-
-zstyle ':prezto:module:utility:ls'    color 'yes'
-zstyle ':prezto:module:utility:diff'  color 'yes'
-zstyle ':prezto:module:utility:wdiff' color 'yes'
-zstyle ':prezto:module:utility:make'  color 'yes'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias brewup='brew update && brew upgrade && brew cu && brew cleanup; brew doctor'
 
 zplug load
 
-source "/Users/mark/.config/scripts/proxy/setup_variables.sh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
