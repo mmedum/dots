@@ -1,33 +1,33 @@
 if &compatible
-    set nocompatible               " Be iMproved
+  set nocompatible               " Be iMproved
 endif
 
 " Required:
-set runtimepath+=/Users/mark/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/mark/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/mark/.config/nvim/dein')
-    call dein#begin('/Users/mark/.config/nvim/dein')
+if dein#load_state('/Users/mark/.cache/dein')
+  call dein#begin('/Users/mark/.cache/dein')
 
-    " Let dein manage dein
-    " Required:
-    call dein#add('/Users/mark/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/mark/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-    " Add or remove your plugins here:
-    call dein#add('Shougo/deoplete.nvim')
-    call dein#add('zchee/deoplete-jedi')
-    call dein#add('itchyny/lightline.vim')
-    call dein#add('morhetz/gruvbox')
-    call dein#add('w0rp/ale')
-    call dein#add('Vimjas/vim-python-pep8-indent')
-    call dein#add('sbdchd/neoformat')
-    call dein#add('airblade/vim-gitgutter')
-    call dein#add('junegunn/fzf')
-    call dein#add('junegunn/fzf.vim')
 
-    " Required:
-    call dein#end()
-    call dein#save_state()
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('zchee/deoplete-jedi')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('morhetz/gruvbox')
+  call dein#add('w0rp/ale')
+  call dein#add('Vimjas/vim-python-pep8-indent')
+  call dein#add('sbdchd/neoformat')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('junegunn/fzf')
+  call dein#add('junegunn/fzf.vim')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
 endif
 
 " Required:
@@ -36,9 +36,8 @@ syntax enable
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
-    call dein#install()
+  call dein#install()
 endif
-
 
 """"""Basic""""""
 let mapleader="\<SPACE>"
@@ -207,4 +206,3 @@ set rtp+=/usr/local/opt/fzf
 set background=dark
 colorscheme gruvbox
 set termguicolors
-
