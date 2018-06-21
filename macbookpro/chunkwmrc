@@ -42,10 +42,10 @@ chunkc core::hotload 1
 #
 
 chunkc set global_desktop_mode           bsp
-chunkc set global_desktop_offset_top     10
-chunkc set global_desktop_offset_bottom  10
-chunkc set global_desktop_offset_left    10
-chunkc set global_desktop_offset_right   10
+chunkc set global_desktop_offset_top     0
+chunkc set global_desktop_offset_bottom  0
+chunkc set global_desktop_offset_left    0
+chunkc set global_desktop_offset_right   0
 chunkc set global_desktop_offset_gap     5
 
 #
@@ -60,8 +60,8 @@ chunkc set global_desktop_offset_gap     5
 # chunkc set 3_desktop_offset_gap          30
 #
 
-chunkc set desktop_padding_step_size     10.0
-chunkc set desktop_gap_step_size         2.0
+chunkc set desktop_padding_step_size     0.0
+chunkc set desktop_gap_step_size         0.0
 
 chunkc set bsp_spawn_left                0
 chunkc set bsp_optimal_ratio             1.618
@@ -87,21 +87,21 @@ chunkc set preselect_border_width        5
 #       (https://github.com/koekeishiya/chwm-sa)
 #
 
-chunkc set window_float_topmost          0
-chunkc set window_fade_inactive          0
-chunkc set window_fade_alpha             0.85
-chunkc set window_fade_duration          0.25
-chunkc set window_use_cgs_move           0
+#chunkc set window_float_topmost          0
+#chunkc set window_fade_inactive          0
+#chunkc set window_fade_alpha             0.85
+#chunkc set window_fade_duration          0.25
+#chunkc set window_use_cgs_move           0
 
 #
 # NOTE: the following are config variables for the chunkwm-border plugin.
 #
 
-chunkc set focused_border_color          0xff0f6288
-chunkc set focused_border_width          5
-chunkc set focused_border_radius         0
-chunkc set focused_border_skip_floating  0
-chunkc set focused_border_skip_monocle   0
+#chunkc set focused_border_color          0xff0f6288
+#chunkc set focused_border_width          5
+#chunkc set focused_border_radius         0
+#chunkc set focused_border_skip_floating  0
+#chunkc set focused_border_skip_monocle   0
 
 #
 # NOTE: the following are config variables for chunkwm-blue plugin
@@ -116,7 +116,7 @@ chunkc set wallpaper_blur 5.0
 #
 
 chunkc core::load blur.so
-chunkc core::load border.so
+#chunkc core::load border.so
 chunkc core::load tiling.so
 
 #

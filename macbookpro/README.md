@@ -1,6 +1,7 @@
 # Installs
 - homebrew
 - cask
+- cask upgrade
 - zsh
 - zsh-completions
 - zplug
@@ -8,7 +9,9 @@
 - neovim
 - python
 - chunkwm
-- chunkwm-blur
+- [chunkwm-blur](https://github.com/splintah/blur)
+- nerdfont (saucecodepro-nerd-font)
+- flake8
 
 # Notes
 
@@ -18,7 +21,7 @@ For job control with iterm and zsh, there is a problem with a lock being placed
 when using zsh [github issue](https://github.com/zplug/zplug/issues/374), the
 fix is to
 ```
-rm <path-to-zplug>/zplug/log/job.lock
+rm /usr/local/opt/zplug/log/job.lock
 ```
 
 ## Zplug update problems
