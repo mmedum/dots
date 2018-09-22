@@ -10,7 +10,7 @@
 - python
 - chunkwm
 - [chunkwm-blur](https://github.com/splintah/blur)
-- nerdfont (saucecodepro-nerd-font)
+- nerdfont (font-sourcecodepro-nerd-font)
 - flake8
 
 # Notes
