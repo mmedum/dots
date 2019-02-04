@@ -10,6 +10,8 @@
 	<integer>1</integer>
 	<key>AppleWindowTabbingMode</key>
 	<string>manual</string>
+	<key>CopyLastNewline</key>
+	<true/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>gruvbox-dark</key>
@@ -356,6 +358,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>48479EBF-54F3-4AC5-98FA-5DD31564E34B</string>
+	<key>HideMenuBarInFullscreen</key>
+	<true/>
 	<key>HideScrollbar</key>
 	<true/>
 	<key>HideTabNumber</key>
@@ -364,10 +368,8 @@
 	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
-	<key>NSFontPanelAttributes</key>
-	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Downloads</string>
+	<string>~/repos/dots/macbookpro/iterm2</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -401,29 +403,42 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
-	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
-	<dict>
-		<key>TB Is Shown</key>
-		<integer>1</integer>
-	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>1409 110 445 195 0 0 1920 1178 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>650 588 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>195 519 796 473 0 0 1920 1178 </string>
+	<string>269 472 1018 447 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2 5 952 576 0 0 1920 1178 </string>
+	<string>-1 597 958 576 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>965 0 952 1178 0 0 1920 1178 </string>
+	<string>965 0 952 1177 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 10</key>
+	<string>603 448 112 134 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 11</key>
+	<string>483 443 112 69 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 12</key>
+	<string>543 517 52 69 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 13</key>
+	<string>483 518 52 30 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 14</key>
+	<string>513 555 22 30 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 15</key>
+	<string>483 546 22 30 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>961 6 958 576 0 0 1920 1178 </string>
+	<string>2 5 952 576 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1441 6 478 576 0 0 1920 1178 </string>
+	<string>965 597 952 576 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>1441 1 238 290 0 0 1920 1178 </string>
+	<string>962 0 958 1177 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>1682 1 238 290 0 0 1920 1178 </string>
+	<string>2 0 472 290 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>721 6 238 134 0 0 1920 1178 </string>
+	<string>242 296 232 290 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 7</key>
+	<string>483 0 472 290 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 8</key>
+	<string>724 296 232 290 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 9</key>
+	<string>483 300 232 134 0 0 1920 1177 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1151,10 +1166,12 @@
 			<string>/Users/mark</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveRequestedFullDiskAccess</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>0AA85E6A-795B-44AE-A8D8-B7E37C0E7C8A</string>
+	<string>E060FEA0-CFA8-4842-B3D3-7D47A5AE8501</string>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1162,7 +1179,7 @@
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>551027580.98950505</real>
+	<real>559554042.60444105</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1203,21 +1220,23 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/mark/Downloads</string>
+	<string>/Users/mark/repos/dots/macbookpro/iterm2</string>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
+	<true/>
+	<key>SUAutomaticallyUpdate</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=85</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=56</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-06-21T20:55:08Z</date>
+	<date>2018-11-09T17:24:45Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>TabStyle</key>
@@ -1228,7 +1247,9 @@
 	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.1.6</string>
+	<string>3.2.5</string>
 </dict>
 </plist>
