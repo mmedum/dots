@@ -31,3 +31,9 @@ fix is to set
 export LANG=en_US.UTF-8
 ```
 in zshrc file
+
+## Insecure dir
+
+```bash
+compaudit | xargs chmod g-w
+```
