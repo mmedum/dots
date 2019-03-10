@@ -403,42 +403,12 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
-	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>650 588 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 472 796 486 0 0 1920 1177 </string>
+	<string>269 172 918 423 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1920 1177 0 0 1920 1177 </string>
+	<string>226 272 490 329 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 0 1920 1177 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 10</key>
-	<string>603 448 112 134 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 11</key>
-	<string>483 443 112 69 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 12</key>
-	<string>543 517 52 69 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 13</key>
-	<string>483 518 52 30 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 14</key>
-	<string>513 555 22 30 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 15</key>
-	<string>483 546 22 30 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>965 0 952 1177 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
-	<string>965 597 952 576 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 4</key>
-	<string>965 0 952 1177 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 5</key>
-	<string>2 0 472 290 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 6</key>
-	<string>242 296 232 290 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 7</key>
-	<string>483 0 472 290 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 8</key>
-	<string>724 296 232 290 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 9</key>
-	<string>483 300 232 134 0 0 1920 1177 </string>
+	<string>247 132 570 329 0 0 1920 1177 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1085,7 +1055,7 @@
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>Default</string>
+			<string>cloudburst</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -1171,15 +1141,13 @@
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>E060FEA0-CFA8-4842-B3D3-7D47A5AE8501</string>
+	<string>3D98627A-8B09-4829-8906-B01CFDB35789</string>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
-	<key>NoSyncPermissionToShowTip</key>
-	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>559554042.60444105</real>
+	<real>573819820.026438</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1225,18 +1193,16 @@
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
-	<key>SUAutomaticallyUpdate</key>
-	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=56</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=78</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-02-03T20:10:59Z</date>
+	<date>2019-03-09T11:53:12Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>TabStyle</key>

@@ -49,6 +49,7 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Aliases
 alias ls='gls --color=auto'
+alias grep='ggrep'
 alias ll='ls -al'
 alias vi='nvim'
 alias vim='nvim'
