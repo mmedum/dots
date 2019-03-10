@@ -6,10 +6,10 @@
 - zsh-completions
 - zplug
 - coreutils
+- grep
 - neovim
 - python
 - chunkwm
-- [chunkwm-blur](https://github.com/splintah/blur)
 - nerdfont (font-sourcecodepro-nerd-font)
 - flake8
 
