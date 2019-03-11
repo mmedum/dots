@@ -4,11 +4,13 @@
 - cask upgrade
 - zsh
 - zsh-completions
-- zplug
+- zplugin
 - coreutils
 - grep
 - neovim
 - python
+- go
+- rust
 - chunkwm
 - nerdfont (font-sourcecodepro-nerd-font)
 - flake8

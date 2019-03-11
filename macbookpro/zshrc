@@ -1,5 +1,7 @@
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# Load zplugin
+source '/Users/mark/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 # Start completions
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -25,14 +27,10 @@ setopt NO_HUP                    # Job control for zsh
 unsetopt HUP
 unsetopt CHECK_JOBS
 
-# Plugins
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "plugins/git", from:oh-my-zsh
-zplug "mafredri/zsh-async", from:github
-zplug "zsh-users/zsh-completions", from:github, defer:2
-zplug "zsh-users/zsh-autosuggestions", from:github, defer:2
-zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:2
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+# Zplugin
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zdharma/fast-syntax-highlighting
+zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
 
 # Dircolors
 eval $(gdircolors ~/.dir_colors)
@@ -55,7 +53,5 @@ alias vi='nvim'
 alias vim='nvim'
 alias brewup='brew update && brew upgrade && brew cu && brew cleanup; brew doctor'
 alias dc='docker-compose'
-
-zplug load
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
