@@ -104,14 +104,6 @@ chunkc set preselect_border_width        5
 #chunkc set focused_border_skip_monocle   0
 
 #
-# NOTE: the following are config variables for chunkwm-blue plugin
-#
-
-chunkc set wallpaper ~/Pictures/interstellar.jpg
-chunkc set wallpaper_mode fill
-chunkc set wallpaper_blur 5.0
-
-#
 # NOTE: specify plugins to load when chunkwm starts.
 #
 
