@@ -14,6 +14,7 @@
 - chunkwm
 - nerdfont (font-sourcecodepro-nerd-font)
 - flake8
+- Kitty
 
 # Notes
 
