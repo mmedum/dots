@@ -11,7 +11,6 @@
 # enter fullscreen mode for the focused container
 alt - f : chunkc tiling::window --toggle fullscreen
 
-
 # navigate focus within a desktop
 ################################################################################
 alt - h : chunkc tiling::window --focus west
@@ -38,7 +37,6 @@ shift + alt - space : chunkc tiling::window --toggle float
 alt - r : chunkc tiling::desktop --rotate 90
 
 # move focused container to workspace
-#shift + alt - m : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
 shift + alt - p : chunkc tiling::window --send-to-desktop prev
 shift + alt - n : chunkc tiling::window --send-to-desktop next
 shift + alt - 1 : chunkc tiling::window --send-to-desktop 1
@@ -51,16 +49,13 @@ shift + alt - 7 : chunkc tiling::window --send-to-desktop 7
 shift + alt - 8 : chunkc tiling::window --send-to-desktop 8
 shift + alt - 9 : chunkc tiling::window --send-to-desktop 9
 
-# kill focused window
-shift + alt - q : chunkc tiling::window --close
+# focus monitor
+shift + ctrl - p  : chunkc tiling::monitor -f prev
+shift + ctrl - n  : chunkc tiling::monitor -f next
 
 # move focused container to monitor
-cmd + shift - h  : chunkc tiling::monitor --send-to-monitor prev
-cmd + shift - l  : chunkc tiling::monitor --send-to-monitor next
+shift + cmd - p  : chunkc tiling::window --send-to-monitor prev
+shift + cmd - n  : chunkc tiling::window --send-to-monitor next
 
-# focus monitor
-cmd + ctrl - h  : chunkc tiling::monitor -f prev
-cmd + ctrl - l  : chunkc tiling::monitor -f next
-cmd + ctrl - 1  : chunkc tiling::monitor -f 1
-cmd + ctrl - 2  : chunkc tiling::monitor -f 2
-cmd + ctrl - 3  : chunkc tiling::monitor -f 3
+# kill focused window
+shift + alt - q : chunkc tiling::window --close
