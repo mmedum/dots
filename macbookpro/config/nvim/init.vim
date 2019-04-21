@@ -15,6 +15,7 @@ if dein#load_state('/Users/mark/.cache/dein')
 
 
   call dein#add('Shougo/deoplete.nvim')
+  call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
   call dein#add('zchee/deoplete-jedi')
   call dein#add('itchyny/lightline.vim')
   call dein#add('morhetz/gruvbox')
@@ -111,6 +112,10 @@ let g:go_list_type = 'quickfix'
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']                                                                                                                                                       
 let g:go_list_autoclose = 1                                                                                                                                                                                    
 let g:go_gocode_unimported_packages = 1 
+
+let g:deoplete#sources#go#gocode_binary = $HOME.'/go/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#source_importer = 1
 
 """"""Trailing whitespace""""""
 " display tabs and trailing spaces
