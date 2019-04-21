@@ -54,8 +54,8 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # Aliases
 alias ls='gls --color=auto'
-alias grep='ggrep'
 alias ll='gls -al'
+alias grep='rg'
 alias vi='nvim'
 alias vim='nvim'
 alias brewup='brew update && brew upgrade && brew cu && brew cleanup; brew doctor'
