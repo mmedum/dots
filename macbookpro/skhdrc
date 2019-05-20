@@ -37,8 +37,6 @@ shift + alt - space : chunkc tiling::window --toggle float
 alt - r : chunkc tiling::desktop --rotate 90
 
 # move focused container to workspace
-shift + alt - p : chunkc tiling::window --send-to-desktop prev
-shift + alt - n : chunkc tiling::window --send-to-desktop next
 shift + alt - 1 : chunkc tiling::window --send-to-desktop 1
 shift + alt - 2 : chunkc tiling::window --send-to-desktop 2
 shift + alt - 3 : chunkc tiling::window --send-to-desktop 3
