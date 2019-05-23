@@ -56,6 +56,10 @@ export GOROOT="$(brew --prefix golang)/libexec"
 # Path
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
 # Aliases
 alias ls='gls --color=auto'
 alias ll='gls -al'
