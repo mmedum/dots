@@ -6,6 +6,9 @@ autoload -Uz _zplugin
 # Start completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
+# Alacritty zsh functions
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+
 # History
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
