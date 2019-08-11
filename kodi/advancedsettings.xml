@@ -1,6 +1,0 @@
-﻿<advancedsettings>
-  <tvshowmatching action="prepend">
-    <regexp> - ()(\d+)((?:-\d+)*)(?:v\d+)? - [^\\/]*$</regexp>
-    <regexp defaultseason="0"> - ()s(\d+)((?:-\d+)*)(?:v\d+)? - [^\\/]*$</regexp>
-  </tvshowmatching>
-</advancedsettings>

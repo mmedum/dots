@@ -1,0 +1,94 @@
+### zsh ###
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt BANG_HIST                 # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+unsetopt SHARE_HISTORY           # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS          # Dont record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE         # Dont record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Dont write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY               # Dont execute immediately upon history expansion.
+setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+setopt NO_HUP                    # Job control for zsh
+unsetopt HUP
+unsetopt CHECK_JOBS
+###
+
+### Dircolors ###
+# Mac
+eval $(gdircolors ~/.dir_colors)
+
+# Linux
+eval $(dircolors ~/.dir_colors)
+###
+
+### Editor
+export EDITOR=nvim
+###
+
+### LANG
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+###
+
+### Golang
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+###
+
+### Path
+# Go
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+###
+
+### Aliases
+alias grep='rg'
+alias vi='nvim'
+alias vim='nvim'
+
+# Linux alias
+alias ls='ls --color=auto'
+alias ll='ls -al'
+
+# Mac alias
+alias ls='gls --color=auto'
+alias ll='gls -al'
+alias brewup='brew update && brew upgrade && brew cu && brew cleanup; brew doctor'
+###
+
+### zplugin
+# Mac
+source '/Users/mark/.zplugin/bin/zplugin.zsh'
+# Linux
+source '/home/mark/.zplugin/bin/zplugin.zsh'
+
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+
+# plugins
+zplugin ice wait lucid from"gh-r" as"program"
+zplugin light junegunn/fzf-bin
+
+zplugin ice wait"0" blockf lucid
+zplugin light zsh-users/zsh-completions
+
+zplugin ice wait"0" atinit"ZPLGM[COMPINIT_OPTS]='-i' zpcompinit; zpcdreplay" lucid
+zplugin light zdharma/fast-syntax-highlighting
+
+zplugin ice wait"0" atload"_zsh_autosuggest_start" lucid
+zplugin light zsh-users/zsh-autosuggestions
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+
+zplugin ice pick"async.zsh" src"pure.zsh"
+zplugin light sindresorhus/pure
+###

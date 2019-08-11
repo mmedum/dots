@@ -1,0 +1,155 @@
+;:set syn=dosini
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+
+[colors]
+white = #d1d1d1
+gray = #585858
+black = #090909
+red = #c795ae
+blue = #95aec7
+yellow = #c7ae95
+green = #aec795
+transparent = #00000000
+
+background = #00FFFFFF
+foreground = #FFFFFF
+
+[bar/top]
+bottom = false
+monitor = ${env:MONITOR}
+override-redirect = false
+wm-restack = i3
+width = 100%
+height = 26
+
+enable-ipc = true
+
+padding-left = 0
+padding-right = 1
+
+module-margin-right = 1
+module-margin-left = 0
+
+modules-left = i3 xwindow
+modules-center = 
+modules-right = volume wlan battery date
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+underline-size = 1
+underline-color = ${colors.foreground}
+
+tray-detached = false
+tray-position = right
+tray-transparent = true
+
+font-0 = SourceCodeProMedium:size=10;0
+font-1 = FontAwesome:size=10;0
+font-2 = SourceCodeProMedium:weight=bold:size=8;0
+font-3 = FontAwesome:size=10;0
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 30
+
+[module/i3]
+type = internal/i3
+enable-click = true
+enable-scroll = false
+strip-wsnumbers = true
+
+ws-icon-0 = 1:; 
+ws-icon-1 = 2:; 
+ws-icon-2 = 3:; 
+ws-icon-3 = 4:;  
+ws-icon-4 = 5:; 
+ws-icon-default = 
+
+label-focused-padding = 1
+label-focused-background = ${colors.gray}
+
+label-unfocused-padding = 1
+label-visible-padding = 1
+
+label-urgent-padding = 1
+label-urgent-foreground = ${colors.red}
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+format-connected-padding = 1
+format-disconnected-padding = 1
+
+format-connected = <label-connected>
+format-connected-underline = ${colors.foreground}
+format-disconnected-underline = ${colors.gray}
+
+label-connected = %essid%
+label-disconnected = 
+label-disconnected-foreground = ${colors.gray}
+
+[module/date]
+type = internal/date
+date =  %m/%d/%y %H:%M 
+interval = 5
+format-underline = ${colors.foreground}
+format-foreground = ${colors.foreground}
+format-padding = 1
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume>
+
+label-volume =  %percentage%%
+label-volume-foreground = ${colors.foreground}
+
+label-muted = 
+label-muted-foreground = ${colors.gray}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+#full-at = 100
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.foreground}
+format-charging-padding = 1
+
+label-charging =  %time%
+label-discharging = %time% %{o- -o}
+label-full = %{F-} %%{F-}
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${colors.yellow}
+format-discharging-padding = 1
+
+format-full-underline = ${self.format-charging-underline}
+format-full-overline = ${self.format-charging-underline}
+format-full-padding = 1
+
+ramp-capacity-0 = %{F#e31a1c o#e31a1c +o} %{F-}
+ramp-capacity-1 = %{F#e31a1c o#e31a1c +o} %{F-}
+ramp-capacity-2 = %{F#d7a645 o#d7a645 +o} %{F-}
+ramp-capacity-3 = %{F#31a354 o#31a354 +o} %{F-}
+ramp-capacity-4 = %{F#31a354 o#31a354 +o} %{F-}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 500
+
+; vim:ft=dosini
