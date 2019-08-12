@@ -1,20 +1,19 @@
 # Installs
 - homebrew
-- cask
 - cask upgrade
 - zsh
-- zsh-completions
 - zplugin
 - coreutils
-- grep
+- ripgrep
 - neovim
 - python
 - go
 - rust
-- chunkwm
+- yabai
+- skhd
 - nerdfont (font-sourcecodepro-nerd-font)
 - flake8
-- Kitty
+- Alacritty
 
 # Notes
 

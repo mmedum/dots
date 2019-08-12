@@ -24,10 +24,6 @@ unsetopt CHECK_JOBS
 # Mac
 eval $(gdircolors ~/.dir_colors)
 
-# Linux
-eval $(dircolors ~/.dir_colors)
-###
-
 ### Editor
 export EDITOR=nvim
 ###
@@ -56,10 +52,6 @@ alias grep='rg'
 alias vi='nvim'
 alias vim='nvim'
 
-# Linux alias
-alias ls='ls --color=auto'
-alias ll='ls -al'
-
 # Mac alias
 alias ls='gls --color=auto'
 alias ll='gls -al'
@@ -69,9 +61,6 @@ alias brewup='brew update && brew upgrade && brew cu && brew cleanup; brew docto
 ### zplugin
 # Mac
 source '/Users/mark/.zplugin/bin/zplugin.zsh'
-# Linux
-source '/home/mark/.zplugin/bin/zplugin.zsh'
-
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
@@ -92,3 +81,7 @@ export ZSH_AUTOSUGGEST_USE_ASYNC=1
 zplugin ice pick"async.zsh" src"pure.zsh"
 zplugin light sindresorhus/pure
 ###
+
+# Mac
+# zsh keybinding fix
+bindkey -e
