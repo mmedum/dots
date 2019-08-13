@@ -1,0 +1,30 @@
+# Taps
+tap "homebrew/core"
+tap "homebrew/services"
+tap "homebrew/homebrew-cask"
+tap "homebrew/cask-fonts"
+tap "koekeishiya/formulae"
+tap "buo/cask-upgrade"
+
+# Brew installs
+brew "coreutils"
+brew "flake8"
+brew "ripgrep"
+brew "zsh"
+brew "python"
+brew "go"
+brew "git"
+brew "neovim"
+brew "koekeishiya/formulae/skhd"
+brew "yabai", args: ['HEAD']
+brew "htop"
+brew "fzf"
+
+# Cask installs
+cask "docker"
+cask "alacritty"
+cask "google-chrome"
+cask "slack"
+
+# Cask tap installs
+cask "font-sourcecodepro-nerd-font"

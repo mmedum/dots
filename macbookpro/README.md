@@ -1,30 +1,20 @@
-# Installs
-- homebrew
-- cask upgrade
-- zsh
-- zplugin
-- coreutils
-- ripgrep
-- neovim
-- python
-- go
-- rust
-- yabai
-- skhd
-- nerdfont (font-sourcecodepro-nerd-font)
-- flake8
-- Alacritty
+# Installation notes
 
-# Notes
+## Homebrew
+Installation is done by running
+```bash
+homebrew bundle
+```
 
-## Use homebrew zsh instead of default zsh
-
+## zsh
+### Use Homebrew zsh instead of default zsh
+Since Homebrew install zsh at `/usr/local/bin/zsh`, it is needed to point the
+the default shell to that specific path.
 ```bash
 sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 ```
 
-## Zsh job control problems
-
+### Zsh job control problems in Iterm
 For job control with iterm and zsh, there is a problem with a lock being placed
 when using zsh [github issue](https://github.com/zplug/zplug/issues/374), the
 fix is to
@@ -32,7 +22,13 @@ fix is to
 rm /usr/local/opt/zplug/log/job.lock
 ```
 
-## Zplug update problems
+### Insecure dir
+```bash
+compaudit | xargs chmod g-w
+```
+
+## zplugin
+### Zplug update problems
 if the LANG is not set, zplug will have updating problems, see [github issue](https://github.com/zplug/zplug/issues/420), 
 fix is to set
 ```bash
@@ -40,8 +36,10 @@ export LANG=en_US.UTF-8
 ```
 in zshrc file
 
-## Insecure dir
-
+## yabai
+### Scripting addition
 ```bash
-compaudit | xargs chmod g-w
+sudo yabai --install-sa
 ```
+
+

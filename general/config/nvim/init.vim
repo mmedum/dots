@@ -13,8 +13,11 @@ if dein#load_state('/Users/mark/.cache/dein')
   " Required:
   call dein#add('/Users/mark/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-
   call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+      call dein#add('roxma/nvim-yarp')
+      call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
   call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
   call dein#add('zchee/deoplete-jedi')
   call dein#add('itchyny/lightline.vim')
@@ -23,10 +26,8 @@ if dein#load_state('/Users/mark/.cache/dein')
   call dein#add('Vimjas/vim-python-pep8-indent')
   call dein#add('sbdchd/neoformat')
   call dein#add('airblade/vim-gitgutter')
-  call dein#add('junegunn/fzf')
   call dein#add('junegunn/fzf.vim')
   call dein#add('rust-lang/rust.vim')
-  call dein#add('ensime/ensime-vim')
   call dein#add('fatih/vim-go')
 
   " Required:
@@ -72,7 +73,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-
 set noshowmode
 set nu
 set cursorline
@@ -107,10 +107,10 @@ let g:python_host_prog = '/usr/local/bin/python3'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 """"""Golang""""""
-let g:go_fmt_command = 'goimports'                                                                                                                                                                             
-let g:go_list_type = 'quickfix'                                                                                                                                                                                
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']                                                                                                                                                       
-let g:go_list_autoclose = 1                                                                                                                                                                                    
+let g:go_fmt_command = 'goimports'
+let g:go_list_type = 'quickfix'
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_list_autoclose = 1
 let g:go_gocode_unimported_packages = 1 
 
 let g:deoplete#sources#go#gocode_binary = $HOME.'/go/bin/gocode'
@@ -186,7 +186,6 @@ function! s:MaybeUpdateLightline()
     end
 endfunction
 
-
 """"""Neoformat""""""
 " Enable alignment
 let g:neoformat_basic_format_align = 1
@@ -206,16 +205,16 @@ let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 
 """"""FZF""""""
+" Enable fzf through zplugin installation
+set rtp+=/usr/local/opt/fzf
+
 nnoremap <leader>o :FZF -m<cr>  
-nnoremap <leader>r :FZF -m /home/mark/repos<cr>  
+nnoremap <leader>r :FZF -m ~<cr>  
 
 """"""Functions""""""
 " http://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
-""""""fzf""""""
-set rtp+=/usr/local/opt/fzf
 
 """"""Color scheme""""""
 set background=dark
