@@ -51,6 +51,7 @@ eval "$(jenv init -)"
 alias grep='rg'
 alias vi='nvim'
 alias vim='nvim'
+alias zpluginup='zplugin self-update && zplugin update'
 
 # Mac alias
 alias ls='gls --color=auto'
