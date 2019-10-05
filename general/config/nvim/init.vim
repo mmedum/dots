@@ -18,8 +18,10 @@ if dein#load_state('/Users/mark/.cache/dein')
       call dein#add('roxma/nvim-yarp')
       call dein#add('roxma/vim-hug-neovim-rpc')
   endif
+  let g:deoplete#enable_at_startup = 1
+
   call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
-  call dein#add('zchee/deoplete-jedi')
+  call dein#add('deoplete-plugins/deoplete-jedi')
   call dein#add('itchyny/lightline.vim')
   call dein#add('morhetz/gruvbox')
   call dein#add('w0rp/ale')
@@ -133,9 +135,6 @@ nnoremap <leader>, :nohlsearch<CR>
 
 """"""Search and replace""""""
 set inccommand=split
-
-""""""Autocomplete setup""""""
-let g:deoplete#enable_at_startup = 1
 
 " Close the documentation window when completion is done
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
