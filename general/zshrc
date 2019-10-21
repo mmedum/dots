@@ -42,9 +42,9 @@ export GOROOT="$(brew --prefix golang)/libexec"
 # Go
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# Rust
+export PATH="$PATH:${HOME}/.cargo/bin"
+
 ###
 
 ### Aliases
