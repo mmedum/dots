@@ -3,6 +3,7 @@ if &compatible
 endif
 
 " Required:
+"""" Mac
 set runtimepath+=/Users/mark/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
@@ -12,6 +13,20 @@ if dein#load_state('/Users/mark/.cache/dein')
   " Let dein manage dein
   " Required:
   call dein#add('/Users/mark/.cache/dein/repos/github.com/Shougo/dein.vim')
+""""
+
+""""" Linux
+" Required:
+set runtimepath+=/home/mark/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/home/mark/.cache/dein')
+  call dein#begin('/home/mark/.cache/dein')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/home/mark/.cache/dein/repos/github.com/Shougo/dein.vim')
+""""
 
   call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
@@ -105,9 +120,16 @@ set undodir=~/.config/undo/
 inoremap jk <esc>
 
 """"""Python""""""
+"""" Mac
 let g:python_host_prog = '/usr/local/bin/python3'
 let g:python3_host_prog = '/usr/local/bin/python3'
+""""
 
+"""" Linux
+let g:python_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
+
+""""
 """"""Golang""""""
 let g:go_fmt_command = 'goimports'
 let g:go_list_type = 'quickfix'
