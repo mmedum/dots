@@ -42,9 +42,9 @@ export GOROOT="$(brew --prefix golang)/libexec"
 # Go
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 ###
 
 ### Aliases
@@ -66,9 +66,6 @@ autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 # plugins
-zplugin ice wait lucid from"gh-r" as"program"
-zplugin light junegunn/fzf-bin
-
 zplugin ice wait"0" blockf lucid
 zplugin light zsh-users/zsh-completions
 
