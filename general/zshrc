@@ -21,8 +21,13 @@ unsetopt CHECK_JOBS
 ###
 
 ### Dircolors ###
+# Linux
+eval $(dircolors ~/.dir_colors)
+###
+
 # Mac
 eval $(gdircolors ~/.dir_colors)
+###
 
 ### Editor
 export EDITOR=nvim
@@ -43,7 +48,7 @@ export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # Rust
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:${HOME}/.cargo/bin"
 
 ###
 
@@ -53,6 +58,11 @@ alias vi='nvim'
 alias vim='nvim'
 alias zpluginup='zplugin self-update && zplugin update'
 
+# Linux alias
+alias ls='ls --color=auto'
+alias ll='ls -al'
+###
+
 # Mac alias
 alias ls='gls --color=auto'
 alias ll='gls -al'
@@ -60,8 +70,12 @@ alias brewup='brew update && brew upgrade && brew cu && brew cleanup; brew docto
 ###
 
 ### zplugin
+# Linux
+source '/home/mark/.zplugin/bin/zplugin.zsh'
+
 # Mac
 source '/Users/mark/.zplugin/bin/zplugin.zsh'
+
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
