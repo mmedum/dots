@@ -19,6 +19,7 @@ brew "koekeishiya/formulae/skhd"
 brew "yabai", args: ['HEAD']
 brew "htop"
 brew "fzf"
+brew "httpie"
 
 # Cask installs
 cask "docker"
