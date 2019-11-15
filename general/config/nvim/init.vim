@@ -70,9 +70,6 @@ set mouse=a
 
 let g:tex_flavor = "latex"
 
-" auto wrap for markdown files
-au BufRead,BufNewFile *.md setlocal textwidth=80
-
 " Write file
 nnoremap <Leader>w :w<CR>
 " Quit file
@@ -140,6 +137,14 @@ let g:go_gocode_unimported_packages = 1
 let g:deoplete#sources#go#gocode_binary = $HOME.'/go/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#go#source_importer = 1
+
+""""""YAML""""""
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+""""""Markdown""""""
+" auto wrap for markdown files
+au BufRead,BufNewFile *.md setlocal textwidth=80
 
 """"""Trailing whitespace""""""
 " display tabs and trailing spaces

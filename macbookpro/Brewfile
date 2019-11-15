@@ -20,7 +20,6 @@ brew "yabai", args: ['HEAD']
 brew "htop"
 brew "fzf"
 brew "httpie"
-brew "pipenv"
 
 # Cask installs
 cask "docker"
