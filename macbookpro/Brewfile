@@ -25,6 +25,8 @@ brew "httpie"
 cask "docker"
 cask "alacritty"
 cask "google-chrome"
+cask "firefox"
+cask "brave-browser"
 cask "slack"
 
 # Cask tap installs
