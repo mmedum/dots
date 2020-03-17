@@ -71,11 +71,10 @@ alias zinitup='zinit self-update && zinit update'
 alias ls='gls --color=auto'
 alias ll='gls -al --color=auto'
 alias brewup='brew update && brew upgrade && brew cu && brew cleanup; brew doctor'
-###
 
 # plugins
 zplugin wait lucid for \
- atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
     zdharma/fast-syntax-highlighting \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
