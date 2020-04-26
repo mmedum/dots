@@ -31,4 +31,4 @@ cask "brave-browser"
 cask "slack"
 
 # Cask tap installs
-cask "font-sourcecodepro-nerd-font"
+cask "font-saucecodepro-nerd-font"
