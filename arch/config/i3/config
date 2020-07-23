@@ -33,7 +33,7 @@ font pango:Source Code Pro Medium 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -144,11 +144,10 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+b exec ~/.config/i3/scripts/lock.sh
 
 # Autolock
-exec_always --no-startup-id xidlehook --time 1 --timer 'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness 1; ~/.config/i3/scripts/lock.sh' --notify 10 --notifier 'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness .1' --canceller 'xrandr --output "$(xrandr | grep primary | cut -d " " -f 1)" --brightness 1' --not-when-fullscreen
+exec_always --no-startup-id ~/.config/i3/scripts/idle_lock.sh
 
 # Assign programs
-assign [class="Google-chrome"] $ws3
-assign [class="skypeforlinux"] $ws4
+assign [class="Brave"] $ws3
 assign [class="Slack"] $ws4
 
 # reload the configuration file
@@ -184,7 +183,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
 # key settings
 # Multimedia keys volume
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
@@ -196,12 +194,6 @@ bindsym XF86MonBrightnessUp exec light -A 2
 bindsym XF86MonBrightnessDown exec light -U 2
 
 # autostart elements
-
-# compton
-exec_always --no-startup-id compton --config /home/mark/.config/compton/config
-
-# wallpaper
-exec_always --no-startup-id feh --bg-scale /home/mark/walls/nier.jpg
 
 # polybar
 exec_always --no-startup-id /home/mark/.config/polybar/launch.sh

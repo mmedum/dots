@@ -19,7 +19,7 @@ monitor = ${env:MONITOR}
 override-redirect = false
 wm-restack = i3
 width = 100%
-height = 26
+height = 16
 
 enable-ipc = true
 
@@ -46,9 +46,9 @@ tray-maxsize =  16
 tray-background = ${colors.background}
 
 font-0 = SourceCodeProMedium:size=8;0
-font-1 = FontAwesome5Free:style=Solid:pixelsize=10
+font-1 = FontAwesome5Free:style=Solid:pixelsize=8
 font-2 = SourceCodeProMedium:weight=bold:size=8;0
-font-3 = FontAwesome5Brands:style=Solid:pixelsize=10
+font-3 = FontAwesome5Brands:style=Solid:pixelsize=8
 
 [module/xwindow]
 type = internal/xwindow
@@ -78,7 +78,7 @@ label-urgent-foreground = ${colors.red}
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlan0
 interval = 3.0
 
 format-connected-padding = 1
@@ -116,7 +116,7 @@ format-foreground = ${colors.white}
 format-padding = 1
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = <label-volume>
 
