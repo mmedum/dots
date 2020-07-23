@@ -2,7 +2,7 @@
 
 ## Homebrew
 
-For installing all 
+For installing all brew dependencies
 
 ```bash
 brew bundle
@@ -68,9 +68,9 @@ If `zsh` complains about insecure dirs, run below command
 compaudit | xargs chmod g-w
 ```
 
-## zplugin
+## zinit
 
-### Zplug update problems
+### Zinit update problems
 
 if the LANG is not set, zplug will have updating problems, 
 see [github issue](https://github.com/zplug/zplug/issues/420), the solution is
