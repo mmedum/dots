@@ -41,6 +41,9 @@ bindsym $mod+q kill
 # start rofi program launcher
 bindsym $mod+space exec --no-startup-id  rofi -show run
 
+# start rofi window manager
+bindsym $mod+Tab exec --no-startup-id  rofi -show window
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -80,8 +83,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Navigation
-bindsym $mod+Tab exec i3-msg workspace next
-bindsym $mod+Shift+Tab exec i3-msg workspace prev
+# bindsym $mod+Tab exec i3-msg workspace next
+# bindsym $mod+Shift+Tab exec i3-msg workspace prev
 
 # gaps settings
 new_window none
@@ -200,6 +203,9 @@ exec_always --no-startup-id /home/mark/.config/polybar/launch.sh
 
 # dunst
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+
+# nitrogen
+exec --no-startup-id nitrogen --restore
 
 # scrot
 bindsym Print exec scrot -e 'mv $f ~/temp/screenshots/'
