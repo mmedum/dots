@@ -39,10 +39,10 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start rofi program launcher
-bindsym $mod+space exec --no-startup-id  rofi -show run
+bindsym $mod+space exec --no-startup-id rofi -show run
 
 # start rofi window manager
-bindsym $mod+Tab exec --no-startup-id  rofi -show window
+bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 # change focus
 bindsym $mod+h focus left
