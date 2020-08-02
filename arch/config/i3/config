@@ -201,6 +201,9 @@ bindsym XF86MonBrightnessDown exec light -U 2
 # polybar
 exec_always --no-startup-id /home/mark/.config/polybar/launch.py
 
+# picom
+exec --no-startup-id picom -cC
+
 # dunst
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
