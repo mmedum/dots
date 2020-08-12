@@ -207,8 +207,8 @@ exec --no-startup-id picom -cC
 # dunst
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
-# nitrogen
-exec --no-startup-id nitrogen --restore
+# feh
+exec --no-startup-id feh --no-xinerama --no-fehbg --bg-scale ~/walls/forest.jpg 
 
 # scrot
 bindsym Print exec scrot -e 'mv $f ~/temp/screenshots/'

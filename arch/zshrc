@@ -54,16 +54,24 @@ export LANG=en_US.UTF-8
 ###
 
 ### Golang
-export GOPATH="${HOME}/.go"
+export GOHOME="${HOME}/go"
 ###
 
 ### Path
 # Go
-export PATH="$PATH:${GOPATH}/bin"
+export PATH="$PATH:${GOHOME}/bin"
 
 # Rust
 export PATH="$PATH:${HOME}/.cargo/bin"
 
+# Toit
+export PATH="$PATH:${HOME}/repos/toitware/console/build"
+
+# Pulumi
+export PATH=$PATH:$HOME/.pulumi/bin
+
+# Bins
+export PATH=$PATH:$HOME/.bins
 ###
 
 ### Aliases
@@ -89,3 +97,5 @@ zplugin lucid \
  pick"/dev/null" multisrc"{async,pure}.zsh" atload'!prompt_pure_precmd' nocd for \
     sindresorhus/pure
 ###
+
+
