@@ -85,13 +85,21 @@ alias ls='ls --color=auto'
 alias ll='ls -al --color=auto'
 
 # plugins
-zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma/fast-syntax-highlighting
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
+    zdharma/fast-syntax-highlighting \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+ blockf \
+    zsh-users/zsh-completions
 
-zinit load zdharma/history-search-multi-word
+zinit wait"1" lucid for \
+  atinit'zstyle ":history-search-multi-word" page-size "7"' \
+    zdharma/history-search-multi-word \
 
-zinit ice pick"async.zsh" src"pure.zsh"
-zinit light sindresorhus/pure
+zinit lucid load \
+ pick"/dev/null" multisrc"{async,pure}.zsh" atload'!prompt_pure_precmd' nocd for \
+    sindresorhus/pure
 
 zinit ice from"gh-r" as"program"
 zinit load junegunn/fzf-bin
