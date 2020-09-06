@@ -1,8 +1,11 @@
 #!/usr/bin/env sh
 
+notify-send "DUNST_COMMAND_PAUSE"
+
 image="${HOME}/walls/forest.jpg"
 
-i3lock --centered \
+i3lock --nofork \
+    --centered \
     --color=282828FF \
     --image="$image" \
     --insidecolor=00000000 \
@@ -26,6 +29,9 @@ i3lock --centered \
     --locktext='' \
     --lockfailedtext='' \
     --ignore-empty-password \
+    --pass-volume-keys \
     --pass-media-keys \
     --pass-screen-keys \
     --force-clock
+
+notify-send "DUNST_COMMAND_RESUME"
