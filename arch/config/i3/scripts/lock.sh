@@ -4,8 +4,7 @@ notify-send "DUNST_COMMAND_PAUSE"
 
 image="${HOME}/walls/forest.jpg"
 
-i3lock --nofork \
-    --centered \
+i3lock --centered \
     --color=282828FF \
     --image="$image" \
     --insidecolor=00000000 \
