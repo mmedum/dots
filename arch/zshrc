@@ -72,7 +72,14 @@ export PATH=$PATH:$HOME/.pulumi/bin
 
 # Bins
 export PATH=$PATH:$HOME/.bins
+
+# Xtensa
+export PATH="$HOME/esp/xtensa-esp32-elf/bin:$PATH"
+
+# ESP
+export PATH="$HOME/esp/esp32ulp-elf-binutils/bin:$PATH"
 ###
+
 
 ### Aliases
 alias grep='rg'
@@ -94,7 +101,7 @@ zinit wait lucid for \
     zsh-users/zsh-completions
 
 zinit wait"1" lucid for \
-  atinit'zstyle ":history-search-multi-word" page-size "7"' \
+  atinit'zstyle ":history-search-multi-word" page-size "15"' \
     zdharma/history-search-multi-word \
 
 zinit lucid load \
@@ -102,4 +109,4 @@ zinit lucid load \
     sindresorhus/pure
 
 zinit ice from"gh-r" as"program"
-zinit load junegunn/fzf-bin
+zinit load junegunn/fzf
