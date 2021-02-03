@@ -64,6 +64,9 @@ export PATH="$PATH:${GOHOME}/bin"
 # Rust
 export PATH="$PATH:${HOME}/.cargo/bin"
 
+# Terraform
+export PATH="$PATH:${HOME}/.terraform"
+
 # Toit
 export PATH="$PATH:${HOME}/repos/toitware/console/build"
 
@@ -105,7 +108,7 @@ zinit wait"1" lucid for \
     zdharma/history-search-multi-word \
 
 zinit lucid load \
- pick"/dev/null" multisrc"{async,pure}.zsh" atload'!prompt_pure_precmd' nocd for \
+ pick"/dev/null" ver"main" multisrc"{async,pure}.zsh" atload'!prompt_pure_precmd' nocd for \
     sindresorhus/pure
 
 zinit ice from"gh-r" as"program"
