@@ -1,0 +1,53 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": [
+        "go",
+        "json"
+    ],
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "initializationOptions": {
+                "usePlaceholders": false,
+                "completeUnimported": true,
+                "hoverKind": "FullDocumentation"
+            },
+            "rootPatterns": [
+                "go.mod",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "disableWorkspaceFolders": true,
+            "filetypes": [
+                "go"
+            ]
+        },
+        "terraform": {
+            "command": "terraform-ls",
+            "args": [
+                "serve"
+            ],
+            "filetypes": [
+                "terraform",
+                "tf"
+            ],
+            "initializationOptions": {}
+        },
+        "toit": {
+            "command": "toit",
+            "args": [
+                "tool",
+                "lsp",
+                "--context",
+                "remote"
+            ],
+            "trace.server": "verbose",
+            "filetypes": [
+                "toit"
+            ]
+        }
+    },
+    "yaml.schemas": {
+        "kubernetes": "/*.yaml"
+    }
+}
