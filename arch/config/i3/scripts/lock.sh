@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-notify-send "DUNST_COMMAND_PAUSE"
+dunstctl set-paused true
 
 image="${HOME}/walls/forest.jpg"
 
@@ -33,4 +33,4 @@ i3lock --centered \
     --pass-screen-keys \
     --force-clock
 
-notify-send "DUNST_COMMAND_RESUME"
+dunstctl set-paused false
