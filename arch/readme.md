@@ -11,3 +11,17 @@ Arch Linux is installed by using [Endeavouros](https://endeavouros.com/)
 - Zinit
 - Alacritty
 - Zsh
+
+## X11
+
+```bash
+cp *.conf /etc/X11/xorg.conf.d/
+```
+
+## Lock machine on sleep/suspend
+
+```bash
+cp i3lock@.service /usr/lib/systemd/system/
+
+systemctl enable i3lock@$USER
+```

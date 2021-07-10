@@ -1,0 +1,14 @@
+[Unit]
+Description=Starts i3lock at sleep/suspend time
+Before=sleep.target 
+Before=suspend.target
+
+[Service]
+User=%I
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/home/mark/.config/i3/scripts/lock.sh
+
+[Install]
+WantedBy=sleep.target
+WantedBy=suspend.target
