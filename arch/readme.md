@@ -21,7 +21,7 @@ cp *.conf /etc/X11/xorg.conf.d/
 ## Lock machine on sleep/suspend
 
 ```bash
-cp i3lock@.service /usr/lib/systemd/system/
+cp screenlock@.service /usr/lib/systemd/system/
 
-systemctl enable i3lock@$USER
+systemctl enable screenlock@$USER
 ```

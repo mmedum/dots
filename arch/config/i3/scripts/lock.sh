@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-dunstctl set-paused true
+#dunstctl set-paused true
 
 image="${HOME}/walls/firewatch.jpg"
 
@@ -33,4 +33,4 @@ i3lock --centered \
     --pass-screen-keys \
     --force-clock
 
-dunstctl set-paused false
+#dunstctl set-paused false
