@@ -2,31 +2,31 @@
 
 dunstctl set-paused true
 
-image="${HOME}/walls/forest.jpg"
+image="${HOME}/walls/firewatch.jpg"
 
 i3lock --centered \
     --color=282828FF \
     --image="$image" \
-    --insidecolor=00000000 \
-    --insidevercolor=00000000 \
-    --insidewrongcolor=00000000 \
-    --ringcolor=282828FF \
-    --ringvercolor=282828FF \
-    --ringwrongcolor=282828FF \
-    --linecolor=00000000 \
-    --keyhlcolor=EBDBB2FF \
-    --separatorcolor=282828FF \
-    --timecolor=EBDBB2FF \
-    --datecolor=EBDBB2FF \
+    --inside-color=00000000 \
+    --insidever-color=00000000 \
+    --insidewrong-color=00000000 \
+    --ring-color=282828FF \
+    --ringver-color=282828FF \
+    --ringwrong-color=282828FF \
+    --line-color=00000000 \
+    --keyhl-color=EBDBB2FF \
+    --separator-color=282828FF \
+    --time-color=EBDBB2FF \
+    --date-color=EBDBB2FF \
     --ring-width=2 \
-    --timestr='%H:%M:%S' \
+    --time-str='%H:%M:%S' \
     --time-font='Source Code Pro Medium' \
-    --greetertext='' \
-    --veriftext='' \
-    --wrongtext='' \
-    --noinputtext='' \
-    --locktext='' \
-    --lockfailedtext='' \
+    --greeter-text='' \
+    --verif-text='' \
+    --wrong-text='' \
+    --noinput-text='' \
+    --lock-text='' \
+    --lockfailed-text='' \
     --ignore-empty-password \
     --pass-volume-keys \
     --pass-media-keys \
