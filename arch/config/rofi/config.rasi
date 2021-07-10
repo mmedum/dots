@@ -1,6 +1,6 @@
 configuration {
         modi: "combi,drun,run,window,ssh";
-        font: "Source Code Pro 10";
+        font: "Source Code Pro 12";
         show-icons: true;
         icon-theme: "Papirus-Dark";
         combi-modi: "drun,run,window,ssh";

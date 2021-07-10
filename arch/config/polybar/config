@@ -28,7 +28,7 @@ monitor = ${env:MONITOR}
 override-redirect = false
 wm-restack = i3
 width = 100%
-height = 16
+height = 25
 offset-x = 0
 offset-y = 0
 
@@ -58,10 +58,10 @@ tray-padding = 0
 tray-transparent = false
 tray-scale = 1.0
 
-font-0 = SourceCodeProMedium:size=8;0
-font-1 = FontAwesome5Free:style=Solid:pixelsize=8
-font-2 = SourceCodeProMedium:weight=bold:size=8;0
-font-3 = FontAwesome5Brands:style=Solid:pixelsize=8
+font-0 = SourceCodeProMedium:size=12;0
+font-1 = FontAwesome5Free:style=Solid:pixelsize=12
+font-2 = SourceCodeProMedium:weight=bold:size=12;0
+font-3 = FontAwesome5Brands:style=Solid:pixelsize=12
 
 [module/xwindow]
 type = internal/xwindow
