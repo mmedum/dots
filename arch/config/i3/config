@@ -149,8 +149,11 @@ bindsym $mod+b exec ~/.config/i3/scripts/lock.sh
 # Autolock
 exec_always --no-startup-id ~/.config/i3/scripts/idle_lock.sh
 
+# Extend screen
+bindsym $mod+p exec ~/.config/i3/scripts/screen.sh
+
 # Assign programs
-assign [class="Brave"] $ws3
+assign [class="Google Chrome"] $ws3
 assign [class="Slack"] $ws4
 
 # reload the configuration file
@@ -193,8 +196,8 @@ bindsym XF86AudioLowerVolume exec  pactl set-sink-volume @DEFAULT_SINK@ -2%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 2
-bindsym XF86MonBrightnessDown exec light -U 2
+bindsym XF86MonBrightnessUp exec xbacklight -inc 2
+bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
 # autostart elements
 
@@ -202,13 +205,13 @@ bindsym XF86MonBrightnessDown exec light -U 2
 exec_always --no-startup-id /home/mark/.config/polybar/launch.py
 
 # picom
-exec --no-startup-id picom -cC
+exec --no-startup-id picom --config ~/.config/i3/picom.conf
 
 # dunst
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # feh
-exec --no-startup-id feh --no-xinerama --no-fehbg --bg-scale ~/walls/forest.jpg 
+exec --no-startup-id feh --no-xinerama --no-fehbg --bg-scale ~/walls/firewatch.jpg 
 
 # scrot
 bindsym Print exec scrot -e 'mv $f ~/temp/screenshots/'
