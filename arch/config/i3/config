@@ -153,8 +153,10 @@ exec_always --no-startup-id ~/.config/i3/scripts/idle_lock.sh
 bindsym $mod+p exec ~/.config/i3/scripts/screen.sh
 
 # Assign programs
-assign [class="Google Chrome"] $ws3
+assign [class="Google-chrome"] $ws3
 assign [class="Slack"] $ws4
+assign [class="Microsoft Teams - Preview"] $ws4
+assign [class="jetbrains-idea-ce"] $ws2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
