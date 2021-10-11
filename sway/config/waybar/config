@@ -29,7 +29,6 @@
         "format-icons":{
             "activated": "",
             "deactivated": ""
-
         }
     },
 
@@ -59,7 +58,7 @@
         "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}",
-        "on-click": "xfce4-terminal -e 'nmtui'",
+        "on-click": "alacritty -e 'nmtui'",
     },
     "network#vpn": {
         "interface": "tun0",
