@@ -19,7 +19,6 @@
         "network",
         "idle_inhibitor",
         "tray",
-        "custom/power",
     ],
 
     // Modules
@@ -133,17 +132,5 @@
     "tray": {
         "icon-size": 18,
         "spacing": 10
-    },
-
-    "custom/launcher": {
-        "format":" ",
-        "on-click": "exec wofi -c ~/.config/wofi/config -I",
-        "tooltip": false,
-    },
-
-    "custom/power": {
-        "format":"⏻",
-        "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
-        "tooltip": false,
     },
 }

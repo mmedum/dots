@@ -27,24 +27,20 @@
 
 *{
     font-family: Source Code Pro Medium;
+    font-size: 14px;
 }
 
 #window {
     border: 1px solid @bg4_color;
-    margin: 0px 5px 0px 5px;
-
 }
 
 #inner-box {
     background-color: @bg0_color;
-
 }
 
 #outer-box {
-    margin: 5px;
-    padding: 10px;
+    margin: 1px;
     background-color: @bg0_color;
-    margin-top: -22px;
 }
 
 #scroll {
