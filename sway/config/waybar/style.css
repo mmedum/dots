@@ -1,0 +1,131 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 1px;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    color: #ebdbb2;
+    background:  rgba(40,40,40,0.9);
+    font-family: Source Code Pro Medium;
+    font-size: 12px;
+}
+
+/* Each module */
+#battery,
+#clock,
+#backlight,
+#mode,
+#tray,
+#idle_inhibitor
+#network,
+#pulseaudio,
+#idle_inhibitor,
+
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning {
+    color: orange;
+}
+
+#battery.critical {
+    color: red;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#mode {
+    background: @highlight;
+    border-bottom: 3px transparent;
+    color:white;
+    margin-left: 5px;
+    padding:7;
+}
+
+#network.disconnected {
+    color: orange;
+}
+
+#pulseaudio, #backlight, #battery, #network {
+    padding-right: 10px;
+    margin: 0;
+}
+
+#pulseaudio.muted {
+    color: @highlight; 
+}
+
+#workspaces button {
+    color: #928374;
+    padding: 0 3px;
+    background: transparent;
+    border-bottom: 3px solid transparent;
+}
+ 
+#workspaces button.visible {
+    color: #fbf1c7;
+    background: #282828;
+    border-bottom: 3px solid transparent;
+}
+ 
+#workspaces button.focused {
+    color: #fbf1c7;
+    background: #282828;
+    border-bottom: 3px solid #fbf1c7;
+}
+
+#workspaces button.urgent {
+    border-color: #c9545d;
+    color: #c9545d;
+}
+
+#custom-power {
+    margin-left:10px;
+    margin-right:10px;
+    font-size:15px;
+}
+
+#custom-launcher {
+    font-size:15px;
+    margin-left:15px;
+    margin-right:10px;
+}
+
+#backlight.icon {
+    padding-right:1px;
+    font-size: 13px;
+}
+

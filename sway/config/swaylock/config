@@ -1,0 +1,37 @@
+# indicator
+# no-unlock-indicator
+# daemonize
+ignore-empty-password
+indicator-caps-lock
+
+# Font
+font=Source Code Pro Medium
+font-size=20
+
+# Image
+image=$HOME/.config/sway/walls/at.png
+scaling=fill
+
+# Ring
+indicator-radius=80
+
+text-color=#00000000
+
+# line-uses-ring
+line-color=#00000000
+line-ver-color=#5e81ac
+line-wrong-color=#d08770
+
+inside-color=#00000000
+inside-ver-color=#00000000
+inside-wrong-color=#00000000
+
+ring-ver-color=#282828FF
+ring-color=#282828FF
+ring-wrong-color=#282828FF
+
+key-hl-color=#EBDBB2FF
+
+separator-color=#282828FF
+
+layout-text-color=#eceff4

@@ -1,0 +1,132 @@
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \ print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+
+### zsh ###
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt BANG_HIST                 # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+unsetopt SHARE_HISTORY           # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS          # Dont record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE         # Dont record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Dont write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY               # Dont execute immediately upon history expansion.
+setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+setopt NO_HUP                    # Job control for zsh
+unsetopt HUP
+unsetopt CHECK_JOBS
+###
+
+### Dircolors ###
+eval $(dircolors ~/.dircolors)
+
+### Editor
+export EDITOR=nvim
+###
+
+### LANG
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+###
+
+### Golang
+export GOHOME="${HOME}/go"
+###
+
+### Path
+# Go
+export PATH="$PATH:${GOHOME}/bin"
+
+# Rust
+export PATH="$PATH:${HOME}/.cargo/bin"
+
+# Terraform
+export PATH="$PATH:${HOME}/.terraform"
+
+# Toit
+export PATH="$PATH:${HOME}/repos/toitware/console/build"
+
+# Pulumi
+export PATH=$PATH:$HOME/.pulumi/bin
+
+# Bins
+export PATH=$PATH:$HOME/.bins
+
+# Xtensa
+export PATH="$HOME/esp/xtensa-esp32-elf/bin:$PATH"
+
+# ESP
+export PATH="$HOME/esp/esp32ulp-elf-binutils/bin:$PATH"
+###
+
+### Aliases
+alias grep='rg'
+alias vi='nvim'
+alias vim='nvim'
+alias zinitup='zinit self-update && zinit update && zinit update kubectl_completion'
+
+# Mac alias
+alias ls='ls --color=auto'
+alias ll='ls -al --color=auto'
+
+# plugins
+## Syntax highlighting
+## ZSH autosuggestions
+## ZSH completions
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
+    zdharma/fast-syntax-highlighting \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+ blockf atpull'zinit creinstall -q .' \
+    zsh-users/zsh-completions
+
+## Multi word search
+zinit wait"1" lucid for \
+  atinit'zstyle ":history-search-multi-word" page-size "15"' \
+    zdharma/history-search-multi-word \
+
+## ZSH Pure theme
+zinit lucid load \
+ pick"/dev/null" ver"main" multisrc"{async,pure}.zsh" atload'!prompt_pure_precmd' nocd for \
+    sindresorhus/pure
+
+## FZF
+zinit ice from"gh-r" as"program"
+zinit load junegunn/fzf
+
+## Kubectl completion
+zinit light-mode lucid wait has"kubectl" for \
+  id-as"kubectl_completion" \
+  as"completion" \
+  atclone"kubectl completion zsh > _kubectl" \
+  atpull"%atclone" \
+  run-atpull \
+    zdharma/null
+zpcompinit
+
+## AWS completion
+zinit snippet https://github.com/aws/aws-cli/blob/v2/bin/aws_zsh_completer.sh
