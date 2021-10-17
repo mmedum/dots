@@ -52,7 +52,7 @@
 
     "network": {
         "interval": 5,
-        "format-wifi": " {essid} ({signalStrength}%)", // Icon: wifi
+        "format-wifi": " {essid}", // Icon: wifi
         "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}",
@@ -60,7 +60,7 @@
     },
     "network#vpn": {
         "interface": "tun0",
-        "format": "  {essid} ({signalStrength}%)",
+        "format": "  {essid}",
         "format-disconnected": "⚠  Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}",          
     },
