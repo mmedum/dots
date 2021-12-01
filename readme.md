@@ -1,4 +1,8 @@
 # Dots
 
-Containing config files used by multiple machines, with both Linux and MacOs 
-as OS.
+This repo is containing the my standard setup, which at the moment is either
+
+- Sway
+- MacOS
+- i3
+
