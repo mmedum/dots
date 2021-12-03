@@ -1,0 +1,57 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": [
+        "go",
+        "json"
+    ],
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "initializationOptions": {
+                "usePlaceholders": false,
+                "completeUnimported": true,
+                "hoverKind": "FullDocumentation"
+            },
+            "rootPatterns": [
+                "go.mod",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "disableWorkspaceFolders": true,
+            "filetypes": [
+                "go"
+            ]
+        },
+        "terraform": {
+            "command": "terraform-ls",
+            "args": [
+                "serve"
+            ],
+            "filetypes": [
+                "terraform",
+                "tf"
+            ],
+            "initializationOptions": {}
+        },
+        "toit": {
+            "command": "/home/mark/repos/toit/build/toitlsp", 
+            "args": [
+                "--toitc=/home/mark/repos/toit/build/host/bin/toitc"
+            ],
+            "trace.server": "verbose",
+            "filetypes": [
+                "toit"
+            ]
+        }
+    },
+    "yaml.schemas": {
+        "kubernetes": "/*.yaml"
+    },
+    "diagnostic.locationlistUpdate": true,
+    "diagnostic.refreshOnInsertMode": true,
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.errorSign": "",
+    "diagnostic.warningSign": "",
+    "diagnostic.hintSign":"",
+    "diagnostic.infoSign": ""
+}
