@@ -47,6 +47,10 @@ eval $(dircolors ~/.dircolors)
 export EDITOR=nvim
 ###
 
+### Java
+export _JAVA_AWT_WM_NONREPARENTING=1
+###
+
 ### LANG
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
@@ -66,20 +70,6 @@ export PATH="$PATH:${HOME}/.cargo/bin"
 # Terraform
 export PATH="$PATH:${HOME}/.terraform"
 
-# Toit
-export PATH="$PATH:${HOME}/repos/toitware/console/build"
-
-# Pulumi
-export PATH=$PATH:$HOME/.pulumi/bin
-
-# Bins
-export PATH=$PATH:$HOME/.bins
-
-# Xtensa
-export PATH="$HOME/esp/xtensa-esp32-elf/bin:$PATH"
-
-# ESP
-export PATH="$HOME/esp/esp32ulp-elf-binutils/bin:$PATH"
 ###
 
 ### Aliases
