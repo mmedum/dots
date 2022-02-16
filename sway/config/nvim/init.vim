@@ -3,32 +3,29 @@ if &compatible
 endif
 
 " Required:
-"""" Mac
 set runtimepath+=/home/mark/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/mark/.cache/dein')
-  call dein#begin('/home/mark/.cache/dein')
+call dein#begin('/home/mark/.cache/dein')
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('/home/mark/.cache/dein/repos/github.com/Shougo/dein.vim')
+" Let dein manage dein
+" Required:
+call dein#add('/home/mark/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-  call dein#add('itchyny/lightline.vim')
-  call dein#add('morhetz/gruvbox')
-  call dein#add('w0rp/ale')
-  call dein#add('Vimjas/vim-python-pep8-indent')
-  call dein#add('sbdchd/neoformat')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('junegunn/fzf.vim')
-  call dein#add('rust-lang/rust.vim')
-  call dein#add('google/vim-jsonnet')
-  call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
+call dein#add('morhetz/gruvbox')
+call dein#add('nvim-lualine/lualine.nvim')
+call dein#add('kyazdani42/nvim-web-devicons')
+call dein#add('w0rp/ale')
+call dein#add('Vimjas/vim-python-pep8-indent')
+call dein#add('sbdchd/neoformat')
+call dein#add('airblade/vim-gitgutter')
+call dein#add('junegunn/fzf.vim')
+call dein#add('rust-lang/rust.vim')
+call dein#add('google/vim-jsonnet')
+call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+" Required:
+call dein#end()
 
 " Required:
 filetype plugin indent on
@@ -36,7 +33,7 @@ syntax enable
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
-  call dein#install()
+ call dein#install()
 endif
 
 """"""Basic""""""
@@ -227,26 +224,45 @@ set inccommand=split
 " Close the documentation window when completion is done
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-
-""""""Status line""""""
-let g:lightline = {
-            \ 'colorscheme': 'gruvbox',
-            \ 'active': {
-            \   'left': [['mode', 'paste'], ['cocstats', 'readonly', 'filename', 'modified']],
-            \   'right': [['lineinfo'], ['percent'], ['filetype', 'fileencoding', 'fileformat']]
-            \ },
-            \'component_function': {
-            \   'cocstatus': 'coc#status'
-            \ },
-            \ }
-
-" Update and show lightline but only if it's visible (e.g., not in Goyo)
-autocmd User ALELint call s:MaybeUpdateLightline()
-function! s:MaybeUpdateLightline()
-    if exists('#lightline')
-        call lightline#update()
-    end
-endfunction
+""""""lualine.vim""""""
+lua << EOF
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'gruvbox_dark',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff'},
+    lualine_c = {
+        {
+            'diagnostics',
+            sources = {'ale', 'coc'},
+            sections = {'error', 'warn', 'info', 'hint'},
+            colored = true,
+            update_in_insert = true,
+        }
+    },
+    lualine_x = {'filename', 'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
+EOF
 
 """"""Neoformat""""""
 " Enable alignment
