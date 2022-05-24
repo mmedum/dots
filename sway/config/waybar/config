@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     // If height property would be not present, it'd be calculated dynamically
-    "width" : 10,
+    //"width" : 10,
 
     "modules-left": [
         "sway/workspaces",
