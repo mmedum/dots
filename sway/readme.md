@@ -13,5 +13,5 @@
 ### Other
 
 - Dein
+- Zsh
 - Zinit
-

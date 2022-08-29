@@ -103,7 +103,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 5.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -255,7 +255,7 @@ debug:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
+# Colors (Gruvbox dark)
 colors:
   primary:
     # hard contrast: background = '0x1d2021'
@@ -323,16 +323,6 @@ colors:
   #  magenta: '0x80638e'
   #  cyan:    '0x497e7a'
   #  white:   '0x9a9a9a'
-
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '0xff00ff' }`
-  #
-  indexed_colors: []
 
 # Bell
 #
