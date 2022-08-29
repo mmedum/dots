@@ -9,9 +9,9 @@ enter="\n"
 def get_windows():
 
     command="swaymsg -t get_tree"
-    
+
     active_outputs = []
-    
+
     process = subprocess.Popen(command,shell=True,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     data = json.loads(process.communicate()[0])
 
@@ -30,14 +30,14 @@ def get_windows():
 # Extracts all windows from a sway workspace json object 
 def extract_nodes_iterative(workspace):
     all_nodes = []
-    
+
     floating_nodes = workspace.get('floating_nodes')
 
     for floating_node in floating_nodes:
         all_nodes.append(floating_node)
 
     nodes = workspace.get('nodes')
-    
+
     for node in nodes:
 
         # Leaf node
@@ -64,8 +64,8 @@ def build_wofi_string(windows):
 # Executes wofi with the given input string
 def show_wofi(windows):
 
-    command="wofi -c ~/.config/wofi/menu -s ~/.config/wofi/sway.css -p \"Windows: \" -d -i --hide-scroll"
-    
+    command="wofi -c ~/.config/wofi/config -s ~/.config/wofi/style.css -d -I"
+
     process = subprocess.Popen(command,shell=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE)
     return process.communicate(input=windows)[0]
 
@@ -78,23 +78,16 @@ def parse_id(windows, parsed_windows, selected):
 # Switches the focus to the given id
 def switch_window(id):
     command="swaymsg [con_id={}] focus".format(id)
-    
+
     process = subprocess.Popen(command,shell=True,stdout=subprocess.PIPE)
     process.communicate()[0]
 
 # Entry point
 if __name__ == "__main__":
-    
     parser = ArgumentParser(description="Wofi based window switcher")
-
     windows = get_windows()
-    
     parsed_windows = parse_windows(windows)    
-    
     wofi_string = build_wofi_string(parsed_windows)
-
     selected = show_wofi(wofi_string)
-    
     selected_id = parse_id(windows, parsed_windows, selected)
-
     switch_window(selected_id)
