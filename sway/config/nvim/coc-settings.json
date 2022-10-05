@@ -34,9 +34,9 @@
             "initializationOptions": {}
         },
         "toit": {
-            "command": "/home/mark/repos/toit/build/toitlsp", 
+            "command": "/usr/bin/toit.lsp", 
             "args": [
-                "--toitc=/home/mark/repos/toit/build/host/bin/toitc"
+                "--toitc=/usr/bin/toit.compile"
             ],
             "trace.server": "verbose",
             "filetypes": [
