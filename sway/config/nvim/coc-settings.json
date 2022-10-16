@@ -1,7 +1,8 @@
 {
     "coc.preferences.formatOnSaveFiletypes": [
         "go",
-        "json"
+        "json",
+        "java"
     ],
     "languageserver": {
         "golang": {
@@ -47,6 +48,8 @@
     "yaml.schemas": {
         "kubernetes": "/*.yaml"
     },
+    "suggest.enablePreselect": false,
+    "suggest.noselect": true,
     "diagnostic.locationlistUpdate": true,
     "diagnostic.refreshOnInsertMode": true,
     "diagnostic.checkCurrentLine": true,
