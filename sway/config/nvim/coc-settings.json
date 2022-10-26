@@ -4,6 +4,7 @@
         "json",
         "java"
     ],
+    "coc.preferences.jumpCommand": "vsplit",
     "languageserver": {
         "golang": {
             "command": "gopls",
