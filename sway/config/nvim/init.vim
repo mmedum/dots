@@ -15,7 +15,6 @@ call dein#add('/home/mark/.cache/dein/repos/github.com/Shougo/dein.vim')
 call dein#add('morhetz/gruvbox')
 call dein#add('nvim-lualine/lualine.nvim')
 call dein#add('kyazdani42/nvim-web-devicons')
-call dein#add('w0rp/ale')
 call dein#add('Vimjas/vim-python-pep8-indent')
 call dein#add('sbdchd/neoformat')
 call dein#add('airblade/vim-gitgutter')
@@ -279,15 +278,25 @@ set inccommand=split
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 """"""lualine.vim""""""
-lua << EOF
+lua << END
 require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = 'gruvbox_dark',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
-    disabled_filetypes = {},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
     always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
   },
   sections = {
     lualine_a = {'mode'},
@@ -295,7 +304,7 @@ require('lualine').setup {
     lualine_c = {
         {
             'diagnostics',
-            sources = {'ale', 'coc'},
+            sources = {'coc'},
             sections = {'error', 'warn', 'info', 'hint'},
             colored = true,
             update_in_insert = true,
@@ -314,9 +323,11 @@ require('lualine').setup {
     lualine_z = {}
   },
   tabline = {},
+  winbar = {},
+  inactive_winbar = {},
   extensions = {}
 }
-EOF
+END
 
 """"""Neoformat""""""
 " Enable alignment
@@ -332,8 +343,8 @@ let g:neoformat_basic_format_trim = 1
 " Enable fzf through zplugin installation
 set rtp+=/usr/local/opt/fzf
 
-nnoremap <leader>o :FZF -m<cr>  
-nnoremap <leader>r :FZF -m ~<cr>  
+nnoremap <leader>o :FZF -m<cr>
+nnoremap <leader>r :FZF -m ~<cr>
 
 """"""Functions""""""
 " http://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file
