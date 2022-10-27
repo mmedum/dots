@@ -77,6 +77,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 set hidden
+set noshowcmd
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
