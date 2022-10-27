@@ -30,6 +30,9 @@ exec swayidle -w\
 ## Lock Screen
 bindsym $mod+b exec ~/.config/sway/scripts/lockman.sh
 
+## Do not follow mouse focus
+focus_follows_mouse no
+
 ### Key bindings
 #
 # Basics:
