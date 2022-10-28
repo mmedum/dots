@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Gruvbox Material Dark",
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "none",
     "vsicons.dontShowNewVersionMessage": true,
@@ -93,5 +92,8 @@
         "<C-f>": false
     },
     "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 500
+    "files.autoSaveDelay": 500,
+    "workbench.colorTheme": "Gruvbox Material Dark",
+    "workbench.preferredDarkColorTheme": "Gruvbox Material Dark",
+    "gruvboxMaterial.darkPalette": "mix",
 }
