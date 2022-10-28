@@ -1,0 +1,97 @@
+{
+    "workbench.colorTheme": "Gruvbox Material Dark",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.startupEditor": "none",
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.preferredHighContrastColorTheme": "Gruvbox Material Dark",
+    "workbench.preferredHighContrastLightColorTheme": "Gruvbox Material Light",
+    "workbench.preferredLightColorTheme": "Gruvbox Material Light",
+    "telemetry.telemetryLevel": "off",
+    "editor.fontFamily": "'Source Code Pro'",
+    "editor.fontSize": 16,
+    "vim.highlightedyank.enable": true,
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "d"],
+            "after": ["d", "d"]
+        },
+        {
+            "before": ["<leader>", ","],
+            "commands": [":nohl"]
+        },
+        {
+            "before": ["leader", "w"],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            "before": ["leader", "o"],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": ["K"],
+            "commands": ["lineBreakInsert"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "p"],
+            "commands": [
+                "workbench.action.showCommands"
+            ],
+            "silent": true
+        },
+        {
+            "before": ["g", "d"],
+            "after": ["g", "d"]
+        },
+        {
+            "before": ["g", "m"],
+            "commands": [
+                "editor.action.goToImplementation"
+            ]
+        },
+        {
+            "before": ["g", "r"],
+            "commands": [
+                "editor.action.goToReferences"
+            ]
+        }
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+          "before": ["j", "k"],
+          "after": ["<ESC>"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [">"],
+            "commands": ["editor.action.indentLines"]
+        },
+        {
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500
+}
