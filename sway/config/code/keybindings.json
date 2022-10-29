@@ -18,11 +18,11 @@
     },
     {
         "key": "shift+k",
-        "command": "editor.action.showHover"
+        "command": "editor.action.showHover",
         "when": "editorTextFocus"
     },
     {
-        "key": "space t", 
+        "key": "space f",
         "command": "workbench.action.toggleSidebarVisibility", 
         "when": "explorerViewletFocus"
     }

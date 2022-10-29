@@ -82,10 +82,6 @@
             ]
         },
         {
-            "before": ["<leader>", "t"],
-            "commands": ["workbench.action.toggleSidebarVisibility"]
-        },
-        {
             "before": ["<leader>", "f"],
             "commands": [
                 "revealInExplorer"
