@@ -16,14 +16,5 @@
     {
         "key": "ctrl+j",
         "command": "workbench.action.navigateDown"
-    },
-     // Navigate buffers
-    {
-        "key": "ctrl+m",
-        "command": "workbench.action.previousEditor"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "workbench.action.nextEditor"
     }
 ]
