@@ -31,9 +31,8 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "space f",
+        "key": ", f",
         "command": "workbench.action.toggleSidebarVisibility", 
-        "when": "explorerViewletFocus"
     },
     {
         "key": "ctrl+n",
