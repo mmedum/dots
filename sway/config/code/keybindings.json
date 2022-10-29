@@ -26,6 +26,38 @@
         "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
     },
     {
+        "key": "alt+shift+h",
+        "command": "workbench.action.moveActiveEditorGroupLeft",
+    },
+    {
+        "key": "alt+shift+l",
+        "command": "workbench.action.moveActiveEditorGroupRight",
+    },
+    {
+        "key": "alt+shift+k",
+        "command": "workbench.action.moveActiveEditorGroupUp",
+    },
+    {
+        "key": "alt+shift+j",
+        "command": "workbench.action.moveActiveEditorGroupDown",
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.moveEditorToLeftGroup",
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.moveEditorToRightGroup",
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.moveEditorToAboveGroup",
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.moveEditorToBelowGroup",
+    },
+    {
         "key": "shift+k",
         "command": "editor.action.showHover",
         "when": "editorTextFocus"
