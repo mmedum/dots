@@ -30,7 +30,7 @@
             "commands": [":nohl"]
         },
         {
-            "before": ["leader", "w"],
+            "before": ["<leader>", "w"],
             "commands": [
                 "workbench.action.files.save"
             ]
@@ -67,6 +67,28 @@
             "before": ["g", "r"],
             "commands": [
                 "editor.action.goToReferences"
+            ]
+        },
+        {
+            "before": ["<tab>"],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+        {
+            "before": ["<S-tab>"],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": ["<leader>", "t"],
+            "commands": ["workbench.action.toggleSidebarVisibility"]
+        },
+        {
+            "before": ["<leader>", "f"],
+            "commands": [
+                "revealInExplorer"
             ]
         }
     ],
