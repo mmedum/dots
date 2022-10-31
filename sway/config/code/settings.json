@@ -114,4 +114,7 @@
     "workbench.colorTheme": "Gruvbox Material Dark",
     "workbench.preferredDarkColorTheme": "Gruvbox Material Dark",
     "gruvboxMaterial.darkPalette": "mix",
+    "redhat.telemetry.enabled": false,
+    "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+    "java.configuration.updateBuildConfiguration": "automatic",
 }

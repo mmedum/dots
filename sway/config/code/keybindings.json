@@ -63,7 +63,7 @@
         "when": "editorTextFocus"
     },
     {
-        "key": ", f",
+        "key": "alt+f",
         "command": "workbench.action.toggleSidebarVisibility", 
     },
     {
