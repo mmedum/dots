@@ -16,9 +16,11 @@
     "vim.hlsearch": true,
     "vim.insertModeKeyBindings": [
         {
-            "before": ["j", "j"],
+            "before": ["j", "k"],
             "after": ["<Esc>"]
         }
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -36,15 +38,10 @@
             ]
         },
         {
-            "before": ["leader", "o"],
+            "before": ["<leader>", "o"],
             "commands": [
                 "workbench.action.quickOpen"
             ]
-        },
-        {
-            "before": ["K"],
-            "commands": ["lineBreakInsert"],
-            "silent": true
         },
         {
             "before": ["<leader>", "p"],
@@ -52,6 +49,12 @@
                 "workbench.action.showCommands"
             ],
             "silent": true
+        },
+        {
+            "before": ["<leader>", "f"],
+            "commands": [
+                "revealInExplorer"
+            ]
         },
         {
             "before": ["g", "d"],
@@ -81,18 +84,6 @@
                 "workbench.action.previousEditorInGroup"
             ]
         },
-        {
-            "before": ["<leader>", "f"],
-            "commands": [
-                "revealInExplorer"
-            ]
-        }
-    ],
-    "vim.insertModeKeyBindingsNonRecursive": [
-        {
-          "before": ["j", "k"],
-          "after": ["<ESC>"]
-        }
     ],
     "vim.visualModeKeyBindings": [
         {

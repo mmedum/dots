@@ -58,11 +58,6 @@
         "command": "workbench.action.moveEditorToBelowGroup",
     },
     {
-        "key": "shift+k",
-        "command": "editor.action.showHover",
-        "when": "editorTextFocus"
-    },
-    {
         "key": "alt+f",
         "command": "workbench.action.toggleSidebarVisibility", 
     },
