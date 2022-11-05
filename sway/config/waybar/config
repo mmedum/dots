@@ -32,22 +32,22 @@
 
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
         "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "on-click": ""
     },
 
     "clock": {
         "interval": 60,
         "format": " {:%A %d %b  %H:%M}",
-        "tooltip-format": ""
+        "tooltip-format": "",
+        "on-click": ""
     },
 
     "network": {
@@ -77,13 +77,14 @@
 
     "sway/workspaces": {
         "disable-scroll": true,
-        "disable-markup" : false,
-        "all-outputs": true,
+        "disable-markup": false,
+        "disable-click": true, 
+        "all-outputs": false,
         "format": "{icon}",
         "format-icons": {
             "1": "",
             "2": "",
-            "3": "",
+            "3": "",
             "4": "",
             "5": "",
             "6": "",
@@ -91,26 +92,29 @@
             "8": "",
             "9": "",
             "10": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
         }
     },
 
     "pulseaudio": {
-        "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}  {format_source}",
-        "format-bluetooth-muted": " {icon}  {format_source}",
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon}  {volume}",
+        "format-bluetooth-muted": " {icon} ",
         "format-muted": "婢 {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "וֹ",
+            "hands-free": "",
             "headset": "  ",
             "phone": "",
             "portable": "",
             "car": "",
-            "default": [""]
+            "default": ["", ""]
         },
+        "scroll-step": 2,
         "on-click": "pavucontrol",
         "on-scroll-up": "pamixer -ui 2",
         "on-scroll-down": "pamixer -ud 2",
