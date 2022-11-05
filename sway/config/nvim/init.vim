@@ -12,7 +12,7 @@ call dein#begin('/home/mark/.cache/dein')
 " Required:
 call dein#add('/home/mark/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-call dein#add('morhetz/gruvbox')
+call dein#add('sainnhe/gruvbox-material')
 call dein#add('nvim-lualine/lualine.nvim')
 call dein#add('kyazdani42/nvim-web-devicons')
 call dein#add('Vimjas/vim-python-pep8-indent')
@@ -283,7 +283,7 @@ lua << END
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'gruvbox_dark',
+    theme = 'gruvbox-material',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -354,5 +354,6 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 """"""Color scheme""""""
 set background=dark
-colorscheme gruvbox
+let g:gruvbox_material_better_performance = 1
+colorscheme gruvbox-material
 set termguicolors
