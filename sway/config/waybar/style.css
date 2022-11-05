@@ -21,7 +21,7 @@
 
 /* The whole bar */
 #waybar {
-    color: #ebdbb2;
+    color: #dfbf8e;
     background:  rgba(40,40,40,0.9);
     font-family: Source Code Pro Medium;
     font-size: 11px;
@@ -96,7 +96,7 @@
 }
  
 #workspaces button.visible {
-    color: #fbf1c7;
+    color: #dfbf8e;
     background: transparent;
     border-bottom: 1px solid transparent;
 }
