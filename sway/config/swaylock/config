@@ -3,35 +3,39 @@
 # daemonize
 ignore-empty-password
 indicator-caps-lock
+line-uses-ring
 
 # Font
 font=Source Code Pro Medium
-font-size=20
+font-size=35
 
 # Image
-image=$HOME/.config/sway/walls/at.png
+image=$HOME/.config/sway/walls/astro.jpg
 scaling=fill
 
 # Ring
 indicator-radius=80
 
-text-color=#00000000
+text-color=#dfbf8e
+text-clear-color=#dfbf8e
+text-ver-color=#dfbf8e
+text-wrong-color=#dfbf8e
 
 # line-uses-ring
-line-color=#00000000
-line-ver-color=#5e81ac
-line-wrong-color=#d08770
+line-color=#282828
+line-ver-color=#dfbf8e
+line-wrong-color=#dfbf8e
 
 inside-color=#00000000
 inside-ver-color=#00000000
 inside-wrong-color=#00000000
 
-ring-ver-color=#282828FF
-ring-color=#282828FF
-ring-wrong-color=#282828FF
+ring-color=#282828
+ring-ver-color=#dfbf8e
+ring-wrong-color=#ea6962
 
-key-hl-color=#EBDBB2FF
+key-hl-color=#dfbf8e
 
-separator-color=#282828FF
+separator-color=#282828
 
-layout-text-color=#eceff4
+layout-text-color=#dfbf8e
