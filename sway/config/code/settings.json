@@ -1,7 +1,6 @@
 {
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "none",
-    "vsicons.dontShowNewVersionMessage": true,
     "workbench.preferredHighContrastColorTheme": "Gruvbox Material Dark",
     "workbench.preferredHighContrastLightColorTheme": "Gruvbox Material Light",
     "workbench.preferredLightColorTheme": "Gruvbox Material Light",
@@ -107,4 +106,6 @@
     "redhat.telemetry.enabled": false,
     "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
     "java.configuration.updateBuildConfiguration": "automatic",
+    "editor.minimap.enabled": false,
+    "window.menuBarVisibility": "toggle"
 }
