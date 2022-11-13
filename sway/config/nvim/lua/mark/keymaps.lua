@@ -55,7 +55,7 @@ keymap("n", "<leader>tn", "<cmd>$tabnew<CR>", opts)
 keymap("n", "<leader>tc", "<cmd>$tabclose<CR>", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 
 -- Nvim-tree

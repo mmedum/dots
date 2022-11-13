@@ -1,12 +1,15 @@
-require "mark.options"
-require "mark.keymaps"
-require "mark.plugins"
-require "mark.colorscheme"
-require "mark.cmp"
-require "mark.lsp"
-require "mark.telescope"
-require "mark.treesitter"
-require "mark.autopairs"
-require "mark.nvim-tree"
-require "mark.lualine"
-require "mark.bufferline"
+require("mark.options")
+require("mark.keymaps")
+require("mark.plugins")
+require("mark.colorscheme")
+require("mark.impatient")
+require("mark.cmp")
+require("mark.lsp")
+require("mark.telescope")
+require("mark.treesitter")
+require("mark.autopairs")
+require("mark.nvim-tree")
+require("mark.lualine")
+require("mark.bufferline")
+require("mark.autocommands")
+require("mark.indent-blankline")
