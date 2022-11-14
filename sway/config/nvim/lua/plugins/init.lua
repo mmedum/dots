@@ -7,10 +7,5 @@ require("plugins.symbols-outline")
 require("plugins.dap")
 require("plugins.indent-blankline")
 require("plugins.nvim-notify")
-
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
-	return
-end
-
-telescope.load_extension("emoji")
+require("plugins.telescope")
+require("plugins.which-key")

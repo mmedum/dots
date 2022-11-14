@@ -10,7 +10,6 @@ local keymap = vim.api.nvim_set_keymap
 --   command_mode = "c"
 
 --Remap space as leader key
-keymap("n", "<Space>", "Nop", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
