@@ -44,6 +44,9 @@ M.setup = function()
 
 	vim.diagnostic.config(config)
 
+	-- Highlight on CursorHold
+	vim.api.nvim_exec("autocmd CursorHold * lua vim.diagnostic.open_float()", false)
+
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 		border = "rounded",
 		-- width = 60,
@@ -79,6 +82,11 @@ end
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 
+	-- Javaascript
+	if client.name == "tsserver" then
+		client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+	end
+	-- Java
 	if client.name == "jdtls" then
 		require("jdtls").setup_dap({ hotcodereplace = "auto" })
 		require("jdtls.dap").setup_dap_main_class_configs()

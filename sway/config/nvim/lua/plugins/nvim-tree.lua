@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 nvim_tree.setup({
-  auto_reload_on_write = true,
+	auto_reload_on_write = true,
 	disable_netrw = true,
 	hijack_netrw = true,
 	hijack_cursor = false,
@@ -40,7 +40,7 @@ nvim_tree.setup({
 	update_cwd = true,
 	diagnostics = {
 		enable = true,
-    debounce_delay = 50,
+		debounce_delay = 50,
 		icons = {
 			hint = icons.diagnostics.Hint,
 			info = icons.diagnostics.Information,
@@ -87,7 +87,7 @@ nvim_tree.setup({
 		},
 		number = false,
 		relativenumber = false,
-    float = {
+		float = {
 			enable = false,
 			quit_on_focus_loss = true,
 			open_win_config = {
@@ -100,7 +100,7 @@ nvim_tree.setup({
 			},
 		},
 	},
-  renderer = {
+	renderer = {
 		add_trailing = false,
 		group_empty = false,
 		highlight_git = false,

@@ -57,8 +57,8 @@ local settings = {
 			},
 		},
 	},
-  log_level = vim.log.levels.INFO,
-  max_concurrent_installers = 4,
+	log_level = vim.log.levels.INFO,
+	max_concurrent_installers = 4,
 }
 
 mason.setup(settings)
@@ -90,9 +90,10 @@ for _, server in pairs(servers) do
 		capabilities = require("lsp.handlers").capabilities,
 	}
 
-  local require_ok, conf_opts = pcall(require, "lsp.settings." .. server)
-	if require_ok then
-		opts = vim.tbl_deep_extend("force", conf_opts, opts)
+	if server == "sumneko_lua" then
+		local sumneko_opts = require("lsp.settings.sumneko_lua")
+		lspconfig.sumneko_lua.setup(sumneko_opts)
+		goto continue
 	end
 
 	if server == "jdtls" then

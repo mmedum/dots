@@ -8,7 +8,7 @@ local indent_disable_list = { "python" } --add a language  here to disable TreeS
 
 configs.setup({
 	ensure_installed = "all",
-  auto_install = true,
+	auto_install = true,
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		additional_vim_regex_highlighting = true,
