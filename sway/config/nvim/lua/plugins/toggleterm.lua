@@ -25,22 +25,3 @@ toggleterm.setup({
 		},
 	},
 })
-
-local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({
-	cmd = "lazygit",
-	direction = "float",
-})
-
-function _lazygit_toggle()
-	lazygit:toggle()
-end
-
-local ranger = Terminal:new({
-	cmd = "ranger",
-	direction = "float",
-})
-
-function _ranger_toggle()
-	ranger:toggle()
-end

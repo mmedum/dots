@@ -20,6 +20,7 @@ local status_ok, packer = pcall(require, "packer")
 if not status_ok then
 	return
 end
+local use = require("packer").use
 
 return packer.startup(function()
 	use("wbthomason/packer.nvim")
