@@ -38,7 +38,11 @@ return packer.startup(function()
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
+	use({
+		"akinsho/bufferline.nvim",
+		tag = "v3.*",
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
 	use({ "goolord/alpha-nvim" })
 
 	-- Treesitter
@@ -51,7 +55,7 @@ return packer.startup(function()
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" } },
+		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use({ "xiyaowong/telescope-emoji.nvim" })
 	use({ "nvim-telescope/telescope-ui-select.nvim" })
@@ -84,12 +88,23 @@ return packer.startup(function()
 		"jayp0521/mason-null-ls.nvim",
 		"jayp0521/mason-nvim-dap.nvim",
 	})
-	use({ "ray-x/lsp_signature.nvim" })
 	use({ "mfussenegger/nvim-dap" })
-	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use({
+		"rcarriga/nvim-dap-ui",
+		requires = { "mfussenegger/nvim-dap" },
+	})
 	use({ "theHamsta/nvim-dap-virtual-text" })
 	use({ "mfussenegger/nvim-jdtls" })
 	use({ "mfussenegger/nvim-dap-python" })
+
+	-- Noice
+	use({
+		"folke/noice.nvim",
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	})
 
 	-- snippets
 	use({ "L3MON4D3/LuaSnip" })
