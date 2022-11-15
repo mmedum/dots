@@ -43,7 +43,6 @@ return packer.startup(function()
 		tag = "v3.*",
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
-	use({ "goolord/alpha-nvim" })
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter" })

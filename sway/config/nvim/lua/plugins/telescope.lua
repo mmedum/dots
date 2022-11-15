@@ -8,9 +8,6 @@ telescope.setup({
 	defaults = {
 		file_ignore_patterns = { "node_modules", ".git", "target" },
 		mappings = {
-			i = {
-				["<C-h>"] = "which_key",
-			},
 			n = {
 				["<C-c>"] = actions.close,
 			},
