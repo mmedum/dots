@@ -102,6 +102,9 @@ return packer.startup(function()
 	use({ "L3MON4D3/LuaSnip" })
 	use({ "rafamadriz/friendly-snippets" })
 
+  -- Fidget
+  use({ "j-hui/fidget.nvim"})
+
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" }) -- show git commit changes in the signcolumn
 

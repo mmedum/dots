@@ -49,15 +49,46 @@ M.setup = function()
 
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 		border = "rounded",
-		-- width = 60,
-		-- height = 30,
 	})
 
 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 		border = "rounded",
-		-- width = 60,
-		-- height = 30,
 	})
+end
+
+local api = vim.api
+local function highlighting(client, bufnr)
+	if client.server_capabilities.documentHighlightProvider then
+		local lsp_highlight_grp = api.nvim_create_augroup("LspDocumentHighlight", { clear = true })
+		api.nvim_create_autocmd("CursorHold", {
+			callback = function()
+				vim.schedule(vim.lsp.buf.document_highlight)
+			end,
+			group = lsp_highlight_grp,
+			buffer = bufnr,
+		})
+		api.nvim_create_autocmd("CursorMoved", {
+			callback = function()
+				vim.schedule(vim.lsp.buf.clear_references)
+			end,
+			group = lsp_highlight_grp,
+			buffer = bufnr,
+		})
+	end
+end
+
+local function formatting(client)
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_create_augroup("LspFormat", { clear = true })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+
+			callback = function()
+				vim.lsp.buf.format({})
+			end,
+			group = "LspFormat",
+			desc = "Format document on save with LSP",
+		})
+	end
 end
 
 local function lsp_keymaps(bufnr)
@@ -80,6 +111,8 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+	highlighting(client, bufnr)
+	formatting(client)
 	lsp_keymaps(bufnr)
 
 	-- Javaascript
@@ -91,8 +124,6 @@ M.on_attach = function(client, bufnr)
 		require("jdtls").setup_dap({ hotcodereplace = "auto" })
 		require("jdtls.dap").setup_dap_main_class_configs()
 	end
-
-	client.server_capabilities.document_formatting = true
 end
 
 return M
