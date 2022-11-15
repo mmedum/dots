@@ -30,12 +30,15 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = WORKSPACE_PATH .. project_name
 
 local bundles = {}
-local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
-vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "packages/java-test/extension/server/*.jar"), "\n"))
+local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/", 1)
+vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "packages/java-test/extension/server/*.jar", 1), "\n"))
 vim.list_extend(
 	bundles,
 	vim.split(
-		vim.fn.glob(mason_path .. "packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),
+		vim.fn.glob(
+			mason_path .. "packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
+			1
+		),
 		"\n"
 	)
 )
@@ -59,7 +62,7 @@ local config = {
 		"--add-opens",
 		"java.base/java.lang=ALL-UNNAMED",
 		"-jar",
-		vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
+		vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar", 1),
 		"-configuration",
 		home .. "/.local/share/nvim/mason/packages/jdtls/config_" .. CONFIG,
 		"-data",
@@ -74,7 +77,7 @@ local config = {
 	-- or https://github.com/redhat-developer/vscode-java#supported-vs-code-settings
 	-- for a list of options
 	settings = {
-    ['java.format.settings.profile'] = "GoogleStyle",
+		["java.format.settings.profile"] = "GoogleStyle",
 		java = {
 			-- jdt = {
 			--   ls = {
@@ -167,7 +170,7 @@ vim.cmd(
 	"command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)"
 )
 vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
-vim.cmd "command! -buffer JdtJol lua require('jdtls').jol()"
+vim.cmd("command! -buffer JdtJol lua require('jdtls').jol()")
 vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
 vim.cmd("command! -buffer JdtJshell lua require('jdtls').jshell()")
 

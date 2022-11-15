@@ -2,7 +2,7 @@ local fn = vim.fn
 
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
+if fn.empty(fn.glob(install_path, 1)) > 0 then
 	PACKER_BOOTSTRAP = fn.system({
 		"git",
 		"clone",
@@ -88,6 +88,7 @@ return packer.startup(function()
 		"jayp0521/mason-null-ls.nvim",
 		"jayp0521/mason-nvim-dap.nvim",
 	})
+	use({ "ray-x/lsp_signature.nvim" })
 	use({ "mfussenegger/nvim-dap" })
 	use({
 		"rcarriga/nvim-dap-ui",
@@ -96,15 +97,6 @@ return packer.startup(function()
 	use({ "theHamsta/nvim-dap-virtual-text" })
 	use({ "mfussenegger/nvim-jdtls" })
 	use({ "mfussenegger/nvim-dap-python" })
-
-	-- Noice
-	use({
-		"folke/noice.nvim",
-		requires = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-	})
 
 	-- snippets
 	use({ "L3MON4D3/LuaSnip" })
