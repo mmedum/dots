@@ -54,6 +54,7 @@ return packer.startup(function()
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use({ "xiyaowong/telescope-emoji.nvim" })
+	use({ "nvim-telescope/telescope-ui-select.nvim" })
 	use({ "nvim-lua/plenary.nvim" })
 
 	-- Autoclose
