@@ -22,26 +22,28 @@ local servers = {
 	"jdtls",
 	"jsonls",
 	"sumneko_lua",
-	"pyright",
 	"bashls",
-	"lemminx",
 	"yamlls",
-	"sqls",
-	"html",
+	"rust_analyzer",
 }
 
 local debuggers = {
 	"javatest",
 	"javadbg",
-	"debugpy",
 }
 
-local null_ls = {
-	"autopep8",
-	"flake8",
-	"djlint",
+local null_ls_sources = {
 	"stylua",
+	"ktlint",
+	"hadolint",
+	"markdownlint",
+	"black",
+	"shellcheck",
+	"yamllint",
+	"zsh",
+	"flake8",
 	"jq",
+	"rustfmt",
 }
 
 local settings = {
@@ -60,8 +62,8 @@ local settings = {
 	log_level = vim.log.levels.INFO,
 	max_concurrent_installers = 4,
 }
-
 mason.setup(settings)
+
 mason_lspconfig.setup({
 	ensure_installed = servers,
 	automatic_installation = true,
@@ -73,10 +75,11 @@ mason_nvim_dap.setup({
 })
 
 mason_null.setup({
-	ensure_installed = null_ls,
+	ensure_installed = null_ls_sources,
 	automatic_installation = true,
 })
 
+-- LSP setup
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
 	return
@@ -84,6 +87,7 @@ end
 
 local opts = {}
 
+-- Filter function, used for setting up more specific LSP settings
 for _, server in pairs(servers) do
 	opts = {
 		on_attach = require("lsp.handlers").on_attach,
@@ -91,15 +95,18 @@ for _, server in pairs(servers) do
 	}
 
 	if server == "sumneko_lua" then
+		-- Setup with extra options
 		local sumneko_opts = require("lsp.settings.sumneko_lua")
 		lspconfig.sumneko_lua.setup(sumneko_opts)
 		goto continue
 	end
 
 	if server == "jdtls" then
+		-- Do not setup Java, since we already have defined everything in java.lua
 		goto continue
 	end
 
+	-- Setup all other servers
 	lspconfig[server].setup(opts)
 	::continue::
 end

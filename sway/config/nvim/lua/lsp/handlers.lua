@@ -1,5 +1,5 @@
-local icons = require("ui.icons")
 local M = {}
+local icons = require("ui.icons")
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -41,7 +41,6 @@ M.setup = function()
 			-- width = 40,
 		},
 	}
-
 	vim.diagnostic.config(config)
 
 	-- Highlight on CursorHold
@@ -77,15 +76,16 @@ local function highlighting(client, bufnr)
 	end
 end
 
-local function formatting(client)
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local function formatting(client, bufnr)
 	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_create_augroup("LspFormat", { clear = true })
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
-
+			group = augroup,
+			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.format({})
+				vim.lsp.buf.format({ bufnr = bufnr })
 			end,
-			group = "LspFormat",
 			desc = "Format document on save with LSP",
 		})
 	end
@@ -112,7 +112,7 @@ end
 
 M.on_attach = function(client, bufnr)
 	highlighting(client, bufnr)
-	formatting(client)
+	formatting(client, bufnr)
 	lsp_keymaps(bufnr)
 
 	-- Javaascript

@@ -1,12 +1,15 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- Add extended capabilities
+local capabilities = require("lsp.handlers").capabilities
 
 local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_cmp_ok then
 	return
 end
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- jdtls already contains snippets
+capabilities.textDocument.completion.completionItem.snippetSupport = false
 capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
+-- jdtls setup
 local status, jdtls = pcall(require, "jdtls")
 if not status then
 	return
@@ -29,6 +32,7 @@ extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = WORKSPACE_PATH .. project_name
 
+-- Java DAP
 local bundles = {}
 local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/", 1)
 vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "packages/java-test/extension/server/*.jar", 1), "\n"))
@@ -157,11 +161,8 @@ local config = {
 	},
 }
 
--- This starts a new client & server,
--- or attaches to an existing client & server depending on the `root_dir`.
+-- Start language server
 jdtls.start_or_attach(config)
-
--- require('jdtls').setup_dap()
 
 vim.cmd(
 	"command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
