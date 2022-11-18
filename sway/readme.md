@@ -4,7 +4,8 @@
 
 ### yay
 
-- gruvbox-dark-gtk
+- nerd-fonts-complete (Hasklig)
+- gruvbox-material
 - ripgrep
 - xcursor-breeze
 - pulseaudio
@@ -12,6 +13,5 @@
 
 ### Other
 
-- Dein
 - Zsh
 - Zinit
