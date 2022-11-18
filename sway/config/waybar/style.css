@@ -21,7 +21,7 @@
 
 /* The whole bar */
 #waybar {
-    color: #dfbf8e;
+    color: #282828;
     background:  rgba(40,40,40,0.9);
     font-family: Hasklug Nerd Font;
     font-size: 11px;
@@ -96,20 +96,20 @@
 }
  
 #workspaces button.visible {
-    color: #dfbf8e;
+    color: #d4be98;
     background: transparent;
     border-bottom: 1px solid transparent;
 }
  
 #workspaces button.focused {
     background: transparent;
-    border-bottom: 1px solid #fbf1c7;
+    border-bottom: 1px solid #d4be98;
 }
 
 #workspaces button.urgent {
-    color: #c9545d;
+    color: #ea6962;
     background: transparent;
-    border-bottom: 1px solid #c9545d;
+    border-bottom: 1px solid #ea6962;
 }
 
 #custom-power {

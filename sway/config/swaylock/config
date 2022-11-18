@@ -16,8 +16,8 @@ scaling=fill
 # Ring
 indicator-radius=80
 
-text-color=#dfbf8e
-text-clear-color=#dfbf8e
+text-color=#d4be98
+text-clear-color=#d4be98
 text-ver-color=#dfbf8e
 text-wrong-color=#dfbf8e
 
