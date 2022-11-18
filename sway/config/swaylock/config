@@ -6,7 +6,7 @@ indicator-caps-lock
 line-uses-ring
 
 # Font
-font=Source Code Pro Medium
+font=Hasklug Nerd Font
 font-size=35
 
 # Image

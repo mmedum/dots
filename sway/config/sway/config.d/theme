@@ -20,7 +20,7 @@ gaps outer 0
 default_border none
 
 # Default Font
-font pango:Source Code Pro Medium 12
+font pango:Hasklug Nerd Font 12
 
 # Thin borders:
 smart_borders on
