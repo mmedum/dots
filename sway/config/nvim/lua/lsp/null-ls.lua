@@ -18,6 +18,7 @@ local sources = {
 	formatting.black.with({ extra_args = { "--fast" } }), -- Python
 	formatting.stylua, -- Lua
 	formatting.google_java_format, -- Java
+	formatting.markdownlint, -- Markdown
 	formatting.jq, -- Json
 	formatting.rustfmt, -- Rust
 
