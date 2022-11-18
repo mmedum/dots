@@ -25,6 +25,7 @@ local servers = {
 	"bashls",
 	"yamlls",
 	"rust_analyzer",
+	"kotlin_language_server",
 }
 
 local debuggers = {
@@ -41,6 +42,7 @@ local null_ls_sources = {
 	"shellcheck",
 	"yamllint",
 	"zsh",
+	"mypy",
 	"flake8",
 	"jq",
 	"rustfmt",
