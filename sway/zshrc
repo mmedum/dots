@@ -69,10 +69,9 @@ alias grep='rg'
 alias vi='nvim'
 alias vim='nvim'
 alias zinitup='zinit self-update && zinit update --parallel'
-
-# Mac alias
 alias ls='ls --color=auto'
 alias ll='ls -al --color=auto'
+alias mvnsc='mvn spotless::apply checkstyle:check org.apache.maven.plugins:maven-enforcer-plugin:3.0.0:enforce -Drules=dependencyConvergence compile test-compile pmd:cpd pmd:pmd javadoc:javadoc pmd:cpd-check pmd:check' 
 
 # plugins
 ## Syntax highlighting
@@ -89,8 +88,9 @@ zinit for \
     light-mode  zsh-users/zsh-completions \
     light-mode  zdharma-continuum/fast-syntax-highlighting \
                 zdharma-continuum/history-search-multi-word \
-    light-mode pick"async.zsh" src"pure.zsh" \
-                sindresorhus/pure
+
+zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
+zinit load starship/starship
 
 zinit ice from"gh-r" as"program"
 zinit light junegunn/fzf
