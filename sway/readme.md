@@ -31,9 +31,8 @@
 ### yay
 
 - nerd-fonts-complete (Hasklig)
-- eww-bar
 - gruvbox-material
-- ripgrep
+- bottom
 
 ### Other
 

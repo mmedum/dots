@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -32,9 +39,6 @@ unsetopt HUP
 unsetopt CHECK_JOBS
 ###
 
-### Dircolors ###
-eval $(dircolors ~/.dircolors)
-
 ### Editor
 export EDITOR=nvim
 ###
@@ -62,39 +66,74 @@ export PATH="$PATH:${HOME}/.cargo/bin"
 # Terraform
 export PATH="$PATH:${HOME}/.terraform"
 
-###
-
-### Aliases
-alias grep='rg'
-alias vi='nvim'
-alias vim='nvim'
-alias zinitup='zinit self-update && zinit update --parallel'
-alias ls='ls --color=auto'
-alias ll='ls -al --color=auto'
-alias mvnsc='mvn spotless::apply checkstyle:check org.apache.maven.plugins:maven-enforcer-plugin:3.0.0:enforce -Drules=dependencyConvergence compile test-compile pmd:cpd pmd:pmd javadoc:javadoc pmd:cpd-check pmd:check' 
-
-# plugins
-## Syntax highlighting
-## ZSH autosuggestions
-## ZSH completions
-zinit light-mode for \
+# Plugins
+zi light-mode for \
     zdharma-continuum/zinit-annex-as-monitor \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-zinit for \
+zi for \
     light-mode  zsh-users/zsh-autosuggestions \
     light-mode  zsh-users/zsh-completions \
     light-mode  zdharma-continuum/fast-syntax-highlighting \
                 zdharma-continuum/history-search-multi-word \
 
-zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
-zinit load starship/starship
+# Dircolors
+zi ice atclone"dircolors -b dircolors.ansi-dark > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zi light seebi/dircolors-solarized
+# A ls rust
+zi ice lucid from"gh-r" as"program" mv"bin/exa* -> exa"
+zi light ogham/exa
+# A cat clone with syntax highlighting and Git integration.
+zi ice from"gh-r" as"command" mv"bat* -> bat" pick"bat/bat"
+zi light sharkdp/bat
+# A more intuitive version of du written in rust.
+zi ice from"gh-r" as"command" mv"dust* -> dust" pick"dust/dust"
+zi light bootandy/dust
+# A simple, fast and user-friendly alternative to find
+zi ice from"gh-r" as"command" mv"fd* -> fd" pick"fd/fd"
+zi light sharkdp/fd
+# An extremely fast alternative to grep that respects your gitignore
+zi ice from"gh-r" as"command" mv"ripgrep* -> rg" pick"rg/rg"
+zi light BurntSushi/ripgrep
+# A top replacement
+zi ice from"gh-r" as"program"
+zi light ClementTsang/bottom
+# A shell parser, formatter, and interpreter
+zi ice from"gh-r" as"program" mv"shfmt* -> shfmt"
+zi light mvdan/sh
+# Fuzzy searcher
+zi ice from"gh-r" as"program"
+zi light junegunn/fzf
+# Git diff highlighter
+zi ice as"command" from"gh-r" mv"delta* -> delta" pick"delta/delta"
+zi light dandavison/delta
+# Configure as default git diff renderer
+git config --global core.pager "delta --dark"
 
-zinit ice from"gh-r" as"program"
-zinit light junegunn/fzf
+# Theme
+## Pure
+zi ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zi light sindresorhus/pure
+# Spaceship
+#zi light spaceship-prompt/spaceship-prompt
+# Powerlevel10k
+#PURE_POWER_MODE=modern
+#zi ice depth=1; zi light romkatv/powerlevel10k
+#zi snippet https://github.com/sainnhe/dotfiles/raw/master/.zsh-theme/gruvbox-material-dark.zsh
 
-## FZF
-zinit ice from"gh-r" as"program"
-zinit load junegunn/fzf
+### Aliases
+alias grep='rg'
+alias cat='bat'
+alias du='dust'
+alias vi='nvim'
+alias vim='nvim'
+alias ziup='zi self-update && zi update --parallel'
+alias ll='exa -al'
+alias l='exa -blF'
+alias la='exa -abghilmu'
+alias ls='exa -bh --git --group-directories-first'
+alias mvnsc='mvn spotless::apply checkstyle:check org.apache.maven.plugins:maven-enforcer-plugin:3.0.0:enforce -Drules=dependencyConvergence compile test-compile pmd:cpd pmd:pmd javadoc:javadoc pmd:cpd-check pmd:check' 

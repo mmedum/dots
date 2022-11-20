@@ -18,9 +18,9 @@ local sources = {
 	formatting.black.with({ extra_args = { "--fast" } }), -- Python
 	formatting.stylua, -- Lua
 	formatting.google_java_format, -- Java
-	formatting.markdownlint, -- Markdown
 	formatting.jq, -- Json
 	formatting.rustfmt, -- Rust
+	formatting.markdownlint, -- Markdown
 
 	-- linters / diagnostics binaries
 	diagnostics.checkstyle.with({ -- Java checkstyle
@@ -33,12 +33,12 @@ local sources = {
 	diagnostics.flake8.with({ -- Python
 		prefer_local = ".venv/bin",
 	}),
-	diagnostics.markdownlint,
 	diagnostics.shellcheck, -- Shell
-	diagnostics.yamllint, -- Yaml
 	diagnostics.zsh, -- Zsh
 	diagnostics.hadolint, -- Docker
 	diagnostics.ktlint, -- Kotlin
+	diagnostics.markdownlint, -- Markdown
+	diagnostics.yamllint, -- Yaml
 }
 
 null_ls.setup({

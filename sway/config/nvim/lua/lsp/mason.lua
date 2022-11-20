@@ -23,7 +23,6 @@ local servers = {
 	"jsonls",
 	"sumneko_lua",
 	"bashls",
-	"yamlls",
 	"rust_analyzer",
 	"kotlin_language_server",
 }
@@ -37,15 +36,15 @@ local null_ls_sources = {
 	"stylua",
 	"ktlint",
 	"hadolint",
-	"markdownlint",
 	"black",
 	"shellcheck",
-	"yamllint",
 	"zsh",
 	"mypy",
 	"flake8",
 	"jq",
 	"rustfmt",
+	"markdownlint",
+	"yamllint",
 }
 
 local settings = {

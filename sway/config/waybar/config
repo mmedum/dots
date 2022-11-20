@@ -1,8 +1,6 @@
 {
     "layer": "top",
     "position": "top",
-    // If height property would be not present, it'd be calculated dynamically
-    //"width" : 10,
 
     "modules-left": [
         "sway/workspaces",
@@ -17,19 +15,10 @@
         "pulseaudio",
         "battery",
         "network",
-        "idle_inhibitor",
         "tray",
     ],
 
     // Modules
-    "idle_inhibitor": {
-        "format": "{icon} ",
-        "format-icons":{
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-
     "battery": {
         "states": {
             "good": 95,
@@ -65,11 +54,6 @@
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}",          
     },
 
-    "sway/mode": {
-        "format": "{}",
-        "tooltip": false
-    },
-
     "sway/window": {
         "format": "{}",
         "max-length": 120
@@ -85,15 +69,7 @@
             "1": "",
             "2": "",
             "3": "",
-            "4": "",
-            "5": "",
-            "6": "",
-            "7": "",
-            "8": "",
-            "9": "",
-            "10": "",
             "urgent": "",
-            "focused": "",
             "default": ""
         }
     },
@@ -118,19 +94,6 @@
         "on-click": "pavucontrol",
         "on-scroll-up": "pamixer -ui 2",
         "on-scroll-down": "pamixer -ud 2",
-    },
-
-    "backlight#icon": {
-        "format": "{icon}",
-        "format-icons": [""],
-        "on-scroll-down": "brightnessctl -c backlight set 1%-",
-        "on-scroll-up": "brightnessctl -c backlight set +1%"
-    },
-
-    "backlight#value" :{
-        "format": "{percent}%",
-        "on-scroll-down": "brightnessctl -c backlight set 1%-",
-        "on-scroll-up": "brightnessctl -c backlight set +1%"
     },
 
     "tray": {
