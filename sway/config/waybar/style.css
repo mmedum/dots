@@ -1,101 +1,102 @@
-/* -----------------------------------------------------------------------------
-* Base styles
-* -------------------------------------------------------------------------- */
-
-/* Reset all styles */
 * {
   border: none;
   border-radius: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/* The whole bar */
-#waybar {
-  color: #282828;
-  background:  rgba(40,40,40,0.5);
   font-family: Hasklug Nerd Font;
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
-/* Each module */
-#battery,
-#clock,
-#tray,
-#network,
-#pulseaudio,
+window#waybar {
+  background-color: rgba(40, 40, 40, 0.5);
+  color: #ebdbb2;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-bottom: solid 0px #3c3836;
+}
 
+window#waybar.hidden {
+  opacity: 0.2;
+}
 
-/* -----------------------------------------------------------------------------
-* Module styles
-* -------------------------------------------------------------------------- */
+#workspaces button {
+  padding: 0 5px;
+  color: #ebdbb2;
+  border-radius: 5px;
+}
 
-#battery {
-  color: #d4be98;
+#workspaces button.focused {
+  background-color: #ebdbb2;
+  color: #282828;
+  border-bottom: none;
+}
+
+#workspaces button.urgent {
+  background-color: #cc241d;
+}
+
+widget > * {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.modules-left > widget > * {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.modules-left > widget:first-child > * {
+  margin-left: 6px;
+}
+
+.modules-left > widget:last-child > * {
+  margin-right: 18px;
+}
+
+.modules-right > widget > * {
+  padding: 0 12px;
+  margin-left: 0;
+  margin-right: 0;
+  color: #282828;
+  background-color: #ebdbb2;
+}
+
+.modules-right > widget:first-child > * {
+  border-radius: 5px 0 0 5px;
+}
+
+.modules-right > widget:last-child > * {
+  border-radius: 0 5px 5px 0;
+  margin-right: 6px;
+}
+
+#mode {
+  background: transparent;
+  color: #fb4934;
+}
+
+@keyframes blink {
+  to {
+    color: #ebdbb2;
+  }
+}
+
+#battery.critical:not(.charging) {
+  animation-name: blink;
+  animation-duration: 1s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-#battery.warning {
-  color: orange;
+label:focus {
+  background-color: #282828;
 }
 
-#battery.critical {
-  color: red;
+tooltip {
+  border-radius: 5px;
+  background: #504945;
 }
 
-#battery.warning.discharging {
-  animation-name: blink-warning;
-  animation-duration: 3s;
-}
-
-#battery.critical.discharging {
-  animation-name: blink-critical;
-  animation-duration: 2s;
-}
-
-#clock {
-  color: #d4be98;
-  background: transparent;
-}
-
-#network.disconnected {
-  color: orange;
-}
-
-#pulseaudio, #backlight, #battery, #network {
-  color: #d4be98;
-  background: transparent;
-  padding-right: 10px;
-  margin: 0;
-}
-
-#pulseaudio.muted {
-  color: #928374;
-}
-
-#workspaces button {
-  color: #928374;
-  padding-right: 5px;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-}
-
-#workspaces button.visible {
-  color: #d4be98;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-}
-
-#workspaces button.focused {
-  background: transparent;
-  border-bottom: 1px solid #d4be98;
-}
-
-#workspaces button.urgent {
-  color: #ea6962;
-  background: transparent;
-  border-bottom: 1px solid #ea6962;
+tooltip label {
+  color: #ebdbb2;
 }
