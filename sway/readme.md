@@ -30,9 +30,9 @@
 
 ### yay
 
-- nerd-fonts-complete (Hasklig)
-- gruvbox-material
-- bottom
+- nerd-fonts-complete (Hasklug Nerd Font)
+- gruvbox-material-gtk-theme-git - <https://github.com/TheGreatMcPain/gruvbox-material-gtk>
+- gruvbox-material-icon-theme-git - <https://github.com/TheGreatMcPain/gruvbox-material-gtk>
 
 ### Other
 
