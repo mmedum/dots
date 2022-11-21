@@ -1,4 +1,5 @@
 {
+  "position": "bottom", // Waybar position (top|bottom|left|right)
   "modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
   "modules-right": ["pulseaudio", "backlight", "network", "battery", "clock"],
   "clock": {

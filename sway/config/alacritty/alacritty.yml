@@ -20,6 +20,7 @@ window:
   decorations: none
   # When true, alacritty starts maximized.
   startup_mode: Maximized
+  opacity: 0.8
 
 # Font configuration (changes require restart)
 font:
@@ -58,7 +59,7 @@ debug:
   # Record all characters and escape sequences as test data.
   ref_test: false
 
-# Colors (Gruvbox dark Material)
+# Colors (Gruvbox Dark Material)
 colors:
   primary:
     background: '#282828'
