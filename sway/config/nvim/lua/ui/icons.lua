@@ -39,6 +39,7 @@ return {
 		Files = "",
 		Folder = "",
 		OpenFolder = "",
+		Symlink = "",
 	},
 	git = {
 		Add = "",
@@ -49,6 +50,13 @@ return {
 		Diff = "",
 		Repo = "",
 		Octoface = "",
+		Unstaged = "✗",
+		Staged = "✓",
+		Unmerged = "",
+		Renamed = "➜",
+		Untracked = "★",
+		Deleted = "",
+		Ignored = "◌",
 	},
 	ui = {
 		ArrowClosed = "",

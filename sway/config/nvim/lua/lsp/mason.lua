@@ -8,44 +8,10 @@ if not status_ok_1 then
 	return
 end
 
-local status_ok_2, mason_null = pcall(require, "mason-null-ls")
-if not status_ok_2 then
-	return
-end
-
 local status_ok_3, mason_nvim_dap = pcall(require, "mason-nvim-dap")
 if not status_ok_3 then
 	return
 end
-
-local servers = {
-	"jdtls",
-	"jsonls",
-	"sumneko_lua",
-	"bashls",
-	"rust_analyzer",
-	"kotlin_language_server",
-}
-
-local debuggers = {
-	"javatest",
-	"javadbg",
-}
-
-local null_ls_sources = {
-	"stylua",
-	"ktlint",
-	"hadolint",
-	"black",
-	"shellcheck",
-	"zsh",
-	"mypy",
-	"flake8",
-	"jq",
-	"rustfmt",
-	"markdownlint",
-	"yamllint",
-}
 
 local settings = {
 	ui = {
@@ -65,18 +31,27 @@ local settings = {
 }
 mason.setup(settings)
 
+local servers = {
+	"jdtls",
+	"jsonls",
+	"sumneko_lua",
+	"bashls",
+	"rust_analyzer",
+	"kotlin_language_server",
+}
+
 mason_lspconfig.setup({
 	ensure_installed = servers,
 	automatic_installation = true,
 })
 
+local debuggers = {
+	"javatest",
+	"javadbg",
+}
+
 mason_nvim_dap.setup({
 	ensure_installed = debuggers,
-	automatic_installation = true,
-})
-
-mason_null.setup({
-	ensure_installed = null_ls_sources,
 	automatic_installation = true,
 })
 
@@ -104,6 +79,11 @@ for _, server in pairs(servers) do
 
 	if server == "jdtls" then
 		-- Do not setup Java, since we already have defined everything in java.lua
+		goto continue
+	end
+
+	if server == "bashls" then
+		-- do not setup bash
 		goto continue
 	end
 

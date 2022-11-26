@@ -2,7 +2,7 @@
   border: none;
   border-radius: 0;
   font-family: Hasklug Nerd Font;
-  font-size: 11px;
+  font-size: 16px;
 }
 
 window#waybar {
@@ -10,7 +10,6 @@ window#waybar {
   color: #d4be98;
   transition-property: background-color;
   transition-duration: 0.5s;
-  border-bottom: solid 0px #3c3836;
 }
 
 window#waybar.hidden {
@@ -80,6 +79,7 @@ widget > * {
 }
 
 #battery.critical:not(.charging) {
+  color: #f53c3c;
   animation-name: blink;
   animation-duration: 1s;
   animation-timing-function: linear;

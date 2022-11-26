@@ -11,6 +11,9 @@ lualine.setup({
 		section_separators = { left = "", right = "" },
 		always_divide_middle = true,
 		disabled_filetypes = { "alpha", "dashboard", "Outline" },
+		offsets = {
+			{ filetype = "NvimTree", text = "Files" },
+		},
 	},
 	sections = {
 		lualine_a = { "mode" },

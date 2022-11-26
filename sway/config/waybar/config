@@ -1,17 +1,18 @@
 {
   "position": "bottom", // Waybar position (top|bottom|left|right)
   "modules-left": ["sway/workspaces", "sway/window", "sway/mode"],
-  "modules-right": ["pulseaudio", "backlight", "network", "battery", "clock"],
+  "modules-right": ["pulseaudio", "backlight", "battery", "network", "clock"],
+
   "clock": {
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%b %d(%H:%M) }"
+    "tooltip-format": "{:%B %Y}",
+    "format": "{:%b %d(%H:%M) }"
   },
+
   "backlight": {
     "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
-    "on-scroll-up": "light -A 1",
-    "on-scroll-down": "light -U 1"
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
   },
+
   "battery": {
     "states": {
       "warning": 30,
@@ -23,35 +24,39 @@
     "format-alt": "{time} {icon}",
     "format-icons": ["", "", "", "", ""]
   },
+
   "pulseaudio": {
     "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
+    "format-bluetooth": "{volume}% {icon}  {format_source}",
+    "format-bluetooth-muted": "婢 {icon}  {format_source}",
+    "format-muted": "婢 {format_source}",
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
       "headphone": "",
-      "hands-free": "",
-      "headset": "",
+      "hands-free": "וֹ",
+      "headset": "  ",
       "phone": "",
       "portable": "",
       "car": "",
       "default": ["", "", ""]
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
   },
+
   "network": {
     "format": "{ifname}",
-    "format-wifi": "Connected ",
+    "format-wifi": "{essid} ",
     "format-ethernet": "{ipaddr}/{cidr} ",
     "format-disconnected": "Disconnected 睊", //An empty format will hide the module.
     "tooltip-format": "{ifname} via {gwaddr} ",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-wifi": "{ipaddr} ({signalStrength}%) ",
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50
+    "max-length": 50,
+    "on-click": "alacritty -e 'nmtui'",
   },
+
   "sway/workspaces": {
     "disable-scroll": true
   }

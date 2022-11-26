@@ -3,6 +3,31 @@ if not null_ls_status_ok then
 	return
 end
 
+local status_ok_2, mason_null = pcall(require, "mason-null-ls")
+if not status_ok_2 then
+	return
+end
+
+local null_ls_sources = {
+	"stylua",
+	"ktlint",
+	"hadolint",
+	"black",
+	"shellcheck",
+	"zsh",
+	"mypy",
+	"flake8",
+	"jq",
+	"rustfmt",
+	"markdownlint",
+	"yamllint",
+}
+
+mason_null.setup({
+	ensure_installed = null_ls_sources,
+	automatic_installation = true,
+})
+
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#code-actions
 local code_actions = null_ls.builtins.code_actions
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
