@@ -1,7 +1,5 @@
 hide_scroll=true
 show=drun
-width=25%
-lines=10
 line_wrap=word
 term=alacritty
 allow_markup=true
