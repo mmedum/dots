@@ -55,27 +55,43 @@ export PATH="$PATH:${GOHOME}/bin"
 
 # Rust
 export PATH="$PATH:${HOME}/.cargo/bin"
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
 
 # Terraform
 export PATH="$PATH:${HOME}/.terraform"
 
+# Zinit
+
+# Completions
+# Git
+zi ice lucid wait as'completion' blockf has'git' mv'git-completion.zsh -> _git'
+zi snippet https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
+# Docker
+zi ice lucid wait as'completion' blockf has"docker"
+zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+# Docker compose
+zi ice lucid wait as'completion' blockf has"docker-compose"
+zi snippet https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose
+# fd
+zi ice lucid wait as'completion' blockf has"fd"
+zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/fd/_fd
+# Ripgrep
+zi ice lucid wait as'completion' blockf has'rg'
+zi snippet https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg
+# fzf
+zi ice lucid wait as'completion' blockf has'fzf' mv'completion.zsh -> _fzf'
+zi snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
+# paru
+zi ice lucid wait as'completion' blockf has'cargo' mv'zsh -> _paru'
+zi snippet https://github.com/Morganamilo/paru/blob/master/completions/zsh
+# cargo
+zi ice lucid wait as'completion' blockf has'cargo'
+zi snippet https://github.com/rust-lang/cargo/blob/master/src/etc/_cargo
+
 # Plugins
-zi light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
-
-zi for \
-    light-mode  zsh-users/zsh-autosuggestions \
-    light-mode  zsh-users/zsh-completions \
-    light-mode  zdharma-continuum/fast-syntax-highlighting \
-                zdharma-continuum/history-search-multi-word \
-
-# Plugins
-zinit ice wait lucid
-zinit load hlissner/zsh-autopair
-
+# Autopair (), '', ""
+zi ice wait lucid
+zi load hlissner/zsh-autopair
 # Dircolors
 zi ice atclone"dircolors -b dircolors.ansi-dark > clrs.zsh" \
     atpull'%atclone' pick"clrs.zsh" nocompile'!' \
@@ -121,6 +137,21 @@ zi light sindresorhus/pure
 #PURE_POWER_MODE=modern
 #zi ice depth=1; zi light romkatv/powerlevel10k
 #zi snippet https://github.com/sainnhe/dotfiles/raw/master/.zsh-theme/gruvbox-material-dark.zsh
+
+zi light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust \
+    zdharma-continuum/history-search-multi-word
+
+zi wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
 
 ### Aliases
 alias grep='rg'
