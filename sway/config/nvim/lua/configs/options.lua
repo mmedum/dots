@@ -42,22 +42,7 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
--- Turn off paste mode when leaving insert
-vim.api.nvim_create_autocmd("InsertLeave", {
-	pattern = "*",
-	command = "set nopaste",
-})
-
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
 
 vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set formatoptions-=cro]])
-
---  command to autocompile packer when new plugins  are installed
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])

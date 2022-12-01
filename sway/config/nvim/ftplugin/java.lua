@@ -5,9 +5,6 @@ local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_cmp_ok then
 	return
 end
--- jdtls already contains snippets
-capabilities.textDocument.completion.completionItem.snippetSupport = false
-capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 -- jdtls setup
 local status, jdtls = pcall(require, "jdtls")
@@ -81,7 +78,6 @@ local config = {
 	-- or https://github.com/redhat-developer/vscode-java#supported-vs-code-settings
 	-- for a list of options
 	settings = {
-		["java.format.settings.profile"] = "GoogleStyle",
 		java = {
 			-- jdt = {
 			--   ls = {
@@ -113,9 +109,9 @@ local config = {
 			},
 			format = {
 				enabled = true,
-				--[[ settings = { ]]
-				--[[ 	profile = "asdf", ]]
-				--[[ }, ]]
+				settings = {
+					profile = "GoogleStyle",
+				},
 			},
 		},
 		signatureHelp = { enabled = true },
@@ -147,16 +143,10 @@ local config = {
 	},
 	flags = {
 		allow_incremental_sync = true,
+		debounce_text_changes = 150,
+		server_side_fuzzy_completion = true,
 	},
-	-- Language server `initializationOptions`
-	-- You need to extend the `bundles` with paths to jar files
-	-- if you want to use additional eclipse.jdt.ls plugins.
-	--
-	-- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
-	--
-	-- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
 	init_options = {
-		-- bundles = {},
 		bundles = bundles,
 	},
 }
