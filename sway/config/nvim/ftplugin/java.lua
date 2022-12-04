@@ -43,113 +43,116 @@ vim.list_extend(
 		"\n"
 	)
 )
--- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
-local config = {
-	-- The command that starts the language server
-	-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
-	cmd = {
-		-- 💀
-		"java",
-		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
-		"-Dosgi.bundles.defaultStartLevel=4",
-		"-Declipse.product=org.eclipse.jdt.ls.core.product",
-		"-Dlog.protocol=true",
-		"-Dlog.level=ALL",
-		"-javaagent:" .. home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
-		"-Xms1g",
-		"--add-modules=ALL-SYSTEM",
-		"--add-opens",
-		"java.base/java.util=ALL-UNNAMED",
-		"--add-opens",
-		"java.base/java.lang=ALL-UNNAMED",
-		"-jar",
-		vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar", 1),
-		"-configuration",
-		home .. "/.local/share/nvim/mason/packages/jdtls/config_" .. CONFIG,
-		"-data",
-		workspace_dir,
-	},
 
+local cmd = {
+	"java",
+	"-Declipse.application=org.eclipse.jdt.ls.core.id1",
+	"-Dosgi.bundles.defaultStartLevel=4",
+	"-Declipse.product=org.eclipse.jdt.ls.core.product",
+	"-Dlog.protocol=true",
+	"-Dlog.level=ALL",
+	"-javaagent:" .. home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
+	"-Xms1g",
+	"--add-modules=ALL-SYSTEM",
+	"--add-opens",
+	"java.base/java.util=ALL-UNNAMED",
+	"--add-opens",
+	"java.base/java.lang=ALL-UNNAMED",
+	"-jar",
+	vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar", 1),
+	"-configuration",
+	home .. "/.local/share/nvim/mason/packages/jdtls/config_" .. CONFIG,
+	"-data",
+	workspace_dir,
+}
+
+local settings = {
+	java = {
+		-- jdt = {
+		--   ls = {
+		--     vmargs = "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m"
+		--   }
+		-- },
+		eclipse = {
+			downloadSources = true,
+		},
+		configuration = {
+			updateBuildConfiguration = "interactive",
+		},
+		maven = {
+			downloadSources = true,
+		},
+		implementationsCodeLens = {
+			enabled = true,
+		},
+		referencesCodeLens = {
+			enabled = true,
+		},
+		references = {
+			includeDecompiledSources = true,
+		},
+		format = {
+			enabled = false,
+		},
+		inlayHints = {
+			parameterNames = {
+				enabled = "all", -- literals, all, none
+			},
+		},
+	},
+	signatureHelp = { enabled = true },
+	completion = {
+		favoriteStaticMembers = {
+			"org.hamcrest.MatcherAssert.assertThat",
+			"org.hamcrest.Matchers.*",
+			"org.hamcrest.CoreMatchers.*",
+			"org.junit.jupiter.api.Assertions.*",
+			"java.util.Objects.requireNonNull",
+			"java.util.Objects.requireNonNullElse",
+			"org.mockito.Mockito.*",
+		},
+	},
+	contentProvider = { preferred = "fernflower" },
+	extendedClientCapabilities = extendedClientCapabilities,
+	sources = {
+		organizeImports = {
+			starThreshold = 9999,
+			staticStarThreshold = 9999,
+		},
+	},
+	codeGeneration = {
+		toString = {
+			template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+		},
+		useBlocks = true,
+	},
+}
+
+local flags = {
+	allow_incremental_sync = true,
+	debounce_text_changes = 150,
+	server_side_fuzzy_completion = true,
+}
+
+local config = {
+	cmd = cmd,
 	on_attach = require("lsp.handlers").on_attach,
 	capabilities = capabilities,
 	root_dir = root_dir,
-	-- Here you can configure eclipse.jdt.ls specific settings
-	-- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
-	-- or https://github.com/redhat-developer/vscode-java#supported-vs-code-settings
-	-- for a list of options
-	settings = {
-		java = {
-			-- jdt = {
-			--   ls = {
-			--     vmargs = "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m"
-			--   }
-			-- },
-			eclipse = {
-				downloadSources = true,
-			},
-			configuration = {
-				updateBuildConfiguration = "interactive",
-			},
-			maven = {
-				downloadSources = true,
-			},
-			implementationsCodeLens = {
-				enabled = true,
-			},
-			referencesCodeLens = {
-				enabled = true,
-			},
-			references = {
-				includeDecompiledSources = true,
-			},
-			inlayHints = {
-				parameterNames = {
-					enabled = "all", -- literals, all, none
-				},
-			},
-			format = {
-				enabled = true,
-				settings = {
-					profile = "GoogleStyle",
-				},
-			},
-		},
-		signatureHelp = { enabled = true },
-		completion = {
-			favoriteStaticMembers = {
-				"org.hamcrest.MatcherAssert.assertThat",
-				"org.hamcrest.Matchers.*",
-				"org.hamcrest.CoreMatchers.*",
-				"org.junit.jupiter.api.Assertions.*",
-				"java.util.Objects.requireNonNull",
-				"java.util.Objects.requireNonNullElse",
-				"org.mockito.Mockito.*",
-			},
-		},
-		contentProvider = { preferred = "fernflower" },
-		extendedClientCapabilities = extendedClientCapabilities,
-		sources = {
-			organizeImports = {
-				starThreshold = 9999,
-				staticStarThreshold = 9999,
-			},
-		},
-		codeGeneration = {
-			toString = {
-				template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
-			},
-			useBlocks = true,
-		},
-	},
-	flags = {
-		allow_incremental_sync = true,
-		debounce_text_changes = 150,
-		server_side_fuzzy_completion = true,
-	},
+	settings = settings,
+	flags = flags,
 	init_options = {
 		bundles = bundles,
 	},
 }
+
+-- Refresh codelens after write
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = { "*.java" },
+	callback = function()
+		vim.lsp.codelens.refresh()
+	end,
+})
 
 -- Start language server
 jdtls.start_or_attach(config)
