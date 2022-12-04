@@ -1,14 +1,6 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c"
-
 --Remap space as leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -51,7 +43,7 @@ keymap("n", "<leader>7", "7gt", opts)
 keymap("n", "<leader>8", "8gt", opts)
 keymap("n", "<leader>9", "9gt", opts)
 -- Creation and closing of tabs
-keymap("n", "<leader>tc", "<cmd>tabnew<CR>", opts)
+keymap("n", "<leader>tt", "<cmd>tabnew<CR>", opts)
 keymap("n", "<leader>tq", "<cmd>tabclose!<CR>", opts)
 -- Move between tabs
 keymap("n", "<leader>tn", "<cmd>tabnext<CR>", opts)

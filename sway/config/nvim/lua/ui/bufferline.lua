@@ -11,14 +11,16 @@ bufferline.setup({
 	},
 	options = {
 		mode = "tabs",
-		diagnostics = false,
+		numbers = "ordinal",
+		diagnostics = "nvim_lsp",
 		offsets = {
 			{
 				filetype = "NvimTree",
-				text = "",
+				text = "Tree",
 				padding = 1,
 			},
 		},
+		color_icons = true,
 		show_buffer_close_icons = false,
 		show_close_icon = false,
 		show_tab_indicators = false,
