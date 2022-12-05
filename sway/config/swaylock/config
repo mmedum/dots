@@ -7,7 +7,7 @@ line-uses-ring
 
 # Font
 font=Hasklug Nerd Font
-font-size=35
+font-size=20
 
 # Image
 image=$HOME/.config/sway/walls/astro.jpg
