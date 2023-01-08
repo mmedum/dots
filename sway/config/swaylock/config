@@ -10,7 +10,7 @@ font=Hasklug Nerd Font
 font-size=20
 
 # Image
-image=$HOME/.config/sway/walls/astro.jpg
+image=$HOME/.config/sway/walls/owl.png
 scaling=fill
 
 # Ring
