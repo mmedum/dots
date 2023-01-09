@@ -110,7 +110,7 @@ zi light bootandy/dust
 zi ice from"gh-r" as"command" mv"fd* -> fd" pick"fd/fd"
 zi light sharkdp/fd
 # An extremely fast alternative to grep that respects your gitignore
-zi ice from"gh-r" as"command" mv"ripgrep* -> rg" pick"rg/rg"
+zi ice from"gh-r" as"command" bpick"*musl*" mv"ripgrep* -> rg" pick"rg/rg"
 zi light BurntSushi/ripgrep
 # A top replacement
 zi ice from"gh-r" as"program"
