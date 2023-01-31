@@ -36,5 +36,4 @@
 
 ### Other
 
-- Zsh
-- Zinit
+- grub-theme - <https://github.com/AllJavi/tartarus-grub>
