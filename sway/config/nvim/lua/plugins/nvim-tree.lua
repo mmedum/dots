@@ -30,13 +30,6 @@ nvim_tree.setup({
 		enable = true,
 		auto_open = true,
 	},
-	open_on_setup = false,
-	ignore_ft_on_setup = {
-		"startify",
-		"dashboard",
-		"alpha",
-	},
-	open_on_tab = false,
 	update_cwd = true,
 	diagnostics = {
 		enable = true,

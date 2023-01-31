@@ -98,7 +98,6 @@ return packer.startup(function()
 	})
 	use({ "theHamsta/nvim-dap-virtual-text" }) -- virtual text when debugging
 	use({ "mfussenegger/nvim-jdtls" }) -- jdtls
-	use({ "j-hui/fidget.nvim" }) -- lsp progress loader
 
 	-- Gitsigns
 	use({
