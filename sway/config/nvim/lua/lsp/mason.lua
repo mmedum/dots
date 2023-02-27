@@ -34,7 +34,7 @@ mason.setup(settings)
 local servers = {
 	"jdtls",
 	"jsonls",
-	"sumneko_lua",
+	"lua_ls",
 	"bashls",
 	"rust_analyzer",
 	"kotlin_language_server",
@@ -70,10 +70,10 @@ for _, server in pairs(servers) do
 		capabilities = require("lsp.handlers").capabilities,
 	}
 
-	if server == "sumneko_lua" then
+	if server == "lua_ls" then
 		-- Setup with extra options
-		local sumneko_opts = require("lsp.settings.sumneko_lua")
-		lspconfig.sumneko_lua.setup(sumneko_opts)
+		local lua_ls = require("lsp.settings.lua_ls")
+		lspconfig.lua_ls.setup(lua_ls)
 		goto continue
 	end
 
