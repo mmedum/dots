@@ -91,29 +91,9 @@ local function formatting(client, bufnr)
 	end
 end
 
-local function lsp_keymaps(bufnr)
-	local opts = { noremap = true, silent = true }
-	local keymap = vim.api.nvim_buf_set_keymap
-	keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-	keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts)
-	keymap(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-	keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-	keymap(bufnr, "n", "dl", "<cmd>Telescope diagnostics<CR>", opts)
-	keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	keymap(bufnr, "n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-	keymap(bufnr, "n", "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev({})<CR>", opts)
-	keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-	keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-	keymap(bufnr, "n", "<leader>cl", "<cmd>lua vim.lsp.codelens.refresh()<CR>", opts)
-	keymap(bufnr, "i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	keymap(bufnr, "n", "<leader>sh", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-end
-
 M.on_attach = function(client, bufnr)
 	highlighting(client, bufnr)
 	formatting(client, bufnr)
-	lsp_keymaps(bufnr)
 
 	-- Javaascript
 	if client.name == "tsserver" then

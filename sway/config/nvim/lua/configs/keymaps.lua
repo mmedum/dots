@@ -85,6 +85,39 @@ keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
 keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle({reset=true})<cr>", opts)
 
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		-- Enable completion triggered by <c-x><c-o>
+		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+		-- Buffer local mappings.
+		-- See `:help vim.lsp.*` for documentation on any of the below functions
+		keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+		keymap("n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts)
+		keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+		keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+		keymap("n", "dl", "<cmd>Telescope diagnostics<CR>", opts)
+		keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+		keymap("n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+		keymap("n", "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev({})<CR>", opts)
+		keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+		keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+		keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+		keymap("n", "<leader>cl", "<cmd>lua vim.lsp.codelens.refresh()<CR>", opts)
+		keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+		keymap("n", "<leader>sh", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+		--keymap("n", "<leader>oa", vim.lsp.buf.add_workspace_folder, opts)
+		--keymap("n", "<leader>or", vim.lsp.buf.remove_workspace_folder, opts)
+		--keymap("n", "<leader>ol", function()
+		--	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+		--end, opts)
+		--vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+	end,
+})
+
 -- Term --
 -- ToggleTerm mappings
 --keymap("t", "<C-q>", [[<C-\><C-n>]], opts)
