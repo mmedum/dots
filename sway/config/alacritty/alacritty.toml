@@ -44,7 +44,7 @@ print_events = false
 render_timer = false
 
 [font]
-size = 12.0
+size = 13.0
 
 [font.bold]
 family = "Hasklug Nerd Font"
@@ -68,12 +68,6 @@ hide_when_typing = true
 [[mouse.bindings]]
 action = "PasteSelection"
 mouse = "Middle"
-
-[mouse.double_click]
-threshold = 300
-
-[mouse.triple_click]
-threshold = 300
 
 [window]
 decorations = "none"
