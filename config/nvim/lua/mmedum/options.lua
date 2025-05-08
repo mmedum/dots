@@ -4,6 +4,8 @@ vim.lsp.enable({
     "LaTeX",
     "rust",
     "yaml",
+    "json",
+    "bash",
     "markdown",
     "docker-compose",
 })

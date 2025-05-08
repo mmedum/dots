@@ -1,6 +1,5 @@
 return {
-    "williamboman/mason.nvim",
-    tag = "stable",
+    "mason-org/mason.nvim",
     lazy = false,
     config = true,
 }

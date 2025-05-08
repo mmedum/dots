@@ -1,4 +1,4 @@
--- Keybinds
+-- Keybindings
 require("mmedum.keymaps")
 
 -- Package manager
