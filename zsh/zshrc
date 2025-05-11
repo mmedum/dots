@@ -109,10 +109,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 plugins=(
   # prompt
   sindresorhus/pure
-
   # completions
   zsh-users/zsh-completions
-
   # defer using zsh-defer
   romkatv/zsh-defer
   zdharma-continuum/fast-syntax-highlighting
