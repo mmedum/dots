@@ -12,12 +12,21 @@ return {
         ".git",
     },
     settings = {
+        pyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+            disableTaggedHints = true,
+        },
         python = {
             analysis = {
-                autoSearchPaths = true,
-                diagnosticMode = "openFilesOnly",
-                useLibraryCodeForTypes = true,
+                -- Ignore all files for analysis to exclusively use Ruff for linting
+                ignore = { "*" },
+            },
+            diagnosticSeverityOverrides = {
+                -- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
+                reportUndefinedVariable = "none",
             },
         },
     },
+    on_attach = {},
 }

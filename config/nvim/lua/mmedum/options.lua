@@ -3,6 +3,8 @@ vim.lsp.enable({
     "go",
     "LaTeX",
     "rust",
+    "python",
+    "ruff",
     "yaml",
     "json",
     "bash",
