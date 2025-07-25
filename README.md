@@ -1,3 +1,3 @@
-# dots
+# Dots
 
-Public dots
+Setup for multiple machines
