@@ -11,7 +11,7 @@ return {
                 yaml = { "yamlfix" },
                 lua = { "stylua" },
                 sh = { "shfmt" },
-                rust = { "rustfmt" },
+                rust = { "rustfmt", lsp_format = "fallback" },
                 go = { "gofmt" },
                 markdown = { "prettier" },
             },
