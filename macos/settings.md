@@ -18,3 +18,11 @@ From
 sudo scutil --set LocalHostName New-MacBook-Name
 sudo scutil --set ComputerName New-MacBook-Name
 ```
+
+## Homebrew
+
+From [github](https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e)
+
+```bash
+brew search '/font-.*-(nerd-font|nf)/' | awk '{ print $1 }' | xargs -I{} brew install --cask {} || true
+```
