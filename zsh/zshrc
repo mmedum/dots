@@ -75,6 +75,12 @@ bindkey '^n' history-search-forward
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
+# Alias for cd
+alias ..="cd ../.."
+alias ...="cd ../../.."
+alias ....="cd ../../../.."
+alias .....="cd ../../../../.."
+
 # Alias for lsd
 if command -v "lsd" &> /dev/null; then
     lsd_cmd="lsd"
