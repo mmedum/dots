@@ -10,5 +10,6 @@ config.quit_when_all_windows_are_closed = true
 config.font = wezterm.font("SauceCodePro Nerd Font")
 config.font_size = 14
 config.color_scheme = "Gruvbox Material (Gogh)"
+config.enable_kitty_keyboard = true
 
 return config

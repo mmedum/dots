@@ -11,7 +11,7 @@ api.nvim_create_autocmd("BufEnter", {
 
 -- Enable spell on filetypes
 local spell_group = api.nvim_create_augroup("SpellChecking", { clear = true })
-api.nvim_create_autocmd({ "FileType" }, {
+api.nvim_create_autocmd("FileType", {
 	group = spell_group,
 	desc = "Enable spell check on filetypes",
 	pattern = { "markdown", "gitcommit" },
@@ -64,11 +64,22 @@ end
 
 -- Auto linting with nvim-lint
 local lint_group = api.nvim_create_augroup("Lint", { clear = true })
-api.nvim_create_autocmd({ "BufWritePost" }, {
-            group = lint_group,
+api.nvim_create_autocmd("BufWritePost", {
+    group = lint_group,
     desc = "Lint with nvim-lint psot buf write",
     pattern = "*",
     callback = function()
         require("lint").try_lint()
+    end,
+})
+
+-- turn on highlight for tree-sitter
+local treesitter_group = api.nvim_create_augroup("Tree-sitter", { clear = true })
+api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+    group = treesitter_group,
+    desc = "Autoenable treesitter on file",
+    pattern = "*",
+    callback = function()
+        pcall(vim.treesitter.start)
     end,
 })

@@ -1,1 +1,1 @@
-require "mmedum"
+require("config")
