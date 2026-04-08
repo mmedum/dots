@@ -1,0 +1,52 @@
+# Backup files and metadata
+.DS_Store
+*~
+*.swp
+\#*\#
+
+# Local settings
+**/.claude/settings.local.json
+
+# Tool files
+.projections.json
+Session.vim
+Sessionx.vim
+.vscode/
+tags
+tags.lock
+.notags
+compile_commands.json
+.cquery_cached_index/
+.ccls-cache/
+.cquery
+.clangd/
+clangd/
+.mypy_cache/
+.nvimrc
+.nvim.lua
+.*_history
+Brewfile.lock.json
+.envrc
+.nvim.lua
+CMakeUserPresets.json
+.jj/
+
+# Outputs
+*.so
+*.o
+*.a
+*.exe
+*.bin
+*.pyc
+__pycache__
+*.dSYM/
+
+# Archives
+*.tar
+*.gz
+*.bz2
+*.jar
+*.rar
+*.xz
+*.zip
+*.7z

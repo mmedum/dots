@@ -126,6 +126,3 @@ plugins=(
 
 plugin-load $plugins
 export PATH="/Users/mmedum/.local/bin:$PATH"
-
-# Entire CLI shell completion
-autoload -Uz compinit && compinit && source <(entire completion zsh)

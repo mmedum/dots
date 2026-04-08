@@ -1,0 +1,14 @@
+theme = Gruvbox Material Dark
+
+font-family = "SauceCodePro Nerd Font"
+
+resize-overlay = never
+
+bell-features = no-audio
+
+working-directory = home
+window-inherit-working-directory = false
+
+quit-after-last-window-closed = true
+
+mouse-hide-while-typing = true
