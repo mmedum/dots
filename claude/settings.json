@@ -1,0 +1,29 @@
+{
+  "env": {
+    "ENABLE_LSP_TOOL": "1"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/mark/.claude/statusline-command.sh",
+    "refreshInterval": 10
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "local-plugins": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/mark/.claude/local-marketplace"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "ty-lsp@local-plugins": true
+  }
+}
