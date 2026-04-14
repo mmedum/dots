@@ -4,7 +4,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "bash /Users/mark/.claude/statusline-command.sh",
+    "command": "bash /home/mark/.claude/statusline-command.sh",
     "refreshInterval": 10
   },
   "extraKnownMarketplaces": {
@@ -17,7 +17,7 @@
     "local-plugins": {
       "source": {
         "source": "directory",
-        "path": "/Users/mark/.claude/local-marketplace"
+        "path": "/home/mark/.claude/local-marketplace"
       }
     }
   },
