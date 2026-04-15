@@ -1,30 +1,30 @@
 {
   "env": {
-    "ENABLE_LSP_TOOL": "1"
+    "ENABLE_LSP_TOOL": "1",
+    "USE_BUILTIN_RIPGREP": "0"
   },
-  "statusLine": {
-    "type": "command",
-    "command": "bash /home/mark/.claude/statusline-command.sh",
-    "refreshInterval": 10
-  },
-  "extraKnownMarketplaces": {
-    "claude-plugins-official": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/claude-plugins-official"
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/block-destructive.sh"
+          }
+        ]
       }
-    },
-    "local-plugins": {
-      "source": {
-        "source": "directory",
-        "path": "/home/mark/.claude/local-marketplace"
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/notify-on-stop.sh"
+          }
+        ]
       }
-    }
-  },
-  "effortLevel": "high",
-  "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true,
-    "ty-lsp@local-plugins": true
+    ]
   },
   "permissions": {
     "allow": [
@@ -43,9 +43,70 @@
       "Bash(npm run lint:*)",
       "Bash(npm run build:*)"
     ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git clean:*)",
+      "Bash(npm publish:*)",
+      "Bash(pnpm publish:*)",
+      "Bash(yarn publish:*)",
+      "Bash(cargo publish:*)",
+      "Bash(docker push:*)",
+      "Bash(terraform apply:*)",
+      "Bash(terraform destroy:*)",
+      "Bash(kubectl delete:*)",
+      "WebFetch"
+    ],
     "deny": [
       "Bash(rm -rf:*)",
-      "Bash(git push --force:*)"
+      "Bash(rm -fr:*)",
+      "Bash(sudo:*)",
+      "Bash(mkfs:*)",
+      "Bash(dd:*)",
+      "Bash(shred:*)",
+      "Bash(wipefs:*)",
+      "Bash(git push --force:*)",
+      "Read(**/.ssh/**)",
+      "Read(**/.aws/**)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/id_rsa)",
+      "Read(**/id_ed25519)",
+      "Write(**/.ssh/**)",
+      "Write(**/.aws/**)",
+      "Edit(**/.ssh/**)",
+      "Edit(**/.aws/**)"
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/mark/.claude/statusline-command.sh",
+    "refreshInterval": 10
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "ty-lsp@local-plugins": true,
+    "partisia@partisia-local": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "local-plugins": {
+      "source": {
+        "source": "directory",
+        "path": "/home/mark/.claude/local-marketplace"
+      }
+    },
+    "partisia-local": {
+      "source": {
+        "source": "directory",
+        "path": "/home/mark/repos/partisia-brand-plugin"
+      }
+    }
+  },
+  "effortLevel": "high"
 }
