@@ -1,7 +1,75 @@
 {
   "env": {
-    "ENABLE_LSP_TOOL": "1",
     "USE_BUILTIN_RIPGREP": "0"
+  },
+  "attribution": {
+    "sessionUrl": false
+  },
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(pwd)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(rg:*)",
+      "Bash(grep:*)",
+      "Bash(npm run test:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run build:*)",
+      "Bash(git branch)",
+      "Bash(git branch --show-current)"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(rm -fr:*)",
+      "Bash(sudo:*)",
+      "Bash(mkfs:*)",
+      "Bash(dd:*)",
+      "Bash(shred:*)",
+      "Bash(wipefs:*)",
+      "Bash(git push --force:*)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(//**/.env)",
+      "Read(//**/.env.*)",
+      "Read(//**/id_rsa)",
+      "Read(//**/id_ed25519)",
+      "Edit(~/.ssh/**)",
+      "Edit(~/.aws/**)",
+      "Read(~/.config/secrets/**)",
+      "Edit(~/.config/secrets/**)",
+      "Read(//**/client_secret*.json)",
+      "Read(~/.claude/.credentials.json)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git clean:*)",
+      "Bash(npm publish:*)",
+      "Bash(pnpm publish:*)",
+      "Bash(yarn publish:*)",
+      "Bash(cargo publish:*)",
+      "Bash(docker push:*)",
+      "Bash(terraform apply:*)",
+      "Bash(terraform destroy:*)",
+      "Bash(kubectl delete:*)"
+    ],
+    "defaultMode": "auto"
+  },
+  "skillOverrides": {
+    "anthropic-skills:computer-use": "off",
+    "anthropic-skills:built-in-browser": "off",
+    "anthropic-skills:chrome-browser": "off",
+    "anthropic-skills:web-artifacts-builder": "off",
+    "anthropic-skills:doc-coauthoring": "off",
+    "anthropic-skills:brand-guidelines": "off",
+    "anthropic-skills:morning": "user-invocable-only",
+    "anthropic-skills:skill-creator": "user-invocable-only",
+    "anthropic-skills:mcp-builder": "user-invocable-only",
+    "anthropic-skills:import-memory": "user-invocable-only"
   },
   "hooks": {
     "PreToolUse": [
@@ -26,68 +94,24 @@
       }
     ]
   },
-  "permissions": {
-    "defaultMode": "plan",
-    "allow": [
-      "Bash(ls:*)",
-      "Bash(cat:*)",
-      "Bash(pwd)",
-      "Bash(git status)",
-      "Bash(git diff:*)",
-      "Bash(git log:*)",
-      "Bash(git branch:*)",
-      "Bash(git show:*)",
-      "Bash(rg:*)",
-      "Bash(grep:*)",
-      "Bash(find:*)",
-      "Bash(npm run test:*)",
-      "Bash(npm run lint:*)",
-      "Bash(npm run build:*)"
-    ],
-    "ask": [
-      "Bash(git push:*)",
-      "Bash(git reset --hard:*)",
-      "Bash(git clean:*)",
-      "Bash(npm publish:*)",
-      "Bash(pnpm publish:*)",
-      "Bash(yarn publish:*)",
-      "Bash(cargo publish:*)",
-      "Bash(docker push:*)",
-      "Bash(terraform apply:*)",
-      "Bash(terraform destroy:*)",
-      "Bash(kubectl delete:*)",
-      "WebFetch"
-    ],
-    "deny": [
-      "Bash(rm -rf:*)",
-      "Bash(rm -fr:*)",
-      "Bash(sudo:*)",
-      "Bash(mkfs:*)",
-      "Bash(dd:*)",
-      "Bash(shred:*)",
-      "Bash(wipefs:*)",
-      "Bash(git push --force:*)",
-      "Read(**/.ssh/**)",
-      "Read(**/.aws/**)",
-      "Read(**/.env)",
-      "Read(**/.env.*)",
-      "Read(**/id_rsa)",
-      "Read(**/id_ed25519)",
-      "Write(**/.ssh/**)",
-      "Write(**/.aws/**)",
-      "Edit(**/.ssh/**)",
-      "Edit(**/.aws/**)"
-    ]
-  },
   "statusLine": {
     "type": "command",
-    "command": "bash /home/mark/.claude/statusline-command.sh",
+    "command": "bash ~/.claude/statusline-command.sh",
     "refreshInterval": 10
   },
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true,
-    "ty-lsp@local-plugins": true,
-    "partisia@partisia-local": true
+    "frontend-design@claude-plugins-official": false,
+    "sales@synced": false,
+    "legal@synced": false,
+    "finance@synced": false,
+    "engineering@synced": false,
+    "cowork-plugin-management@synced": false,
+    "cc-plugin-you-should-know@builtin": false,
+    "blast-radius@claude-code-playground-mods": true,
+    "design@synced": false,
+    "gopls-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
@@ -96,18 +120,48 @@
         "repo": "anthropics/claude-plugins-official"
       }
     },
-    "local-plugins": {
+    "claude-code-playground-mods": {
       "source": {
         "source": "directory",
-        "path": "/home/mark/.claude/local-marketplace"
-      }
-    },
-    "partisia-local": {
-      "source": {
-        "source": "directory",
-        "path": "/home/mark/repos/partisia-brand-plugin"
+        "path": "~/repos/claude-code-playground/claude-code/mods"
       }
     }
   },
-  "effortLevel": "high"
+  "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured — personal GitHub account `mmedum`, over SSH",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: VARIES BY REPO, and most are public. Check before assuming: `gh repo view --json visibility`, or the remote. Where a check is not possible, assume PUBLIC — that is the careful direction",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured",
+      "**Default / protected branches**: `main` in every repo here, and origin/HEAD is set in all of them but one local-only repository. The four Go MCP servers (google-{chat,docs,drive,sheets}-mcp) require a pull request into main and CI green on three platforms; their own CLAUDE.md says main is never pushed to directly, release commits included",
+      "**CI/CD deploy targets**: None configured. The Go MCP servers publish signed GitHub releases from a `v*` tag — keyless Sigstore signatures, SBOMs and build provenance — so a tag push is a publish",
+      "**Network posture**: None configured",
+      "**Source control**: GitHub, per repo. Do not assume a repo has no remote; all but one here do",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar. The public repos add a stricter rule of their own: their CLAUDE.md forbids any organisation name, file or folder id, account address, Cloud project id or real file content from appearing in code, docs, fixtures, commit messages or logs — in a public repo that is publication, not disclosure to a colleague",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment (hyphen/underscore/dot-delimited — e.g. matches `prod-db`, not `producer`)",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (personal/hobby-leaning; Claude subscription is max)",
+      "**Trusted repo**: this block is user-scope and is read in EVERY project, so it names no single repo as the trusted one. ~/.config/omarchy is a local-only working directory with no remote; ~/repos/* are GitHub repos, mostly public. Read the repo you are in rather than the one this file was written for",
+      "**Org-specific CLIs**: None configured"
+    ]
+  }
 }

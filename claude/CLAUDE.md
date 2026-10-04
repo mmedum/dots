@@ -5,6 +5,7 @@
 - Be concise. Skip trailing "here's what I did" summaries; I can read the diff.
 - For non-trivial changes, briefly state the approach before writing code.
 - Disagree with me when you have good reason. Don't rubber-stamp.
+- Write American English everywhere: replies, code comments, docs, commit messages and user-facing copy (color, organize, license, center, gray). Leave existing identifiers and public API names alone unless asked; renaming those is a breaking change.
 
 ## Safety
 - Never run destructive commands (rm -rf, force-push, DROP, truncate, db migrations) without explicit confirmation in chat.
@@ -24,6 +25,10 @@
 - Clarity over cleverness. Readable > compact.
 - Match the surrounding code's patterns — naming, structure, file layout. Leave whitespace/syntax style to the project's formatter.
 - Don't reformat untouched code.
+
+## Testing
+- Follow `~/.claude/testing-standard.md` (loads automatically when you work on test files). In short: a test must be able to fail (prove it by breaking the code); state expected values literally; one test per behavior, tested through the public surface; test the edges.
+- Test count and coverage are not goals. Delete a test only for a named reason (change detector, trivial, self-derived expectation, duplicate, flaky), never for "no unique coverage" alone.
 
 ## Scope
 - Project-specific rules (architecture, naming, commands) belong in that project's CLAUDE.md, not here.
