@@ -27,6 +27,7 @@
     ]
   },
   "permissions": {
+    "defaultMode": "plan",
     "allow": [
       "Bash(ls:*)",
       "Bash(cat:*)",
